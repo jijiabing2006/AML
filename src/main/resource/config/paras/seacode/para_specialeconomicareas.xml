@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Special Economic Areas,SEA -->
+<areas>
+	<area>
+		<code>Z00</code>
+		<cnname>一般贸易区</cnname>
+	</area>
+	<area>
+		<code>Z01</code>
+		<cnname>保税区</cnname>
+	</area>
+	<area>
+		<code>Z02</code>
+		<cnname>出口加工区</cnname>
+	</area>
+	<area>
+		<code>Z03</code>
+		<cnname>保税物流中心B型</cnname>
+	</area>
+	<area>
+		<code>Z04</code>
+		<cnname>保税物流园区</cnname>
+	</area>
+	<area>
+		<code>Z05</code>
+		<cnname>钻石交易所</cnname>
+	</area>
+	<area>
+		<code>Z06</code>
+		<cnname>保税港区</cnname>
+	</area>
+	<area>
+		<code>Z07</code>
+		<cnname>综合保税区</cnname>
+	</area>
+	<area>
+		<code>Z08</code>
+		<cnname>跨境工业园区</cnname>
+	</area>
+	<area>
+		<code>Z09</code>
+		<cnname>保税物流中心A型</cnname>
+	</area>
+	<area>
+		<code>Z10</code>
+		<cnname>出口监管仓库</cnname>
+	</area>
+	<area>
+		<code>Z11</code>
+		<cnname>进口保税仓库</cnname>
+	</area>
+	<area>
+		<code>Z99</code>
+		<cnname>其他</cnname>
+	</area>
+</areas>

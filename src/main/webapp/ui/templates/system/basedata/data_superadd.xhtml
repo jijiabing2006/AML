@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j" xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich">
+<ui:composition template="../../../main.xhtml">
+	<ui:define name="title">
+		<h:outputText value="#{bundle['basedata']}#{bundle['manager']}" />
+	</ui:define>
+	<ui:define name="body">
+		<h:form id="dataForm">
+
+			<fieldset class="fieldset ">
+				<legend>
+					<h:outputText value="#{bundle['basedata']}#{bundle['superadd']}" />
+					▼
+				</legend>
+				<p:panel styleClass="rich-table-edit" cellpadding="100">
+
+					<p:panelGrid id="editGrid">
+
+						<p:row>
+							<p:column styleClass="rich-table-edit-outputtext">
+								<p:outputLabel for="entitycode"
+									value="#{bundle['entity']}#{bundle['code']}：" />
+							</p:column>
+							<p:column styleClass="rich-table-edit-left">
+								<p:inputText id="entitycode" style="width:96.5%;"
+									value="#{superaddManagerBean.ifxcust.csnm}"
+									title="#{bundle['customer']}#{bundle['code']}"></p:inputText>
+							</p:column>
+							<p:column styleClass="rich-table-edit-indication-red">
+								<h:outputText value="*" />
+							</p:column>
+							<p:column styleClass="rich-table-edit-outputtext">
+								<h:outputLabel value="#{bundle['business_date']}：" />
+							</p:column>
+							<p:column styleClass="rich-table-edit-content">
+								<a4j:outputPanel layout="block">
+									<rich:calendar value="#{superaddManagerBean.importdate}"
+									boundaryDatesMode="select"
+										showWeeksBar="false"
+										id="importdate" datePattern="yyyy-MM-dd">
+									</rich:calendar>
+								</a4j:outputPanel>
+							</p:column>
+							<p:column styleClass="rich-table-edit-indication-red">
+								<h:outputText value="*" />
+							</p:column>
+							<p:column styleClass="rich-table-edit-outputtext">
+								<p:outputLabel for="hascust"
+									value="#{bundle['exist']}#{bundle['entity']}#{bundle['information']}：" />
+							</p:column>
+							<p:column>
+								<p:selectBooleanCheckbox id="hascust"
+									value="#{superaddManagerBean.hascust}" />
+							</p:column>
+							<p:column rowspan="2" colspan="3" style="text-align:center;">
+								<p:spacer height="20px;" width="50px;"></p:spacer>
+								<a4j:commandLink action="#{superaddManagerBean.save}"
+									execute="dataForm">
+									<h:graphicImage value="/images/save.png" />
+									<rich:tooltip styleClass="tooltip" layout="block">
+										<span style="white-space: nowrap"> <strong>#{bundle['save']}</strong>
+										</span>
+									</rich:tooltip>
+								</a4j:commandLink>
+								<p:spacer height="20px;" width="50px;"></p:spacer>
+							</p:column>
+						</p:row>
+						<p:row>
+
+							<p:column styleClass="rich-table-edit-outputtext">
+								<h:outputText value="#{bundle['accountno']}：" />
+							</p:column>
+							<p:column styleClass="rich-table-edit-left">
+								<h:inputText value="#{superaddManagerBean.ifxacct.acod}"
+									readonly="false"></h:inputText>
+							</p:column>
+							<p:column styleClass="rich-table-edit-indication-red">
+								<h:outputText value="*" />
+							</p:column>
+							<p:column styleClass="rich-table-edit-outputtext">
+								<h:outputText value="#{bundle['currency_code']}：" />
+							</p:column>
+							<p:column styleClass="rich-table-edit-left">
+								<rich:autocomplete mode="client"
+									value="#{superaddManagerBean.ifxacct.ccy}"
+									autocompleteList="#{autocompleteCurrencyBean.currencys}"
+									var="currency" fetchValue="#{currency.code}" layout="table">
+									<rich:column>
+										<b>#{currency.code}</b>
+									</rich:column>
+									<rich:column>  
+					               #{currency.name}              </rich:column>
+								</rich:autocomplete>
+							</p:column>
+							<p:column styleClass="rich-table-edit-indication-red">
+								<h:outputText value="*" />
+							</p:column>
+							<p:column styleClass="rich-table-edit-outputtext">
+								<p:outputLabel for="hasaccount"
+									value="#{bundle['exist']}#{bundle['account']}#{bundle['information']}：" />
+							</p:column>
+							<p:column>
+								<p:selectBooleanCheckbox id="hasaccount"
+									value="#{superaddManagerBean.hasaccount}" />
+							</p:column>
+						</p:row>
+
+					</p:panelGrid>
+					<p:messages autoUpdate="true" closable="true" showDetail="true" redisplay="false" />
+					<rich:collapsiblePanel
+						header="#{bundle['entity']}#{bundle['information']}"
+						expanded="true" switchType="client"
+						headerClass="rich-stgcpanel-header ">
+						<p:panelGrid styleClass="rich-table-edit">
+							<p:row>
+								<p:column styleClass="rich-table-edit-outputtext">
+									<h:outputText value="#{bundle['entity']}#{bundle['type']}：" />
+								</p:column>
+								<p:column styleClass="rich-table-edit-left">
+									<rich:select value="#{superaddManagerBean.ifxcust.cttp}"
+										enableManualInput="false" itemClass="rich-table-edit-left"
+										defaultLabel="#{bundle['start_typing_for_select']}">
+										<f:selectItem itemValue="01" itemLabel="01-法人" />
+										<f:selectItem itemValue="02" itemLabel="02-自然人" />
+										<f:selectItem itemValue="03" itemLabel="03-个体工商户" />
+										<f:selectItem itemValue="04" itemLabel="04-其他组织" />
+									</rich:select>
+								</p:column>
+								<p:column styleClass="rich-table-edit-indication-white">
+									<h:outputText value="*" />
+								</p:column>
+								<p:column styleClass="rich-table-edit-outputtext">
+									<h:outputText value="#{bundle['en_code']}：" />
+								</p:column>
+								<p:column styleClass="rich-table-edit-left">
+									<h:inputText value="#{superaddManagerBean.ifxcust.encode}"
+										readonly="false"></h:inputText>
+								</p:column>
+								<p:column styleClass="rich-table-edit-indication-white">
+									<h:outputText value="*" />
+								</p:column>
+								<p:column styleClass="rich-table-edit-outputtext">
+									<h:outputText value="#{bundle['nationality']}：" />
+								</p:column>
+								<p:column styleClass="rich-table-edit-left">
+									<rich:select enableManualInput="true"
+										value="#{superaddManagerBean.ifxcust.ctnt}"
+										defaultLabel="#{bundle['start_typing_for_select']}">
+										<f:selectItems
+											value="#{inplaceSelectCountryBean.countryOptions}" />
+										<f:selectItems
+											value="#{inplaceSelectSettlementExchangeUsingcodeBean.usingcodeOptions}" />
+										<f:selectItem itemValue="XXX" itemLabel="XXX-向境内汇入资金的境外机构为转汇行" />
+										<f:selectItem itemValue="Z01" itemLabel="Z01-中国大陆地区保税区" />
+										<f:selectItem itemValue="Z02" itemLabel="Z02-表示中国大陆地区加工区" />
+										<f:selectItem itemValue="Z03" itemLabel="Z03-表示中国大陆地区钻石交易所" />
+										<f:selectItem itemValue="@I" itemLabel="@I-业务系统暂时无法得到" />
+										<f:selectItem itemValue="@N" itemLabel="@N-个例不适用" />
+										<f:selectItem itemValue="@E"
+											itemLabel="@E-因银联,支付结算系统,国际支付清算体系无法得到" />
+									</rich:select>
+								</p:column>
+								<p:column styleClass="rich-table-edit-indication-white">
+									<h:outputText value="*" />
+								</p:column>
+							</p:row>
+							<p:row>
+
+								<p:column styleClass="rich-table-edit-outputtext">
+									<h:outputText value="#{bundle['en_name']}：" />
+								</p:column>
+								<p:column colspan="7" styleClass="rich-table-edit-left">
+									<h:inputText value="#{superaddManagerBean.ifxcust.ctnm}"
+										style="width:98.5%;" readonly="false"></h:inputText>
+								</p:column>
+								<p:column styleClass="rich-table-edit-indication-white">
+									<h:outputText value="*" />
+								</p:column>
+							</p:row>
+						</p:panelGrid>
+					</rich:collapsiblePanel>
+
+					<rich:collapsiblePanel
+						header="#{bundle['account']}#{bundle['information']}"
+						expanded="true" switchType="client"
+						headerClass="rich-stgcpanel-header ">
+						<p:panelGrid styleClass="rich-table-edit">
+							<p:row>
+
+								<p:column styleClass="rich-table-edit-outputtext">
+									<h:outputText value="#{bundle['account_type']}：" />
+								</p:column>
+								<p:column styleClass="rich-table-edit-left">
+
+									<rich:autocomplete mode="client"
+										value="#{superaddManagerBean.ifxacct.accounttype}"
+										autocompleteList="#{autocompleteAccounttypeBean.accounttypes}"
+										var="act" fetchValue="#{act.code}" layout="table">
+										<rich:column>
+											<b>#{act.code}</b>
+										</rich:column>
+										<rich:column>  
+					               #{act.name}              </rich:column>
+									</rich:autocomplete>
+
+
+								</p:column>
+								<p:column styleClass="rich-table-edit-indication-yellow">
+									<h:outputText value="*" />
+								</p:column>
+								<p:column styleClass="rich-table-edit-outputtext">
+									<h:outputText value="#{bundle['account']}#{bundle['balance']}：" />
+								</p:column>
+								<p:column styleClass="rich-table-edit-left">
+									<h:inputText value="#{superaddManagerBean.ifxacct.ldbl}"
+										readonly="false" converterMessage="账户余额：只能输入数字">
+										<f:converter converterId="javax.faces.BigDecimal" />
+										<f:validateLongRange minimum="0" />
+									</h:inputText>
+								</p:column>
+								<p:column styleClass="rich-table-edit-indication-yellow">
+									<h:outputText value="*" />
+								</p:column>
+								<p:column styleClass="rich-table-edit-outputtext">
+									<h:outputText value="业务区分：" />
+								</p:column>
+								<p:column styleClass="rich-table-edit-left">
+									<rich:select value="#{superaddManagerBean.ifxacct.book}"
+										enableManualInput="false" itemClass="rich-table-edit-left"
+										defaultLabel="#{bundle['start_typing_for_select']}">
+										<f:selectItem itemValue="RMB" itemLabel="人民币" />
+										<f:selectItem itemValue="FCY" itemLabel="外币" />
+									</rich:select>
+								</p:column>
+								<p:column styleClass="rich-table-edit-indication-red">
+									<h:outputText value="*" />
+								</p:column>
+							</p:row>
+						</p:panelGrid>
+					</rich:collapsiblePanel>
+					<rich:collapsiblePanel
+						header="#{bundle['transaction']}#{bundle['information']}"
+						expanded="true" switchType="client"
+						headerClass="rich-stgcpanel-header ">
+						<p:panelGrid styleClass="rich-table-edit">
+							<p:row>
+								<p:column styleClass="rich-table-edit-outputtext">
+									<h:outputText value="#{bundle['buscode']}：" />
+								</p:column>
+								<p:column styleClass="rich-table-edit-left">
+									<h:inputText value="#{superaddManagerBean.ifxtran.dlref}"
+										readonly="false"></h:inputText>
+								</p:column>
+								<p:column styleClass="rich-table-edit-indication-red">
+									<h:outputText value="*" />
+								</p:column>
+								<p:column styleClass="rich-table-edit-outputtext">
+									<h:outputText
+										value="#{bundle['transaction']}#{bundle['serial_number']}：" />
+								</p:column>
+								<p:column styleClass="rich-table-edit-left">
+									<h:inputText value="#{superaddManagerBean.ifxtran.apostpdid}"
+										readonly="false"></h:inputText>
+								</p:column>
+								<p:column styleClass="rich-table-edit-indication-red">
+									<h:outputText value="*" />
+								</p:column>
+								<p:column styleClass="rich-table-edit-outputtext">
+									<h:outputText value="#{bundle['drcr']}：" />
+								</p:column>
+								<p:column styleClass="rich-table-edit-left">
+									<rich:select value="#{superaddManagerBean.ifxtran.drcr}"
+										enableManualInput="false" itemClass="rich-table-edit-left"
+										defaultLabel="#{bundle['start_typing_for_select']}">
+										<f:selectItem itemValue="C" itemLabel="C-#{bundle['income']}" />
+										<f:selectItem itemValue="D"
+											itemLabel="D-#{bundle['expenses']}" />
+									</rich:select>
+								</p:column>
+								<p:column styleClass="rich-table-edit-indication-red">
+									<h:outputText value="*" />
+								</p:column>
+							</p:row>
+							<p:row>
+								<p:column styleClass="rich-table-edit-outputtext">
+									<h:outputText
+										value="#{bundle['transaction']}#{bundle['amount']}：" />
+								</p:column>
+								<p:column styleClass="rich-table-edit-left">
+									<h:inputText value="#{superaddManagerBean.ifxtran.psta}"
+										converterMessage="收入金额：只能输入数字" readonly="false">
+										<f:validateLength maximum="22" />
+										<f:converter converterId="javax.faces.BigDecimal" />
+										<f:validateLongRange minimum="0" />
+									</h:inputText>
+								</p:column>
+								<p:column styleClass="rich-table-edit-indication-red">
+									<h:outputText value="*" />
+								</p:column>
+								<p:column styleClass="rich-table-edit-outputtext">
+									<h:outputText
+										value="#{bundle['transaction']}#{bundle['amount']}等值美元：" />
+								</p:column>
+								<p:column styleClass="rich-table-edit-left">
+									<h:inputText value="#{superaddManagerBean.ifxtran.pstausd}"
+										converterMessage="收入金额等值美元：只能输入数字" readonly="false">
+										<f:validateLength maximum="22" />
+										<f:converter converterId="javax.faces.BigDecimal" />
+										<f:validateLongRange minimum="0" />
+									</h:inputText>
+								</p:column>
+								<p:column styleClass="rich-table-edit-indication-red">
+									<h:outputText value="*" />
+								</p:column>
+								<p:column styleClass="rich-table-edit-outputtext">
+									<h:outputText
+										value="#{bundle['transaction']}#{bundle['amount']}等值人民币：" />
+								</p:column>
+								<p:column styleClass="rich-table-edit-left">
+									<h:inputText value="#{superaddManagerBean.ifxtran.pstacny}"
+										converterMessage="收入金额等值人民币：只能输入数字" readonly="false">
+										<f:validateLength maximum="22" />
+										<f:converter converterId="javax.faces.BigDecimal" />
+										<f:validateLongRange minimum="0" />
+									</h:inputText>
+								</p:column>
+								<p:column styleClass="rich-table-edit-indication-red">
+									<h:outputText value="*" />
+								</p:column>
+								</p:row>
+								<p:row>
+								<p:column styleClass="rich-table-edit-outputtext">
+									<h:outputText
+										value="#{bundle['transaction']}对手#{bundle['type']}：" />
+								</p:column>
+								<p:column styleClass="rich-table-edit-left">
+									<rich:select value="#{superaddManagerBean.ifxtran.oplins}"
+										enableManualInput="false" itemClass="rich-table-edit-left"
+										defaultLabel="#{bundle['start_typing_for_select']}">
+										<f:selectItem itemValue="01" itemLabel="01-法人" />
+										<f:selectItem itemValue="02" itemLabel="02-自然人" />
+										<f:selectItem itemValue="03" itemLabel="03-个体工商户" />
+										<f:selectItem itemValue="04" itemLabel="04-其他组织" />
+									</rich:select>
+								</p:column>
+								<p:column styleClass="rich-table-edit-indication-blue">
+									<h:outputText value="*" />
+								</p:column>
+								<p:column styleClass="rich-table-edit-outputtext">
+									<h:outputText
+										value="实际 #{bundle['drcr']}#{bundle['amount']}(net_amount)：" />
+								</p:column>
+								<p:column styleClass="rich-table-edit-left">
+									<h:inputText value="#{superaddManagerBean.ifxtran.netamount}"
+										converterMessage="收入金额：只能输入数字" readonly="false">
+										<f:validateLength maximum="22" />
+										<f:converter converterId="javax.faces.BigDecimal" />
+										<f:validateLongRange minimum="0" />
+									</h:inputText>
+								</p:column>
+								<p:column styleClass="rich-table-edit-indication-blue">
+									<h:outputText value="*" />
+								</p:column>
+								<p:column styleClass="rich-table-edit-outputtext">
+									<h:outputText value="BOP上报#{bundle['currency_code']}：" />
+								</p:column>
+								<p:column styleClass="rich-table-edit-left">
+									<rich:autocomplete mode="client"
+										value="#{superaddManagerBean.ifxtran.bopccy}"
+										autocompleteList="#{autocompleteCurrencyBean.currencys}"
+										var="currency" fetchValue="#{currency.code}" layout="table">
+										<rich:column>
+											<b>#{currency.code}</b>
+										</rich:column>
+										<rich:column>  
+					               #{currency.name}              </rich:column>
+									</rich:autocomplete>
+								</p:column>
+								<p:column styleClass="rich-table-edit-indication-blue">
+									<h:outputText value="*" />
+								</p:column>
+							</p:row>
+							<p:row>
+								<p:column styleClass="rich-table-edit-outputtext">
+									<h:outputText
+										value="#{bundle['transaction']}#{bundle['direction']}：" />
+								</p:column>
+								<p:column styleClass="rich-table-edit-left">
+									<h:inputText value="#{superaddManagerBean.ifxtran.tdrc}"
+										readonly="false"></h:inputText>
+								</p:column>
+								<p:column styleClass="rich-table-edit-indication-blue">
+									<h:outputText value="*" />
+								</p:column>
+								<p:column styleClass="rich-table-edit-outputtext">
+									<h:outputText value="BOP#{bundle['identification']}：" />
+								</p:column>
+								<p:column styleClass="rich-table-edit-left">
+									<rich:select value="#{superaddManagerBean.ifxtran.inbop}"
+										enableManualInput="false" itemClass="rich-table-edit-left"
+										defaultLabel="#{bundle['start_typing_for_select']}">
+										<f:selectItem itemValue="A"
+											itemLabel="A-#{bundle['bopforeignincome']}" />
+										<f:selectItem itemValue="B"
+											itemLabel="B-#{bundle['bopoverseasremittance']}" />
+										<f:selectItem itemValue="C"
+											itemLabel="C-#{bundle['bopforeignpaymentacceptance']}" />
+										<f:selectItem itemValue="D"
+											itemLabel="D-#{bundle['bopdomesticincome']}" />
+										<f:selectItem itemValue="E"
+											itemLabel="E-#{bundle['bopdomesticremittance']}" />
+										<f:selectItem itemValue="F"
+											itemLabel="F-#{bundle['bopdomesticpaymentacceptance']}" />
+									</rich:select>
+								</p:column>
+								<p:column styleClass="rich-table-edit-indication-blue">
+									<h:outputText value="*" />
+								</p:column>
+								<p:column styleClass="rich-table-edit-outputtext">
+									<h:outputText value="JSH#{bundle['identification']}：" />
+								</p:column>
+								<p:column styleClass="rich-table-edit-left">
+									<rich:select value="#{superaddManagerBean.ifxtran.memo}"
+										enableManualInput="false" itemClass="rich-table-edit-left"
+										defaultLabel="#{bundle['start_typing_for_select']}">
+										<f:selectItem itemValue="JSHD"
+											itemLabel="D-#{bundle['jshforeignaccountsettlement']}(#{bundle['expenses']})" />
+										<f:selectItem itemValue="JSHE"
+											itemLabel="E-#{bundle['jshforeignaccountpurchase']}(#{bundle['income']})" />
+									</rich:select>
+								</p:column>
+								<p:column styleClass="rich-table-edit-indication-blue">
+									<h:outputText value="*" />
+								</p:column>
+							</p:row>
+						</p:panelGrid>
+					</rich:collapsiblePanel>
+
+
+
+				</p:panel>
+			</fieldset>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j" xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+<ui:composition template="../../main.xhtml">
+	<ui:define name="title">
+		<h:outputText value="#{bundle['logs']}#{bundle['admin']}" />
+	</ui:define>
+	<ui:define name="body">
+		<rich:collapsiblePanel header="#{bundle['search']}" expanded="true"
+			switchType="client">
+			<h:form id="searchForm">
+				<p:panel>
+					<p:panelGrid styleClass="rich-table-edit" id="searchGrid">
+						<p:row>
+							<p:column styleClass="rich-table-edit-outputtext">
+								<h:outputText value="事件开始日期：" />
+							</p:column>
+							<p:column styleClass="rich-table-edit-left">
+								<a4j:outputPanel layout="block">
+									<rich:calendar style="border:none;padding:0 0 0 0;"
+										id="eventdatestart"
+										value="#{logsBean.querybean.eventdatestart}"
+										boundaryDatesMode="select" showWeeksBar="false"
+										enableManualInput="true" datePattern="yyyy-MM-dd" />
+								</a4j:outputPanel>
+							</p:column>
+							<p:column styleClass="rich-table-edit-outputtext">
+								<h:outputText value="事件结束日期：" />
+							</p:column>
+							<p:column styleClass="rich-table-edit-left">
+								<a4j:outputPanel layout="block">
+									<rich:calendar style="border:none;padding:0 0 0 0;"
+										id="eventdateend" value="#{logsBean.querybean.eventdateend}"
+										boundaryDatesMode="select" showWeeksBar="false"
+										enableManualInput="true" datePattern="yyyy-MM-dd" />
+								</a4j:outputPanel>
+							</p:column>
+							<p:column>
+								<a4j:commandLink render="dataTable,scroller" execute="@form"
+									style="margin-left:30px;margin-right:30px;">
+									<h:graphicImage value="/images/searchdata.png" />
+									<a4j:param value="true"
+										assignTo="#{logsBean.querybean.selected}" />
+									<rich:tooltip styleClass="tooltip" layout="block">
+										<span style="white-space: nowrap"> <strong>#{bundle['search']}</strong>
+										</span>
+									</rich:tooltip>
+								</a4j:commandLink>
+							</p:column>
+						</p:row>
+					</p:panelGrid>
+				</p:panel>
+			</h:form>
+		</rich:collapsiblePanel>
+		<h:form id="dataForm">
+			<p:growl id="messages" showDetail="true" />
+			<p:dataTable var="item" value="#{logsBean.logs}" id="dataTable" rowIndexVar="it"
+				editable="true" rows="#{sessionScope.rows}" paginator="true"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				rowsPerPageTemplate="5,10,15" paginatorAlwaysVisible="false"
+				paginatorPosition="bottom">
+				<p:ajax event="rowEdit" listener="#{logsBean.onEdit}"
+					update=":dataForm:messages" />
+				<p:ajax event="rowEditCancel" listener="#{logsBean.onCancel}"
+					update=":dataForm:messages" />
+				<p:column headerText="#" >
+					<h:outputText value="#{it +1}" />
+				</p:column>
+				<p:column headerText="操作者ID" >
+					<p:cellEditor>
+						<f:facet name="output">
+							<h:outputText value="#{item.userid}" />
+						</f:facet>
+						<f:facet name="input">
+							<p:inputText value="#{item.userid}" style="width:100%" />
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+				<p:column headerText="操作者姓名">
+					<p:cellEditor>
+						<f:facet name="output">
+							<h:outputText value="#{item.username}" />
+						</f:facet>
+						<f:facet name="input">
+							<p:inputText value="#{item.username}" style="width:100%" />
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+				<p:column headerText="操作日期">
+					<p:cellEditor>
+						<f:facet name="output">
+							<h:outputText value="#{item.eventdate}" />
+						</f:facet>
+						<f:facet name="input">
+							<p:inputText value="#{item.eventdate}" style="width:100%" />
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+				<p:column headerText="操作动作">
+					<p:cellEditor>
+						<f:facet name="output">
+							<h:outputText value="#{item.events}" />
+						</f:facet>
+						<f:facet name="input">
+							<p:inputText value="#{item.events}" style="width:100%" />
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+				<p:column headerText="操作内容" style="width:60%;">
+					<p:cellEditor>
+						<f:facet name="output">
+							<h:outputText value="#{item.objects}" escape="false"/>
+						</f:facet>
+						<f:facet name="input">
+							<p:inputText value="#{item.objects}" style="width:100%" />
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+				<p:column style="width:6%">
+					<p:rowEditor />
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

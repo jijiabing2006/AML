@@ -1,0 +1,222 @@
+.rich-stglpanel {
+	border-width: 0;
+}
+
+.rich-stglpanel-header {
+	border-width: 0;
+	text-align: left;
+	height: 23px;
+	float: left;
+}
+
+.rich-stgcpanel-header {
+	text-align: inherit;
+	height: 18px;
+}
+
+.rich-stglpnl-marker {
+	display: none;
+}
+
+.rich-fileupload-list-decor {
+	margin-left: 3px;
+}
+
+.rich-table-center {
+	text-align: center;
+	width: 100%;
+}
+
+.rich-table {
+	border: 1px solid #E2E2E2;
+	border-style: none;
+	margin: 5px 0 5px 0;
+	font-size: 12pt;
+}
+
+.rich-table-header {
+	border: 1px solid #E2E2E2;
+	border-style: none;
+	margin: 5px 0 5px 0;
+	font-size: 12pt;
+}
+
+.rich-table-edit {
+	float: center;
+	font-weight: normal;
+	font-size: 10pt;
+	border-style: none;
+	margin: 5px 0 5px 0;
+}
+
+.rich-table-edit input[type=text] {
+	border: 1px dotted #9CB8CC;
+	height: 18px;
+	margin: 0 1px 0 1px;
+	font-size: 10pt;
+	font-weight: normal;
+	width: 200px;
+}
+
+.rich-table-edit-content {
+	font-size: 10pt;
+	text-align: left;
+}
+
+.rich-table-edit-outputtext {
+	background-color: #f1f1f1;
+	text-align: left;
+	white-space: nowrap;
+}
+
+.rich-table-edit-outputtext-newline {
+	background-color: #f1f1f1;
+	text-align: left;
+	word-spacing: inherit;
+	white-space: pre-wrap;
+}
+
+.rich-table-edit-left {
+	width: 128px;
+	min-width: 64px;
+	text-align: left;
+}
+
+.rich-table-edit-indication {
+	color: red;
+	font-size: 20px;
+	border: none;
+}
+
+.rich-table-edit-indication-red {
+	color: red;
+	font-size: 20px;
+	border: none;
+	width: 2px;
+	clear: both;
+}
+
+.rich-table-edit-indication-blue {
+	color: blue;
+	font-size: 20px;
+	border: none;
+}
+
+.rich-table-edit-indication-yellow {
+	color: yellow;
+	font-size: 20px;
+	border: none;
+}
+
+.rich-table-edit-indication-white {
+	color: white;
+	font-size: 20px;
+	border: none;
+}
+
+.rich-table-edit-indication-black {
+	color: black;
+	font-size: 20px;
+	border: none;
+}
+
+.rich-table th {
+	padding: 3px;
+	font-weight: normal;
+	font-size: 10pt;
+	color: #039;
+	background: #EDF2F7;
+	border-width: 0px;
+}
+
+.rich-table td {
+	padding: 3px;
+	border-width: 0px;
+	color: #669;
+	background: #fff;
+	font-size: 13px;
+}
+
+.rich-table a {
+	font-size: 13px;
+	line-height: 20px;
+}
+
+.rich-table tr {
+	border-bottom: 1px solid #fff;
+}
+
+.rich-table tr:hover td {
+	background: #F5F5F5;
+}
+
+.rich-table-nohover tr:hover td {
+	background: #fff;
+}
+
+.rich-tree {
+	border-style: 12px;
+	width: 210px;
+	border: none;
+	background: none;
+}
+
+.rich-tree-node {
+	font-size: 10pt;
+	font-size-adjust: inherit;
+	font-family: serif;
+	cursor: pointer;
+	border: 1px;
+	padding: 0;
+	display: inline-block;
+	vertical-align: baseline;
+	outline: 0;
+	color:forestgreen;
+	font-weight: bold;
+}
+
+.datetimeBlue {
+	text-align: left;
+	font-family: cursive;
+	color: blue;
+	vertical-align: bottom;
+	font-size: 4pt;
+	border: none;
+}
+
+.datetimeRed {
+	text-align: left;
+	font-family: cursive;
+	color: red;
+	vertical-align: bottom;
+	font-size: 8pt;
+	border: none;
+}
+
+.fieldset {
+	border: 1px solid #D5D8DC;
+}
+
+fieldset legend {
+	font-size: 10pt;
+	font-weight: bold;
+}
+
+#searchForm {
+	padding: 8px 0 8px 0;
+	verticle-align: bottom;
+}
+
+.clear {
+	clear: both;
+}
+
+.webname {
+	FILTER: glow(color =   #000000, strength =   2)
+		shadow(color =   #001d40, direction =   115, Strength =   11)
+		alpha(opacity =   100, finishopacity =   0, style =   3);
+	-moz-opacity: .5;
+	opacity: 0.5;
+	text-shadow: 1px 1px 2px #001d40, 1px 1px 2px #648cb4, 1px 1px 6px
+		#cc150c;
+}

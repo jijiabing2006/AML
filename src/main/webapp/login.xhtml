@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j" xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich">
+<h:head>
+	<title>#{bundle['login']}</title>
+	<script language="javascript" type="text/javascript"
+		src="/resources/js/default/niceforms.js" />
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/resources/css/default/style_grey.css" />
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/resources/css/default/style.css" />
+	<style>
+input[type=text] {
+	width: 78%;
+	height: 22px;
+	font-size: 12pt;
+	font-weight: bold;
+	margin-left: 46px;
+	padding: 5px;
+	border-width: 1;
+}
+
+input[type=password] {
+	height: 22px;
+	font-size: 12pt;
+	font-weight: bold;
+	padding: 5px;
+	border-width: 1;
+}
+
+#loginform\:codeInput {
+	margin-left: 1px;
+	margin-top: 1px;
+}
+
+#loginform\:vCode {
+	margin: -35px 0 0 60px;
+	height: 34px;
+}
+
+b.rtop,b.rbottom {
+	display: block;
+	background: #FFF;
+	filter: alpha(opacity =               0, finishopacity =               90, style
+		=  
+		            3)
+}
+
+b.rbottom b {
+	display: block;
+	height: 1px;
+	overflow: hidden;
+	background: #2d71a8;
+}
+
+b.rtop b {
+	display: block;
+	height: 1px;
+	overflow: hidden;
+	background: seagreen;
+}
+
+b.r1 {
+	margin: 0 5px;
+}
+
+b.r2 {
+	margin: 0 3px;
+}
+
+b.r3 {
+	margin: 0 2px;
+}
+
+b.rtop b.r4,b.rbottom b.r4 {
+	margin: 0 1px;
+	height: 2px;
+}
+</style>
+	<script type="text/javascript">
+		var userAgent = navigator.userAgent, rMsie = /(msie\s|trident.*rv:)([\w.]+)/, rFirefox = /(firefox)\/([\w.]+)/, rOpera = /(opera).+version\/([\w.]+)/, rChrome = /(chrome)\/([\w.]+)/, rSafari = /version\/([\w.]+).*(safari)/;
+		var browser;
+		var version;
+		var ua = userAgent.toLowerCase();
+		function uaMatch(ua) {
+			var match = rMsie.exec(ua);
+			if (match != null) {
+				return {
+					browser : "IE",
+					version : match[2] || "0"
+				};
+			}
+			var match = rFirefox.exec(ua);
+			if (match != null) {
+				return {
+					browser : match[1] || "",
+					version : match[2] || "0"
+				};
+			}
+			var match = rOpera.exec(ua);
+			if (match != null) {
+				return {
+					browser : match[1] || "",
+					version : match[2] || "0"
+				};
+			}
+			var match = rChrome.exec(ua);
+			if (match != null) {
+				return {
+					browser : match[1] || "",
+					version : match[2] || "0"
+				};
+			}
+			var match = rSafari.exec(ua);
+			if (match != null) {
+				return {
+					browser : match[2] || "",
+					version : match[1] || "0"
+				};
+			}
+			if (match != null) {
+				return {
+					browser : "",
+					version : "0"
+				};
+			}
+		}
+		var browserMatch = uaMatch(userAgent.toLowerCase());
+		if (browserMatch.browser) {
+			browser = browserMatch.browser;
+			version = browserMatch.version;
+		}
+		document.write(browser + version);
+	</script>
+</h:head>
+<h:body style="background-image:none;">
+	<div class="main-inner" id="mainCnt"
+		style="width: 900px; height: 480px; overflow: hidden; position: absolute; left: 50%; top: 50%; margin-left: -450px; margin-top: -250px; background-image: url('#{request.contextPath}/images/bg_login.jpg')">
+		<b class="rtop"> <b class="r1"></b> <b class="r2"></b> <b
+			class="r3"></b> <b class="r4"></b> </b>
+
+
+		<h:form id="loginform" name="loginform" styleClass="niceform">
+			<div id="loginBlock" style="margin: 200px 0 0 400px;">
+
+				<div id="idInputLine" class="loginFormIpt showPlaceholder"
+					style="margin-top: 5px;">
+					<label for="idInput" class="placeholder" id="idPlaceholder">#{bundle['userid']}：</label>
+					<h:inputText class="loginFormTdIpt" tabindex="1" id="idInput"
+						type="text" maxlength="50" value="#{loginBean.userInfo.userid}">
+
+					</h:inputText>
+					<p:tooltip for="idInput" value="#{bundle['plsinputuserid']}"
+						showEffect="slide" hideEffect="fade" />
+				</div>
+
+				<div id="pwdInputLine" class="loginFormIpt showPlaceholder">
+					<label for="pwdInput" class="placeholder" id="pwdPlaceholder">#{bundle['password']}：</label>
+					<p:password id="pwdInput"
+						style="width: 78%;margin-left: 46px;margin-top:-4px;"
+						value="#{loginBean.userInfo.password}" feedback="false">
+					</p:password>
+					<p:tooltip for="pwdInput" value="#{bundle['plsinputpwd']}"
+						showEffect="slide" hideEffect="fade" />
+
+				</div>
+
+
+				<div class="loginFormIpt loginFormIptWiotTh"
+					style="margin-top: 58px;">
+
+					<h:commandButton action="#{loginBean.login}"
+						value="#{bundle['login']}" id="loginBtn"
+						styleClass="btn btn-login"
+						style="background-image: url('#{request.contextPath}/images/button-bg-2.png') ;">
+					</h:commandButton>
+					<rich:message id="changepwdmsg" />
+				</div>
+			</div>
+
+
+			<div
+				style="margin:80px 0 0 0;float: right;FILTER: glow(color=#000000,strength=1)alpha(opacity=100,finishopacity=20,style=1) ">
+				<font
+					face="verdana,arial,helvetica,skolar-1,skolar-2,Palatino,Georgia,Times,serif"
+					color="Magenta"> Powered By www.lzsoft.net </font> <font
+					face="Times,serif" color="#000000"> : further development </font>
+			</div>
+		</h:form>
+
+	</div>
+
+	<div
+		style="width: 900px; height: 50px; position: absolute; text-align: left; left: 50%; top: 50%; margin-left: -450px;; margin-top: 235px;">
+		<div>
+			<hr style="border-top: 1px solid #919191; padding: 0px 0px;" />
+		</div>
+	</div>
+
+</h:body>
+</html>

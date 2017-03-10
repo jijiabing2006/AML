@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+<h:head>
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/resources/css/default/style.css" />
+	<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+</h:head>
+<h:body>
+
+	<fieldset class="fieldset">
+		<legend>
+			<h:outputText value="#{bundle['role']}" />
+			▼
+		</legend>
+		<p:panel style="border:none;">
+			<p:panelGrid styleClass="rich-table-edit"
+				style="border-top-style: outset; " id="editGrid" cellpadding="5">
+				<p:row>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText value="#{bundle['role']}#{bundle['name']}" />
+					</p:column>
+					<p:column colspan="4" styleClass="rich-table-edit-left">
+						<h:inputText value="#{roleMBean.role.rolename}"></h:inputText>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText value="#{bundle['role']}#{bundle['desc']}" />
+					</p:column>
+					<p:column colspan="4" styleClass="rich-table-edit-left">
+						<h:inputText value="#{roleMBean.role.roledesc}"></h:inputText>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column colspan="7" styleClass="ui-widget-footer">
+						<p:spacer height="0" />
+					</p:column>
+				</p:row>
+				<p:row style="margin-top:1px; border-bottom-style: groove; ">
+					<p:column colspan="7" style="text-align:center;border-right:none;">
+						<a4j:commandButton value="#{bundle['save']}"
+							styleClass="btn_bg_l"
+							
+							
+							
+							action="#{roleMBean.add()}" render="dataTable,scroller"
+							execute="editPane"
+							oncomplete="if (#{facesContext.maximumSeverity.ordinal le 1}) {#{rich:component('editPane')}.hide();}" />
+						<a4j:commandButton value=" #{bundle['cancel']}" 
+						styleClass="btn_bg_r"
+							
+							
+							
+							onclick="#{rich:component('editPane')}.hide(); return false;" />
+					</p:column>
+					
+				</p:row>
+			</p:panelGrid>
+		</p:panel>
+	</fieldset>
+
+</h:body>
+</html>

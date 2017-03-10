@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j" xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich"
+	template="../../../main.xhtml">
+	<ui:define name="title">
+		<h:outputText value="#{bundle['basedata']}#{bundle['manager']}" />
+
+	</ui:define>
+	<ui:define name="body">
+		<h:form id="dataForm">
+
+			<fieldset class="fieldset ">
+				<legend>
+					<h:outputText value="IFX数据#{bundle['import']}" />
+					▼
+				</legend>
+				<p:panel styleClass="rich-table-edit" cellpadding="100">
+					<p:column styleClass="rich-table-edit-outputtext">
+						<h:outputLabel value="#{bundle['import']}IFX数据：" />
+					</p:column>
+					<p:column rowspan="2" colspan="3" style="text-align:center;">
+						<p:spacer height="20px;" width="50px;"></p:spacer>
+					</p:column>
+					<p:column rowspan="2" colspan="3" style="text-align:center;">
+						<p:spacer height="20px;" width="50px;"></p:spacer>
+							<a4j:commandLink action="#{superaddManagerBean.importdb}" execute="dataForm">
+								<h:graphicImage value="/images/save.png" />
+								<rich:tooltip styleClass="tooltip" layout="block">
+									<span style="white-space: nowrap"> <strong>#{bundle['import']}</strong>
+									</span>
+								</rich:tooltip>
+							</a4j:commandLink>
+						<p:spacer height="20px;" width="50px;"></p:spacer>
+					</p:column>
+				</p:panel>
+			</fieldset>
+			<fieldset class="fieldset ">
+				<legend>
+					<h:outputText value="Summit数据#{bundle['import']}" />
+					▼
+				</legend>
+				<p:panel styleClass="rich-table-edit" cellpadding="100">
+					<p:row>
+						<p:column styleClass="rich-table-edit-outputtext">
+							<h:outputLabel value="#{bundle['import']}Summit数据：" />
+						</p:column>
+						<p:column styleClass="rich-table-edit-outputtext">
+							<rich:calendar value="#{superaddManagerBean.importdate}"
+								boundaryDatesMode="select" showWeeksBar="false"
+								id="importdate" datePattern="yyyy-MM-dd">
+							</rich:calendar>
+						</p:column>
+						<p:column styleClass="rich-table-edit-outputtext">
+							<a4j:commandLink action="#{superaddManagerBean.importSummit2db}" execute="dataForm">
+								<h:graphicImage value="/images/save.png" />
+								<rich:tooltip styleClass="tooltip" layout="block">
+									<span style="white-space: nowrap"> <strong>#{bundle['import']}</strong>
+									</span>
+								</rich:tooltip>
+							</a4j:commandLink>
+						</p:column>
+					</p:row>
+				</p:panel>
+			</fieldset>
+			<p:messages autoUpdate="true" closable="true" showDetail="true" redisplay="false" />
+		</h:form>
+	</ui:define>
+</ui:composition>
+
+

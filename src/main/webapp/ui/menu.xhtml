@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+<h:head>
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/resources/css/default/style.css" />
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/js/ui/menu.js"></script>
+
+</h:head>
+<h:body
+	style="background-image: url(../images/menu_bg2.jpg);overflow-x : hidden;">
+	<h:form>
+		<div>
+			<rich:toolbar  itemSeparator="grid" style="width:100%;">
+				<rich:toolbarGroup>
+					<h:graphicImage value="/images/menu.png"/>#{bundle['menunavigate']}
+				</rich:toolbarGroup>
+			</rich:toolbar>
+
+		</div>
+		<div>
+			<p:growl id="messages" showDetail="true" escape="false" />
+
+			<p:tree value="#{menuBean.root}" var="node" id="treeSingle"
+				highlight="true" selectionMode="single" cache="false"
+				animate="true" selection="#{menuBean.selectedNode}"
+				datakey="'#{node.id}'" styleClass="rich-tree ">
+
+				<p:treeNode style="margin-left:3px;margin-top:3px;"
+					expandedIcon="ui-icon-folder-open"
+					collapsedIcon="ui-icon-folder-collapsed">
+					<h:outputText value="#{node.menuname}" styleClass="rich-tree-node" onclick="openclose();" />
+				</p:treeNode>
+
+				<p:treeNode type="leaf" icon="ui-icon-radio-off">
+					<a4j:commandLink
+						onclick="addFrame('#{node.menuurl}','#{node.menuname}');">
+						<h:outputText value="#{node.menuname}" styleClass="rich-tree-node" />
+					</a4j:commandLink>
+				</p:treeNode>
+
+			</p:tree>
+		</div>
+	</h:form>
+</h:body>
+</html>

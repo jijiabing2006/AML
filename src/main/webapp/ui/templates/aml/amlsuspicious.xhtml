@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j" xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+<ui:composition template="../../main.xhtml">
+	<ui:define name="title">
+		<h:outputText value="#{bundle['suspicious']}#{bundle['managerment']}" />
+	</ui:define>
+	<ui:define name="body">
+		<rich:collapsiblePanel header="#{bundle['search']}" expanded="false"
+			switchType="client"
+			headerClass="rich-stglpanel-header rf-tab-hdr rf-tab-hdr-act rf-tab-hdr-top">
+			<h:form id="searchForm">
+				<p:panel>
+					<p:panelGrid styleClass="rich-table-edit" id="searchGrid">
+						<p:row>
+							<p:column styleClass="rich-table-edit-outputtext">
+								<h:outputText value="#{bundle['customer']}#{bundle['code']}：" />
+							</p:column>
+							<p:column styleClass="rich-table-edit-left">
+								<h:inputText id="_csnm"
+									value="#{amlBigAmountBean.querybean.csnm}" readonly="false"></h:inputText>
+							</p:column>
+							<p:column styleClass="rich-table-edit-outputtext">
+								<h:outputText value="多重排序:" />
+							</p:column>
+							<p:column>
+								<h:selectBooleanCheckbox value="#{sortingBean.multipleSorting}"
+									style="margin-top:-20px;"
+									valueChangeListener="#{sortingBean.modeChanged}">
+									<a4j:ajax event="click" render="dataTable @this" />
+									<rich:tooltip styleClass="tooltip" layout="block">
+										<span style="white-space: nowrap"> <strong>#{bundle['start_sort']}</strong>
+										</span>
+									</rich:tooltip>
+								</h:selectBooleanCheckbox>
+								<a4j:commandLink render="dataTable" execute="@this"
+									style="margin-left:60px;" action="#{sortingBean.reset}">
+									<h:graphicImage value="/images/reset_sort.png" />
+									<rich:tooltip styleClass="tooltip" layout="block">
+										<span style="white-space: nowrap"> <strong>#{bundle['reset_sort']}</strong>
+										</span>
+									</rich:tooltip>
+								</a4j:commandLink>
+							</p:column>
+						</p:row>
+						<p:row>
+							<p:column styleClass="rich-table-edit-outputtext">
+								<h:outputText value="#{bundle['begin_date']}：" />
+							</p:column>
+							<p:column styleClass="rich-table-edit-left">
+								<a4j:outputPanel layout="block">
+									<rich:calendar style="border:none;padding:0 0 0 0;"
+										id="_importdateStart"
+										value="#{amlBigAmountBean.querybean.importdateStart}"
+										boundaryDatesMode="select" showWeeksBar="false"
+										enableManualInput="true" datePattern="yyyy-MM-dd" />
+								</a4j:outputPanel>
+							</p:column>
+							<p:column styleClass="rich-table-edit-outputtext">
+								<h:outputText value="#{bundle['end_date']}：" />
+							</p:column>
+							<p:column styleClass="rich-table-edit-left">
+								<a4j:outputPanel layout="block">
+									<rich:calendar style="border:none;padding:0 0 0 0;"
+										id="_importdateEnd"
+										value="#{amlBigAmountBean.querybean.importdateEnd}"
+										boundaryDatesMode="select" showWeeksBar="false"
+										enableManualInput="true" datePattern="yyyy-MM-dd" />
+								</a4j:outputPanel>
+							</p:column>
+							<p:column colspan="2">
+								<a4j:commandLink render="dataTable,scroller" execute="@form">
+									<h:graphicImage value="/images/searchdata.png" />
+									<a4j:param value="true"
+										assignTo="#{amlBigAmountBean.querybean.selected}" />
+									<rich:tooltip styleClass="tooltip" layout="block">
+										<span style="white-space: nowrap"> <strong>#{bundle['search']}</strong>
+										</span>
+									</rich:tooltip>
+								</a4j:commandLink>
+								<a4j:commandLink render="searchForm,rightmenu" execute="@form"
+									style="margin-left:60px;" action="#{amlBigAmountBean.reset()}"
+									oncomplete="return false;">
+									<h:graphicImage value="/images/remove.png" />
+									<rich:tooltip styleClass="tooltip" layout="block">
+										<span style="white-space: nowrap"> <strong>#{bundle['reset_query']}</strong>
+										</span>
+									</rich:tooltip>
+								</a4j:commandLink>
+							</p:column>
+						</p:row>
+					</p:panelGrid>
+				</p:panel>
+			</h:form>
+		</rich:collapsiblePanel>
+		<h:form id="dataForm">
+			<rich:tabPanel id="tab" switchType="ajax" headerPosition="top"
+				headerLocation="center" headerAlignment="left"
+				activeItem="#{amlBigAmountBean.activeTabname}">
+				<rich:tab id="tab1" name="tab1">
+					<f:facet name="header">
+						<h:outputText value="#{bundle['list']}" />
+					</f:facet>
+					<rich:dataTable value="#{amlBigAmountBean.amlBigAmounts}"
+						var="item" filterVar="filterValue" id="dataTable"
+						sortPriority="#{sortingBean.sortPriorities}"
+						rows="#{sessionScope.rows}" sortMode="single"
+						selectionMode="multiple" iterationStatusVar="it"
+						rowClasses="odd-row,even-row"
+						styleClass="stable rich-table-center"
+						headerClass="stable rich-table-center"
+						onrowmousemove="jQuery(this).addClass('active-row')"
+						onrowmouseout="jQuery(this).removeClass('active-row')">
+						<!-- DEBUG -->
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="# " />
+							</f:facet>
+							<h:outputText value="#{it.index +1}" />
+						</rich:column>
+						<rich:column style="text-align:center;width:21px;">
+							<f:facet name="header">
+								<h:selectBooleanCheckbox id="all"
+									onclick="javascript:if(this.checked) selectAll(); else selectNone();" />
+							</f:facet>
+							<h:selectBooleanCheckbox id="selected" value="#{item.selected}" />
+						</rich:column>
+						<rich:column>
+							<h:outputText value="activeTabname" style="display:none;" />
+							<h:outputText value="#{amlBigAmountBean.activeTabname}"
+								style="display:none;" />
+							<f:facet name="header">
+								<h:outputText value="#{bundle['customer']}#{bundle['code']}" />
+							</f:facet>
+							<h:outputText value="#{item.csnm}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="#{bundle['custnm']}" />
+							</f:facet>
+							<h:outputText value="#{item.ctnm}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="#{bundle['buscode']}" />
+							</f:facet>
+							<h:outputText value="#{fn:substring(item.ticd,0,20)}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="#{bundle['counterparty']}#{bundle['name']}" />
+							</f:facet>
+							<h:outputText value="#{fn:substring(item.tcnm,0,20)}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="#{bundle['feature']}#{bundle['code']}" />
+							</f:facet>
+							<h:outputText value="#{item.crcd}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="#{bundle['currency_code']}" />
+							</f:facet>
+							<h:outputText value="#{item.crtp}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText
+									value="#{bundle['transaction']}#{bundle['amount']}" />
+							</f:facet>
+							<h:outputText value="#{item.crat}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="#{bundle['drcr']}" />
+							</f:facet>
+							<h:outputText
+								value="#{item.tsdr=='01'?bundle['income']:item.tsdr=='02'?bundle['expenses']:''}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="#{bundle['business_date']}" />
+							</f:facet>
+							<h:outputText value="#{item.importdate}">
+								<f:convertDateTime timeZone="GMT+8" pattern="yyyy-MM-dd" />
+							</h:outputText>
+						</rich:column>
+						<rich:column sortBy="#{item.isexport}"
+							sortOrder="#{sortingBean.sortsOrders['isexport']}"
+							sortType="custom">
+							<f:facet name="header">
+								<a4j:commandLink execute="@this"
+									value="#{bundle['export']}#{bundle['state']}"
+									render="dataTable" action="#{sortingBean.sort}">
+									<f:param name="sortProperty" value="isexport" />
+								</a4j:commandLink>
+								<h:graphicImage value="/images/down_icon.gif"
+									rendered="#{sortingBean.sortsOrders['isexport']=='descending'}" />
+								<h:graphicImage value="/images/up_icon.gif.gif"
+									rendered="#{sortingBean.sortsOrders['isexport']=='ascending'}" />
+							</f:facet>
+							<h:outputText
+								value="#{item.isexport=='2'?bundle['do_not_report']:item.isvalidation=='1' and item.isexport=='0'?bundle['has_not_been_reported']:item.isvalidation=='1' and item.isexport=='1'?bundle['has_been_reported']:''}" />
+						</rich:column>
+						<rich:column sortBy="#{item.isedit}"
+							sortOrder="#{sortingBean.sortsOrders['isedit']}"
+							sortType="custom">
+							<f:facet name="header">
+								<a4j:commandLink execute="@this" value="#{bundle['edit']}"
+									render="dataTable" action="#{sortingBean.sort}">
+									<f:param name="sortProperty" value="isedit" />
+								</a4j:commandLink>
+								<h:graphicImage value="/images/down_icon.gif"
+									rendered="#{sortingBean.sortsOrders['isedit']=='descending'}" />
+								<h:graphicImage value="/images/up_icon.gif.gif"
+									rendered="#{sortingBean.sortsOrders['isedit']=='ascending'}" />
+							</f:facet>
+							<h:outputText
+								value="#{item.isedit=='1'?bundle['completed']:bundle['uncompleted']}" />
+						</rich:column>
+						<rich:column sortBy="#{item.isvalidation}"
+							sortOrder="#{sortingBean.sortsOrders['isvalidation']}"
+							sortType="custom" style="text-align:center">
+							<f:facet name="header">
+								<h:panelGrid columns="2">
+									<a4j:commandLink execute="@this"
+										value=" #{bundle['approve']} #{bundle['state']}"
+										render="dataTable" action="#{sortingBean.sort}">
+										<f:param name="sortProperty" value="isvalidation" />
+									</a4j:commandLink>
+									<h:graphicImage value="/images/down_icon.gif"
+										rendered="#{sortingBean.sortsOrders['isvalidation']=='descending'}" />
+									<h:graphicImage value="/images/up_icon.gif.gif"
+										rendered="#{sortingBean.sortsOrders['isvalidation']=='ascending'}" />
+								</h:panelGrid>
+							</f:facet>
+							<h:outputText
+								value="#{item.isedit=='1' and item.isvalidation=='0'?bundle['unapprove']:item.isedit=='1' and item.isvalidation=='1'?bundle['approved']:item.isedit=='1' and item.isvalidation=='2'?bundle['approve_not_through']:''}" />
+						</rich:column>
+						<rich:column styleClass="right">
+							<f:facet name="header">
+								<h:outputText value="#{bundle['operation']}" />
+							</f:facet>
+							<a4j:commandLink styleClass="no-decor" execute="@this"
+								rendered="#{sessionScope.op['84']=='1'  and item.isvalidation!='1'}"
+								render="@none" immediate="true"
+								oncomplete="#{rich:component('confirmPane')}.show()">
+								<h:graphicImage value="/images/delete2.gif" />
+								<a4j:param value="#{item.id}" id="currentid"
+									assignTo="#{amlBigAmountBean.currentId}" noEscape="true" />
+								<rich:tooltip styleClass="tooltip" showDelay="200"
+									layout="block">
+									<span style="white-space: nowrap"> <strong>#{bundle['delete']}</strong>
+									</span>
+								</rich:tooltip>
+							</a4j:commandLink>
+							<a4j:commandLink styleClass="no-decor" style="margin-left:10px;"
+								render="tab" execute="@this"
+								rendered="#{sessionScope.op['85']=='1' and item.isvalidation!='1'}">
+								<h:graphicImage value="/images/edit.gif" />
+								<a4j:param value="#{item.id}"
+									assignTo="#{amlBigAmountBean.currentId}" />
+								<a4j:param value="#{item.selected}"
+									assignTo="#{amlBigAmountBean.amlBigAmount.selected}" />
+								<!-- DEBUG -->
+								<f:setPropertyActionListener
+									target="#{amlBigAmountBean.amlBigAmount}" value="#{item}" />
+								<!-- DEBUG -->
+								<rich:tooltip styleClass="tooltip" showDelay="200"
+									layout="block">
+									<span style="white-space: nowrap"> <strong>#{bundle['edit']}</strong>
+									</span>
+								</rich:tooltip>
+							</a4j:commandLink>
+						</rich:column>
+					</rich:dataTable>
+					<ui:include src="../ds.xhtml" />
+					<ui:include src="amlbigamount_contextmenu.xhtml"></ui:include>
+				</rich:tab>
+				<a4j:outputPanel ajaxRendered="true">
+					<p:messages autoUpdate="true" redisplay="false"></p:messages>
+				</a4j:outputPanel>
+				<a4j:jsFunction name="remove"
+					action="#{amlBigAmountBean.removeRecord()}" render="dataTable"
+					execute="@this"
+					oncomplete="#{rich:component('confirmPane')}.hide();" />
+				<rich:popupPanel id="confirmPane" width="300" height="120"
+					zindex="3000"
+					style="clear:both;background:url(#{request.contextPath}/images/warning.png) no-repeat 10px 20px #fcfae9;
+						background-image:url(#{request.contextPath}/images/warning.png)">
+					<fieldset class="fieldset"
+						style="margin-left:-2px;margin-top:10px;">
+						<h:outputText value="	#{bundle['deletewarning']}"
+							style="font-size:11pt;color:blue;face:verdana,arial,helvetica;margin-left:35px;" />
+						<p:separator />
+						<p:spacer width="50" height="10" />
+						<a4j:commandButton value=" #{bundle['cancel']}"
+							onclick="#{rich:component('confirmPane')}.hide(); return false;" />
+						<p:spacer width="50" height="10" />
+						<a4j:commandButton value="#{bundle['ok']}"
+							onclick="remove(); return false;" />
+					</fieldset>
+				</rich:popupPanel>
+				<rich:tab id="tab2" name="tab2" left="100px;" top="20px;">
+					<f:facet name="header">
+						<h:outputText value="#{bundle['suspicious']}" />
+					</f:facet>
+					<ui:include src="amlsuspicious_edit.xhtml"></ui:include>
+				</rich:tab>
+			</rich:tabPanel>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

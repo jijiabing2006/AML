@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j" xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich">
+<ui:composition template="../../main.xhtml">
+	<ui:define name="title">
+		<h:outputText value="#{bundle['user']}#{bundle['admin']}" />
+	</ui:define>
+	<ui:define name="body">
+
+		<rich:collapsiblePanel header="#{bundle['search']}" expanded="false"
+			switchType="client"
+			headerClass="rich-stglpanel-header rf-tab-hdr rf-tab-hdr-act rf-tab-hdr-top">
+			<h:form id="searchForm">
+				<rich:panel>
+					<p:panelGrid styleClass="rich-table-edit" id="searchGrid">
+						<p:row>
+							<p:column styleClass="rich-table-edit-outputtext">
+								<h:outputText value="#{bundle['user']}#{bundle['id']}：" />
+							</p:column>
+							<p:column styleClass="rich-table-edit-left">
+								<h:inputText id="_userid" value="#{userMBean.querybean.userid}"
+									readonly="false"></h:inputText>
+							</p:column>
+							<p:column styleClass="rich-table-edit-outputtext">
+								<h:outputText value="#{bundle['user']}#{bundle['name']}：" />
+							</p:column>
+							<p:column styleClass="rich-table-edit-left">
+								<h:inputText id="_username"
+									value="#{userMBean.querybean.username}" readonly="false"></h:inputText>
+							</p:column>
+							<p:column>
+								<a4j:commandLink render="dataTable,scroller" execute="@form"
+									style="margin-left:30px;margin-right:30px;"
+									 >
+									<h:graphicImage value="/images/searchdata.png" />
+									<a4j:param value="true"
+										assignTo="#{userMBean.querybean.selected}" />
+									<rich:tooltip styleClass="tooltip" layout="block">
+										<span style="white-space: nowrap"> <strong>#{bundle['search']}</strong>
+										</span>
+									</rich:tooltip>
+								</a4j:commandLink>
+								<a4j:commandLink styleClass="no-decor"
+									style="margin-left:30px;margin-right:30px;" render="editGrid"
+									execute="@this" rendered="#{sessionScope.op['7']=='1'}"
+									oncomplete="#{rich:component('editPane')}.show()">
+									<a4j:param value="0" assignTo="#{userMBean.user.id}" />
+									<a4j:param value="" assignTo="#{userMBean.user.userid}" />
+									<a4j:param value="" assignTo="#{userMBean.user.username}" />
+									<a4j:param value="" assignTo="#{userMBean.user.bkid}" />
+									<a4j:param value="" assignTo="#{userMBean.user.subbkid}" />
+									<a4j:param value="" assignTo="#{userMBean.user.password}" />
+									<a4j:param value="0" assignTo="#{bankMBean.bank.id}" />
+									<a4j:param value="" assignTo="#{bankMBean.bank.bkid}" />
+									<a4j:param value="" assignTo="#{bankMBean.bank.subbkid}" />
+									<a4j:param value="" assignTo="#{userMBean.user.email}" />
+									<h:graphicImage value="/images/add.png" />
+									<rich:tooltip styleClass="tooltip" showDelay="200"
+										layout="block">
+										<span style="white-space: nowrap"> <strong>#{bundle['newrecord']}</strong>
+										</span>
+									</rich:tooltip>
+								</a4j:commandLink>
+							</p:column>
+						</p:row>
+					</p:panelGrid>
+				</rich:panel>
+			</h:form>
+		</rich:collapsiblePanel>
+
+		<h:form id="dataForm">
+			<rich:tabPanel id="tab" switchType="client" headerPosition="top"
+				headerLocation="center" headerAlignment="left">
+				<rich:tab id="tab1" name="#{bundle['userlist']}">
+					<rich:dataTable id="dataTable" rows="#{sessionScope.rows}" value="#{userMBean.users}"
+						var="item" iterationStatusVar="it" rowClasses="odd-row,even-row"
+						styleClass="stable rich-table-center"
+						onrowmousemove="jQuery(this).addClass('active-row')"
+						onrowmouseout="jQuery(this).removeClass('active-row')">
+						<!-- DEBUG -->
+						<rich:column styleClass="left">
+							<f:facet name="header">
+								<h:outputText value="# " />
+							</f:facet>
+							<h:outputText value="#{it.index +1}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="#{bundle['user']}#{bundle['id']}" />
+							</f:facet>
+							<h:outputText value="#{item.userid}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="#{bundle['user']}#{bundle['name']}" />
+							</f:facet>
+							<h:outputText value="#{item.username}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="#{bundle['branch']}#{bundle['code']}" />
+							</f:facet>
+							<h:outputText value="#{item.bkid}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="#{bundle['subbranch']}#{bundle['code']}" />
+							</f:facet>
+							<h:outputText value="#{item.subbkid}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="#{bundle['state']}" />
+							</f:facet>
+							<h:outputText
+								value="#{item.state=='1'?bundle['normally']:bundle['forbidden']}" />
+						</rich:column>
+
+						<rich:column styleClass="right">
+							<f:facet name="header">
+								<h:outputText value="#{bundle['operation']}" />
+							</f:facet>
+							<a4j:commandLink styleClass="no-decor" execute="@this"
+								render="@none" immediate="true"
+								oncomplete="#{rich:component('confirmPane')}.show()">
+								<h:graphicImage value="/images/delete2.gif" />
+								<a4j:param value="#{item.id}" id="currentid"
+									assignTo="#{userMBean.currentId}" noEscape="true" />
+								<rich:tooltip styleClass="tooltip" showDelay="200"
+									layout="block">
+									<span style="white-space: nowrap"> <strong>#{bundle['delete']}</strong>
+									</span>
+								</rich:tooltip>
+							</a4j:commandLink>
+
+							<a4j:commandLink styleClass="no-decor" style="margin-left:10px;"
+								render="editGrid" execute="@this"
+								oncomplete="#{rich:component('editPane')}.show()">
+								<h:graphicImage value="/images/edit.gif" />
+								<a4j:param value="#{item.id}" assignTo="#{userMBean.currentId}" />
+								<!-- DEBUG -->
+								<f:setPropertyActionListener target="#{userMBean.user}"
+									value="#{item}" />
+								<!-- DEBUG -->
+								<rich:tooltip styleClass="tooltip" showDelay="200"
+									layout="block">
+									<span style="white-space: nowrap"> <strong>#{bundle['edit']}</strong>
+									</span>
+								</rich:tooltip>
+							</a4j:commandLink>
+							<a4j:commandLink styleClass="no-decor" style="margin-left:10px;"
+								render="editRolePane" execute="@this"
+								oncomplete="#{rich:component('editRolePane')}.show()">
+								<h:graphicImage value="/images/role_16.png" />
+								<a4j:param value="#{item.id}" assignTo="#{roleMBean.currentId}" />
+								<!-- DEBUG -->
+								<f:setPropertyActionListener target="#{userMBean.user}"
+									value="#{item}" />
+								<!-- DEBUG -->
+								<rich:tooltip styleClass="tooltip" showDelay="200"
+									layout="block">
+									<span style="white-space: nowrap"> <strong>#{bundle['user']}#{bundle['role']}#{bundle['setup']}</strong>
+									</span>
+								</rich:tooltip>
+							</a4j:commandLink>
+							<a4j:commandLink styleClass="no-decor" style="margin-left:10px;"
+								render="@none" execute="@this"
+								oncomplete="#{rich:component('resetPassword')}.show()">
+								<h:graphicImage value="/images/counter_reset_16.png" />
+								<a4j:param value="#{item.id}" assignTo="#{userMBean.currentId}" />
+								<!-- DEBUG -->
+								<f:setPropertyActionListener target="#{userMBean.user}"
+									value="#{item}" />
+								<!-- DEBUG -->
+								<rich:tooltip styleClass="tooltip" showDelay="200"
+									layout="block">
+									<span style="white-space: nowrap"> <strong>#{bundle['reset']}#{bundle['user']}#{bundle['password']}</strong>
+									</span>
+								</rich:tooltip>
+							</a4j:commandLink>
+
+						</rich:column>
+
+					</rich:dataTable>
+					<ui:include src="../ds.xhtml"></ui:include>
+
+
+					<a4j:outputPanel ajaxRendered="true">
+						<h:messages id="error" errorStyle="color: red"
+							fatalStyle="color:red" infoStyle="color: green"
+							warnStyle="color : black" />
+					</a4j:outputPanel>
+
+					<a4j:jsFunction name="remove" action="#{userMBean.removeRecord()}"
+						render="dataTable,scroller" execute="@this"
+						oncomplete="#{rich:component('confirmPane')}.hide();" />
+					<rich:popupPanel id="confirmPane" width="300" height="120"
+						zindex="3000"
+						style="clear:both;background:url(#{request.contextPath}/images/warning.png) no-repeat 10px 20px #fcfae9;
+						background-image:url(#{request.contextPath}/images/warning.png)">
+						<fieldset class="fieldset"
+							style="margin-left:-2px;margin-top:10px;">
+							<h:outputText value="	#{bundle['deletewarning']}" style="font-size:11pt;color:blue;face:verdana,arial,helvetica;margin-left:35px;" />
+							<p:separator />
+							<p:spacer width="50" height="10" />
+							<a4j:commandButton value=" #{bundle['cancel']}"
+								onclick="#{rich:component('confirmPane')}.hide(); return false;" />
+							<p:spacer width="50" height="10" />
+							<a4j:commandButton value="#{bundle['ok']}"
+								onclick="remove(); return false;" />
+						</fieldset>
+					</rich:popupPanel>
+
+					<rich:popupPanel id="editPane" left="100px;" top="20px;"
+						domElementAttachment="parent" resizeable="false" autosized="true"
+						headerClass="popuphead">
+						<f:facet name="header">
+							<h:outputText value="#{bundle['user']}#{bundle['managerment']}" />
+						</f:facet>
+						<f:facet name="controls">
+							<h:outputLink value="#"
+								onclick="#{rich:component('editPane')}.hide(); return false;">
+								X</h:outputLink>
+						</f:facet>
+						<ui:include src="user_edit.xhtml"></ui:include>
+					</rich:popupPanel>
+					<rich:popupPanel id="editRolePane" left="100px;" top="20px;"
+						domElementAttachment="parent" resizeable="false" autosized="true"
+						headerClass="popuphead">
+						<f:facet name="header">
+							<h:outputText
+								value="#{bundle['user']}#{bundle['role']}#{bundle['setup']}" />
+						</f:facet>
+						<f:facet name="controls">
+							<h:outputLink value="#"
+								onclick="#{rich:component('editRolePane')}.hide(); return false;">
+								X</h:outputLink>
+						</f:facet>
+						<ui:include src="user_role_relation_edit.xhtml"></ui:include>
+					</rich:popupPanel>
+
+					<a4j:jsFunction name="resetPassword"
+						action="#{userMBean.resetPassword()}" render="dataTable"
+						execute="@this"
+						oncomplete="#{rich:component('resetPassword')}.hide();" />
+					<rich:popupPanel id="resetPassword" autosized="true">
+						<fieldset class="fieldset"
+							style="margin-left:-2px;margin-top:10px;">
+							<font face="verdana,arial,helvetica" color="blue" size="2pt;">
+								#{bundle['whether_reset_password']} </font> <br />
+							<p:separator />
+							<a4j:commandButton value=" #{bundle['cancel']}"
+								onclick="#{rich:component('resetPassword')}.hide(); return false;" />
+							<p:spacer width="50" height="10" />
+							<a4j:commandButton value="#{bundle['ok']}"
+								onclick="resetPassword(); return false;" />
+						</fieldset>
+					</rich:popupPanel>
+
+				</rich:tab>
+			</rich:tabPanel>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

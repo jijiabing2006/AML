@@ -1,0 +1,1934 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<countrys>
+	<country>
+		<code>ABW</code>
+		<number>533</number>
+		<cnname>阿鲁巴</cnname>
+		<fullcnname>阿鲁巴</fullcnname>
+		<enname>ARUBA</enname>
+		<fullenname>Aruba</fullenname>
+	</country>
+	<country>
+		<code>AFG</code>
+		<number>004</number>
+		<cnname>阿富汗</cnname>
+		<fullcnname>阿富汗</fullcnname>
+		<enname>AFGHANISTAN</enname>
+		<fullenname>Afghanista</fullenname>
+	</country>
+	<country>
+		<code>AGO</code>
+		<number>024</number>
+		<cnname>安哥拉</cnname>
+		<fullcnname>安哥拉共和国</fullcnname>
+		<enname>ANGOLA</enname>
+		<fullenname>Republic of Angola</fullenname>
+	</country>
+	<country>
+		<code>AIA</code>
+		<number>660</number>
+		<cnname>安圭拉</cnname>
+		<fullcnname>安圭拉</fullcnname>
+		<enname>ANGUILLA</enname>
+		<fullenname>Anguill</fullenname>
+	</country>
+	<country>
+		<code>ALB</code>
+		<number>008</number>
+		<cnname>阿尔巴尼亚</cnname>
+		<fullcnname>阿尔巴尼亚共和国</fullcnname>
+		<enname>ALBANIA</enname>
+		<fullenname>Republic of Albani</fullenname>
+	</country>
+	<country>
+		<code>AND</code>
+		<number>020</number>
+		<cnname>安道尔</cnname>
+		<fullcnname>安道尔公国</fullcnname>
+		<enname>ANDORRA</enname>
+		<fullenname>Principality of Andorra</fullenname>
+	</country>
+	<country>
+		<code>ANT</code>
+		<number>530</number>
+		<cnname>荷属安的列斯</cnname>
+		<fullcnname>荷属安的列斯</fullcnname>
+		<enname>NETHERLANDS ANTILLES</enname>
+		<fullenname>Netherlands Antilles</fullenname>
+	</country>
+	<country>
+		<code>ARE</code>
+		<number>784</number>
+		<cnname>阿联酋</cnname>
+		<fullcnname>阿拉伯联合酋长国</fullcnname>
+		<enname>UNITED ARAB EMIRATES</enname>
+		<fullenname>United Arab Emirates</fullenname>
+	</country>
+	<country>
+		<code>ARG</code>
+		<number>032</number>
+		<cnname>阿根廷</cnname>
+		<fullcnname>阿根廷共和国</fullcnname>
+		<enname>ARGENTINA</enname>
+		<fullenname>Argentine Republic</fullenname>
+	</country>
+	<country>
+		<code>ARM</code>
+		<number>051</number>
+		<cnname>亚美尼亚</cnname>
+		<fullcnname>亚美尼亚共和国</fullcnname>
+		<enname>ARMENIA</enname>
+		<fullenname>Republic of Armenia</fullenname>
+	</country>
+	<country>
+		<code>ASM</code>
+		<number>016</number>
+		<cnname>美属萨摩亚</cnname>
+		<fullcnname>美属萨摩亚</fullcnname>
+		<enname>AMERICAN SAMOA</enname>
+		<fullenname>American Samoa</fullenname>
+	</country>
+	<country>
+		<code>ATA</code>
+		<number>010</number>
+		<cnname>南极洲</cnname>
+		<fullcnname>南极洲</fullcnname>
+		<enname>ANTARCTICA</enname>
+		<fullenname>Antarctica</fullenname>
+	</country>
+	<country>
+		<code>ATF</code>
+		<number>260</number>
+		<cnname>法属南部领地</cnname>
+		<fullcnname>法属南部领地</fullcnname>
+		<enname>FRENCH SOUTHERN TERRITORIES</enname>
+		<fullenname>French Southern Territories</fullenname>
+	</country>
+	<country>
+		<code>ATG</code>
+		<number>028</number>
+		<cnname>安提瓜和巴布达</cnname>
+		<fullcnname>安提瓜和巴布达</fullcnname>
+		<enname>ANTIGUA AND BARBUDA</enname>
+		<fullenname>Antigua and Barbuda</fullenname>
+	</country>
+	<country>
+		<code>AUS</code>
+		<number>036</number>
+		<cnname>澳大利亚</cnname>
+		<fullcnname>澳大利亚联邦</fullcnname>
+		<enname>AUSTRALIA</enname>
+		<fullenname>Commonwealth of Australia</fullenname>
+	</country>
+	<country>
+		<code>AUT</code>
+		<number>040</number>
+		<cnname>奥地利</cnname>
+		<fullcnname>奥地利共和国</fullcnname>
+		<enname>AUSTRIA</enname>
+		<fullenname>Republic of Austria</fullenname>
+	</country>
+	<country>
+		<code>AZE</code>
+		<number>031</number>
+		<cnname>阿塞拜疆</cnname>
+		<fullcnname>阿塞拜疆共和国</fullcnname>
+		<enname>AZERBAIJAN</enname>
+		<fullenname>Republic of Azerbaijan</fullenname>
+	</country>
+	<country>
+		<code>BDI</code>
+		<number>108</number>
+		<cnname>布隆迪</cnname>
+		<fullcnname>布隆迪共和国</fullcnname>
+		<enname>BURUNDI</enname>
+		<fullenname>Republic of Burundi</fullenname>
+	</country>
+	<country>
+		<code>BEL</code>
+		<number>056</number>
+		<cnname>比利时</cnname>
+		<fullcnname>比利时王国</fullcnname>
+		<enname>BELGIUM</enname>
+		<fullenname>Kingdom of Belgium</fullenname>
+	</country>
+	<country>
+		<code>BEN</code>
+		<number>204</number>
+		<cnname>贝宁</cnname>
+		<fullcnname>贝宁共和国</fullcnname>
+		<enname>BENIN</enname>
+		<fullenname>Republic of Benin</fullenname>
+	</country>
+	<country>
+		<code>BFA</code>
+		<number>854</number>
+		<cnname>布基纳法索</cnname>
+		<fullcnname>布基纳法索</fullcnname>
+		<enname>BURKINA FASO</enname>
+		<fullenname>Burkina Faso</fullenname>
+	</country>
+	<country>
+		<code>BGD</code>
+		<number>050</number>
+		<cnname>孟加拉国</cnname>
+		<fullcnname>孟加拉人民共和国</fullcnname>
+		<enname>BANGLADESH</enname>
+		<fullenname>Peoples Republic of Bangladesh</fullenname>
+	</country>
+	<country>
+		<code>BGR</code>
+		<number>100</number>
+		<cnname>保加利亚</cnname>
+		<fullcnname>保加利亚共和国</fullcnname>
+		<enname>BULGARIA</enname>
+		<fullenname>Republic of Bulgaria</fullenname>
+	</country>
+	<country>
+		<code>BHR</code>
+		<number>048</number>
+		<cnname>巴林</cnname>
+		<fullcnname>巴林国</fullcnname>
+		<enname>BAHRAIN</enname>
+		<fullenname>State of Bahrain</fullenname>
+	</country>
+	<country>
+		<code>BHS</code>
+		<number>044</number>
+		<cnname>巴哈马</cnname>
+		<fullcnname>巴哈马联邦</fullcnname>
+		<enname>BAHAMAS</enname>
+		<fullenname>Commonwealth of the Bahamas</fullenname>
+	</country>
+	<country>
+		<code>BIH</code>
+		<number>070</number>
+		<cnname>波黑</cnname>
+		<fullcnname>波斯尼亚和黑塞哥维那</fullcnname>
+		<enname>BOSNIA AND HERZEGOVINA</enname>
+		<fullenname>Bosnia and Herzegovina</fullenname>
+	</country>
+	<country>
+		<code>BLR</code>
+		<number>112</number>
+		<cnname>白俄罗斯</cnname>
+		<fullcnname>白俄罗斯共和国</fullcnname>
+		<enname>BELARUS</enname>
+		<fullenname>Republic of Belarus</fullenname>
+	</country>
+	<country>
+		<code>BLZ</code>
+		<number>084</number>
+		<cnname>伯利兹</cnname>
+		<fullcnname>伯利兹</fullcnname>
+		<enname>BELIZE</enname>
+		<fullenname>Belize</fullenname>
+	</country>
+	<country>
+		<code>BMU</code>
+		<number>060</number>
+		<cnname>百慕大</cnname>
+		<fullcnname>百慕大</fullcnname>
+		<enname>BERMUDA</enname>
+		<fullenname>Bermuda</fullenname>
+	</country>
+	<country>
+		<code>BOL</code>
+		<number>068</number>
+		<cnname>玻利维亚</cnname>
+		<fullcnname>玻利维亚共和国</fullcnname>
+		<enname>BOLIVIA</enname>
+		<fullenname>Republic of Bolivia</fullenname>
+	</country>
+	<country>
+		<code>BRA</code>
+		<number>076</number>
+		<cnname>巴西</cnname>
+		<fullcnname>巴西联邦共和国</fullcnname>
+		<enname>BRAZIL</enname>
+		<fullenname>Federative Republic of Brazil</fullenname>
+	</country>
+	<country>
+		<code>BRB</code>
+		<number>052</number>
+		<cnname>巴巴多斯</cnname>
+		<fullcnname>巴巴多斯</fullcnname>
+		<enname>BARBADOS</enname>
+		<fullenname>Barbados</fullenname>
+	</country>
+	<country>
+		<code>BRN</code>
+		<number>096</number>
+		<cnname>文莱</cnname>
+		<fullcnname>文莱达鲁萨兰国</fullcnname>
+		<enname>BRUNEI</enname>
+		<fullenname>Brunei Darussalam</fullenname>
+	</country>
+	<country>
+		<code>BTN</code>
+		<number>064</number>
+		<cnname>不丹</cnname>
+		<fullcnname>不丹王国</fullcnname>
+		<enname>BHUTAN</enname>
+		<fullenname>Kingdom of Bhutan</fullenname>
+	</country>
+	<country>
+		<code>BVT</code>
+		<number>074</number>
+		<cnname>布维岛</cnname>
+		<fullcnname>布维岛</fullcnname>
+		<enname>BOUVET ISLAND</enname>
+		<fullenname>Bouvet Island</fullenname>
+	</country>
+	<country>
+		<code>BWA</code>
+		<number>072</number>
+		<cnname>博茨瓦纳</cnname>
+		<fullcnname>博茨瓦纳共和国</fullcnname>
+		<enname>BOTSWANA</enname>
+		<fullenname>Republic of Botswana</fullenname>
+	</country>
+	<country>
+		<code>CAF</code>
+		<number>140</number>
+		<cnname>中非</cnname>
+		<fullcnname>中非共和国</fullcnname>
+		<enname>CENTRAL AFRICAN</enname>
+		<fullenname>Central African Republic</fullenname>
+	</country>
+	<country>
+		<code>CAN</code>
+		<number>124</number>
+		<cnname>加拿大</cnname>
+		<fullcnname>加拿大</fullcnname>
+		<enname>REPUBLIC</enname>
+		<fullenname>Canada</fullenname>
+	</country>
+	<country>
+		<code>CCK</code>
+		<number>166</number>
+		<cnname>科科斯(基林)群岛</cnname>
+		<fullcnname>科科斯(基林)群岛</fullcnname>
+		<enname>COCOS(KEELING) ISLANDS</enname>
+		<fullenname>Cocos(Keeling) Islands</fullenname>
+	</country>
+	<country>
+		<code>CHE</code>
+		<number>756</number>
+		<cnname>瑞士</cnname>
+		<fullcnname>瑞士联邦</fullcnname>
+		<enname>SW ITZERLAND</enname>
+		<fullenname>Swiss Confederation</fullenname>
+	</country>
+	<country>
+		<code>CHL</code>
+		<number>152</number>
+		<cnname>智利</cnname>
+		<fullcnname>智利共和国</fullcnname>
+		<enname>CHILE</enname>
+		<fullenname>Republic of Chile</fullenname>
+	</country>
+	<country>
+		<code>CHN</code>
+		<number>156</number>
+		<cnname>中国</cnname>
+		<fullcnname>中华人民共和国</fullcnname>
+		<enname>CHINA</enname>
+		<fullenname>Peoples Republic of China</fullenname>
+	</country>
+	<country>
+		<code>CIV</code>
+		<number>384</number>
+		<cnname>科特迪瓦</cnname>
+		<fullcnname>科特迪瓦共和国</fullcnname>
+		<enname>COTE DIVOIRE</enname>
+		<fullenname>Republic of Cote dIvoire</fullenname>
+	</country>
+	<country>
+		<code>CMR</code>
+		<number>120</number>
+		<cnname>喀麦隆</cnname>
+		<fullcnname>喀麦隆共和国</fullcnname>
+		<enname>CAMEROON</enname>
+		<fullenname>Republic of Cameroon</fullenname>
+	</country>
+	<country>
+		<code>COD</code>
+		<number>180</number>
+		<cnname>刚果（金）</cnname>
+		<fullcnname>刚果民主共和国</fullcnname>
+		<enname>CONGO,THE DEMOCRATIC REPUBLIC OF THE</enname>
+		<fullenname>Democratic Republic of Congo</fullenname>
+	</country>
+	<country>
+		<code>COG</code>
+		<number>178</number>
+		<cnname>刚果（布）</cnname>
+		<fullcnname>刚果共和国</fullcnname>
+		<enname>CONGO</enname>
+		<fullenname>Republic of Congo</fullenname>
+	</country>
+	<country>
+		<code>COK</code>
+		<number>184</number>
+		<cnname>库克群岛</cnname>
+		<fullcnname>库克群岛</fullcnname>
+		<enname>COOK ISLANDS</enname>
+		<fullenname>Cook Islands</fullenname>
+	</country>
+	<country>
+		<code>COL</code>
+		<number>170</number>
+		<cnname>哥伦比亚</cnname>
+		<fullcnname>哥伦比亚共和国</fullcnname>
+		<enname>COLOMBIA</enname>
+		<fullenname>Republic of Colombia</fullenname>
+	</country>
+	<country>
+		<code>COM</code>
+		<number>174</number>
+		<cnname>科摩罗</cnname>
+		<fullcnname>科摩罗伊斯兰联邦共和国</fullcnname>
+		<enname>COMOROS</enname>
+		<fullenname>Islamic Federal Republic of the Comoros</fullenname>
+	</country>
+	<country>
+		<code>CPV</code>
+		<number>132</number>
+		<cnname>佛得角</cnname>
+		<fullcnname>佛得角共和国</fullcnname>
+		<enname>CAPE VERDE</enname>
+		<fullenname>Republic of Cape Verd</fullenname>
+	</country>
+	<country>
+		<code>CRI</code>
+		<number>188</number>
+		<cnname>哥斯达黎加</cnname>
+		<fullcnname>哥斯达黎加共和国</fullcnname>
+		<enname>COSTA RICA</enname>
+		<fullenname>Republic of Costa Rica</fullenname>
+	</country>
+	<country>
+		<code>CUB</code>
+		<number>192</number>
+		<cnname>古巴</cnname>
+		<fullcnname>古巴共和国</fullcnname>
+		<enname>CUBA</enname>
+		<fullenname>Republic of Cuba</fullenname>
+	</country>
+	<country>
+		<code>CXR</code>
+		<number>162</number>
+		<cnname>圣诞岛</cnname>
+		<fullcnname>圣诞岛</fullcnname>
+		<enname>CHRISTMAS ISLAND</enname>
+		<fullenname>Christmas Island</fullenname>
+	</country>
+	<country>
+		<code>CYM</code>
+		<number>136</number>
+		<cnname>开曼群岛</cnname>
+		<fullcnname>开曼群岛</fullcnname>
+		<enname>CAYMAN ISLANDS</enname>
+		<fullenname>Cayman Islands</fullenname>
+	</country>
+	<country>
+		<code>CYP</code>
+		<number>196</number>
+		<cnname>塞浦路斯</cnname>
+		<fullcnname>塞浦路斯共和国</fullcnname>
+		<enname>CYPRUS</enname>
+		<fullenname>Republic of Cyprus</fullenname>
+	</country>
+	<country>
+		<code>CZE</code>
+		<number>203</number>
+		<cnname>捷克</cnname>
+		<fullcnname>捷克共和国</fullcnname>
+		<enname>CZECH REPUBLIC</enname>
+		<fullenname>Czech Republic</fullenname>
+	</country>
+	<country>
+		<code>DEU</code>
+		<number>276</number>
+		<cnname>德国</cnname>
+		<fullcnname>德意志联邦共和国</fullcnname>
+		<enname>GERMANY</enname>
+		<fullenname>Federal Republic of Germany</fullenname>
+	</country>
+	<country>
+		<code>DJI</code>
+		<number>262</number>
+		<cnname>吉布提</cnname>
+		<fullcnname>吉布提共和国</fullcnname>
+		<enname>DJIBOUTI</enname>
+		<fullenname>Republic of Djibouti</fullenname>
+	</country>
+	<country>
+		<code>DMA</code>
+		<number>212</number>
+		<cnname>多米尼克</cnname>
+		<fullcnname>多米尼克国</fullcnname>
+		<enname>DOMINICA</enname>
+		<fullenname>Commonwealth of Dominica</fullenname>
+	</country>
+	<country>
+		<code>DNK</code>
+		<number>208</number>
+		<cnname>丹麦</cnname>
+		<fullcnname>丹麦王国</fullcnname>
+		<enname>DENMARK</enname>
+		<fullenname>Kingdom of Denmark</fullenname>
+	</country>
+	<country>
+		<code>DOM</code>
+		<number>214</number>
+		<cnname>多米尼加</cnname>
+		<fullcnname>多米尼加共和国</fullcnname>
+		<enname>DOMINICAN REPUBLIC</enname>
+		<fullenname>Dominican Republic</fullenname>
+	</country>
+	<country>
+		<code>DZA</code>
+		<number>012</number>
+		<cnname>阿尔及利亚</cnname>
+		<fullcnname>阿尔及利亚民主人民共和国</fullcnname>
+		<enname>ALGERIA</enname>
+		<fullenname>Democratic Peoples Republic of Algeri</fullenname>
+	</country>
+	<country>
+		<code>ECU</code>
+		<number>218</number>
+		<cnname>厄瓜多尔</cnname>
+		<fullcnname>厄瓜多尔共和国</fullcnname>
+		<enname>ECUADOR</enname>
+		<fullenname>Republic of Ecuador</fullenname>
+	</country>
+	<country>
+		<code>EGY</code>
+		<number>818</number>
+		<cnname>埃及</cnname>
+		<fullcnname>阿拉伯埃及共和国</fullcnname>
+		<enname>EGYPT</enname>
+		<fullenname>Arab Republic of Egypt</fullenname>
+	</country>
+	<country>
+		<code>ERI</code>
+		<number>232</number>
+		<cnname>厄立特里亚</cnname>
+		<fullcnname>厄立特里亚国</fullcnname>
+		<enname>ERITREA</enname>
+		<fullenname>State of Eritrea</fullenname>
+	</country>
+	<country>
+		<code>ESH</code>
+		<number>732</number>
+		<cnname>西撒哈拉</cnname>
+		<fullcnname>西撒哈拉</fullcnname>
+		<enname>WESTERN SAHARA</enname>
+		<fullenname>Western Sahara</fullenname>
+	</country>
+	<country>
+		<code>ESP</code>
+		<number>724</number>
+		<cnname>西班牙</cnname>
+		<fullcnname>西班牙王国</fullcnname>
+		<enname>SPAIN</enname>
+		<fullenname>Kingdom of Spain</fullenname>
+	</country>
+	<country>
+		<code>EST</code>
+		<number>233</number>
+		<cnname>爱沙尼亚</cnname>
+		<fullcnname>爱沙尼亚共和国</fullcnname>
+		<enname>ESTONIA</enname>
+		<fullenname>Republic of Estonia</fullenname>
+	</country>
+	<country>
+		<code>ETH</code>
+		<number>231</number>
+		<cnname>埃塞俄比亚</cnname>
+		<fullcnname>埃塞俄比亚联邦民主共和国</fullcnname>
+		<enname>ETHIOPIA</enname>
+		<fullenname>Federal Democratic Republic of Ethiopia</fullenname>
+	</country>
+	<country>
+		<code>FIN</code>
+		<number>246</number>
+		<cnname>芬兰</cnname>
+		<fullcnname>芬兰共和国</fullcnname>
+		<enname>FINLAND</enname>
+		<fullenname>Republic of Finland</fullenname>
+	</country>
+	<country>
+		<code>FJI</code>
+		<number>242</number>
+		<cnname>斐济</cnname>
+		<fullcnname>斐济群岛共和国</fullcnname>
+		<enname>FIJI</enname>
+		<fullenname>Republic of the Fiji Islands</fullenname>
+	</country>
+	<country>
+		<code>FLK</code>
+		<number>238</number>
+		<cnname>福克兰群岛（马尔维纳斯群岛）</cnname>
+		<fullcnname>福克兰群岛(马尔维纳斯群岛)</fullcnname>
+		<enname>FALKLAND ISLANDS(MALVINAS)</enname>
+		<fullenname>Falkland Islands (Malvinas)</fullenname>
+	</country>
+	<country>
+		<code>FRA</code>
+		<number>250</number>
+		<cnname>法国</cnname>
+		<fullcnname>法兰西共和国</fullcnname>
+		<enname>FRANCE</enname>
+		<fullenname>French Republic</fullenname>
+	</country>
+	<country>
+		<code>FRO</code>
+		<number>234</number>
+		<cnname>法罗群岛</cnname>
+		<fullcnname>法罗群岛</fullcnname>
+		<enname>FAROE ISLANDS</enname>
+		<fullenname>Faroe Islands</fullenname>
+	</country>
+	<country>
+		<code>FSM</code>
+		<number>583</number>
+		<cnname>密克罗尼西亚联邦</cnname>
+		<fullcnname>密克罗尼西亚联邦</fullcnname>
+		<enname>MICRONESIA,FEDERATED STATES OF</enname>
+		<fullenname>Federated States of Micronesia</fullenname>
+	</country>
+	<country>
+		<code>GAB</code>
+		<number>266</number>
+		<cnname>加蓬</cnname>
+		<fullcnname>加蓬共和国</fullcnname>
+		<enname>GABON</enname>
+		<fullenname>Gabonese Republic</fullenname>
+	</country>
+	<country>
+		<code>GBR</code>
+		<number>826</number>
+		<cnname>英国</cnname>
+		<fullcnname>大不列颠及北爱尔兰联合王国</fullcnname>
+		<enname>UNITED KINGDOM</enname>
+		<fullenname>United Kingdom of Great Britain and Northern lreland
+		</fullenname>
+	</country>
+	<country>
+		<code>GEO</code>
+		<number>268</number>
+		<cnname>格鲁吉亚</cnname>
+		<fullcnname>格鲁吉亚</fullcnname>
+		<enname>GEORGIA</enname>
+		<fullenname>Georgia</fullenname>
+	</country>
+	<country>
+		<code>GHA</code>
+		<number>288</number>
+		<cnname>加纳</cnname>
+		<fullcnname>加纳共和国</fullcnname>
+		<enname>GHANA</enname>
+		<fullenname>Republic of Ghana</fullenname>
+	</country>
+	<country>
+		<code>GIB</code>
+		<number>292</number>
+		<cnname>直布罗陀</cnname>
+		<fullcnname>直布罗陀</fullcnname>
+		<enname>GIBRALTAR</enname>
+		<fullenname>Gibraltar</fullenname>
+	</country>
+	<country>
+		<code>GIN</code>
+		<number>324</number>
+		<cnname>几内亚</cnname>
+		<fullcnname>几内亚共和国</fullcnname>
+		<enname>GUINEA</enname>
+		<fullenname>Republic of Guinea</fullenname>
+	</country>
+	<country>
+		<code>GLP</code>
+		<number>312</number>
+		<cnname>瓜德罗普</cnname>
+		<fullcnname>瓜德罗普</fullcnname>
+		<enname>GUADELOUPE</enname>
+		<fullenname>Guadeloupe</fullenname>
+	</country>
+	<country>
+		<code>GMB</code>
+		<number>270</number>
+		<cnname>冈比亚</cnname>
+		<fullcnname>冈比亚共和国</fullcnname>
+		<enname>GAMBIA</enname>
+		<fullenname>Republic of the Gambia</fullenname>
+	</country>
+	<country>
+		<code>GNB</code>
+		<number>624</number>
+		<cnname>几内亚比绍</cnname>
+		<fullcnname>几内亚比绍共和国</fullcnname>
+		<enname>GUINEA-BISSAU</enname>
+		<fullenname>Republic of Guinea-Bissau</fullenname>
+	</country>
+	<country>
+		<code>GNQ</code>
+		<number>226</number>
+		<cnname>赤道几内亚</cnname>
+		<fullcnname>赤道几内亚共和国</fullcnname>
+		<enname>EQUATORIAL GUINEA</enname>
+		<fullenname>Republic of Equatorial Guinea</fullenname>
+	</country>
+	<country>
+		<code>GRC</code>
+		<number>300</number>
+		<cnname>希腊</cnname>
+		<fullcnname>希腊共和国</fullcnname>
+		<enname>GREECE</enname>
+		<fullenname>Hellenic Republic</fullenname>
+	</country>
+	<country>
+		<code>GRD</code>
+		<number>308</number>
+		<cnname>格林纳达</cnname>
+		<fullcnname>格林纳达</fullcnname>
+		<enname>GRENADA</enname>
+		<fullenname>Grenada</fullenname>
+	</country>
+	<country>
+		<code>GRL</code>
+		<number>304</number>
+		<cnname>格陵兰</cnname>
+		<fullcnname>格陵兰</fullcnname>
+		<enname>GREENLAND</enname>
+		<fullenname>Greenland</fullenname>
+	</country>
+	<country>
+		<code>GTM</code>
+		<number>320</number>
+		<cnname>危地马拉</cnname>
+		<fullcnname>危地马拉共和国</fullcnname>
+		<enname>GUATEMALA</enname>
+		<fullenname>Republic of Guatemala</fullenname>
+	</country>
+	<country>
+		<code>GUF</code>
+		<number>254</number>
+		<cnname>法属圭亚那</cnname>
+		<fullcnname>法属圭亚那</fullcnname>
+		<enname>FRENCH GUIANA</enname>
+		<fullenname>French Guiana</fullenname>
+	</country>
+	<country>
+		<code>GUM</code>
+		<number>316</number>
+		<cnname>关岛</cnname>
+		<fullcnname>关岛</fullcnname>
+		<enname>GUAM</enname>
+		<fullenname>Guam</fullenname>
+	</country>
+	<country>
+		<code>GUY</code>
+		<number>328</number>
+		<cnname>圭亚那</cnname>
+		<fullcnname>圭亚那合作共和国</fullcnname>
+		<enname>GUYANA</enname>
+		<fullenname>Cooperative Republic of Guyana</fullenname>
+	</country>
+	<country>
+		<code>HKG</code>
+		<number>344</number>
+		<cnname>香港</cnname>
+		<fullcnname>中国香港特别行政区</fullcnname>
+		<enname>HONG KONG</enname>
+		<fullenname>Hong Kong Special Administrative Region of China
+		</fullenname>
+	</country>
+	<country>
+		<code>HMD</code>
+		<number>334</number>
+		<cnname>赫德岛和麦克唐纳岛</cnname>
+		<fullcnname>赫德岛和麦克唐纳岛</fullcnname>
+		<enname>HEARD ISLAND AND MCDONALD ISLANDS</enname>
+		<fullenname>Heard Island and Mcdonald Islands</fullenname>
+	</country>
+	<country>
+		<code>HND</code>
+		<number>340</number>
+		<cnname>洪都拉斯</cnname>
+		<fullcnname>洪都拉斯共和国</fullcnname>
+		<enname>HONDURAS</enname>
+		<fullenname>Republic of Honduras</fullenname>
+	</country>
+	<country>
+		<code>HRV</code>
+		<number>191</number>
+		<cnname>克罗地亚</cnname>
+		<fullcnname>克罗地亚共和国</fullcnname>
+		<enname>CROATIA</enname>
+		<fullenname>Republic of Croatia</fullenname>
+	</country>
+	<country>
+		<code>HTI</code>
+		<number>332</number>
+		<cnname>海地</cnname>
+		<fullcnname>海地共和国</fullcnname>
+		<enname>HAITI</enname>
+		<fullenname>Republic of Haiti</fullenname>
+	</country>
+	<country>
+		<code>HUN</code>
+		<number>348</number>
+		<cnname>匈牙利</cnname>
+		<fullcnname>匈牙利共和国</fullcnname>
+		<enname>HUNGARY</enname>
+		<fullenname>Republic of Hungary</fullenname>
+	</country>
+	<country>
+		<code>IDN</code>
+		<number>360</number>
+		<cnname>印度尼西亚</cnname>
+		<fullcnname>印度尼西亚共和国</fullcnname>
+		<enname>INDONESIA</enname>
+		<fullenname>Republic of Indonesia</fullenname>
+	</country>
+	<country>
+		<code>IMN</code>
+		<number>833</number>
+		<cnname>马恩岛</cnname>
+		<fullcnname>英属马恩岛</fullcnname>
+		<enname>ISLE OF MAN</enname>
+		<fullenname>Isle of Man，British Independency</fullenname>
+	</country>
+	<country>
+		<code>IND</code>
+		<number>356</number>
+		<cnname>印度</cnname>
+		<fullcnname>印度共和国</fullcnname>
+		<enname>INDIA</enname>
+		<fullenname>Republic of India</fullenname>
+	</country>
+	<country>
+		<code>IOT</code>
+		<number>086</number>
+		<cnname>英属印度洋领地</cnname>
+		<fullcnname>英属印度洋领地</fullcnname>
+		<enname>BRITISH INDIAN OCEAN TERRITORY</enname>
+		<fullenname>British Indian Ocean Territory</fullenname>
+	</country>
+	<country>
+		<code>IRL</code>
+		<number>372</number>
+		<cnname>爱尔兰</cnname>
+		<fullcnname>爱尔兰</fullcnname>
+		<enname>IRELAND</enname>
+		<fullenname>Ireland</fullenname>
+	</country>
+	<country>
+		<code>IRN</code>
+		<number>364</number>
+		<cnname>伊朗</cnname>
+		<fullcnname>伊朗伊斯兰共和国</fullcnname>
+		<enname>IRAN</enname>
+		<fullenname>Islamic Republic of Iran</fullenname>
+	</country>
+	<country>
+		<code>IRQ</code>
+		<number>368</number>
+		<cnname>伊拉克</cnname>
+		<fullcnname>伊拉克共和国</fullcnname>
+		<enname>IRAQ</enname>
+		<fullenname>Republic of Iraq</fullenname>
+	</country>
+	<country>
+		<code>ISL</code>
+		<number>352</number>
+		<cnname>冰岛</cnname>
+		<fullcnname>冰岛共和国</fullcnname>
+		<enname>ICELAND</enname>
+		<fullenname>Republic of Iceland</fullenname>
+	</country>
+	<country>
+		<code>ISR</code>
+		<number>376</number>
+		<cnname>以色列</cnname>
+		<fullcnname>以色列国</fullcnname>
+		<enname>ISRAEL</enname>
+		<fullenname>State of Israel</fullenname>
+	</country>
+	<country>
+		<code>ITA</code>
+		<number>380</number>
+		<cnname>意大利</cnname>
+		<fullcnname>意大利共和国</fullcnname>
+		<enname>ITALY</enname>
+		<fullenname>Italian Republic</fullenname>
+	</country>
+	<country>
+		<code>JAM</code>
+		<number>388</number>
+		<cnname>牙买加</cnname>
+		<fullcnname>牙买加</fullcnname>
+		<enname>JAMAICA</enname>
+		<fullenname>Jamaica</fullenname>
+	</country>
+	<country>
+		<code>JOR</code>
+		<number>400</number>
+		<cnname>约旦</cnname>
+		<fullcnname>约旦哈希姆王国</fullcnname>
+		<enname>JORDAN</enname>
+		<fullenname>Hashemite Kingdom of Jordan</fullenname>
+	</country>
+	<country>
+		<code>JPN</code>
+		<number>392</number>
+		<cnname>日本</cnname>
+		<fullcnname>日本国</fullcnname>
+		<enname>JAPAN</enname>
+		<fullenname>Japan</fullenname>
+	</country>
+	<country>
+		<code>KAZ</code>
+		<number>398</number>
+		<cnname>哈萨克斯坦</cnname>
+		<fullcnname>哈萨克斯坦共和国</fullcnname>
+		<enname>KAZAKHSTAN</enname>
+		<fullenname>Republic of Kazakhstan</fullenname>
+	</country>
+	<country>
+		<code>KEN</code>
+		<number>404</number>
+		<cnname>肯尼亚</cnname>
+		<fullcnname>肯尼亚共和国</fullcnname>
+		<enname>KENYA</enname>
+		<fullenname>Republic of Kenya</fullenname>
+	</country>
+	<country>
+		<code>KGZ</code>
+		<number>417</number>
+		<cnname>吉尔吉斯斯坦</cnname>
+		<fullcnname>吉尔吉斯共和国</fullcnname>
+		<enname>KYRGYZSTAN</enname>
+		<fullenname>Kyrgyz Republic</fullenname>
+	</country>
+	<country>
+		<code>KHM</code>
+		<number>116</number>
+		<cnname>柬埔寨</cnname>
+		<fullcnname>柬埔寨王国</fullcnname>
+		<enname>CAMBODIA</enname>
+		<fullenname>Kingdom of Cambodia</fullenname>
+	</country>
+	<country>
+		<code>KIR</code>
+		<number>296</number>
+		<cnname>基里巴斯</cnname>
+		<fullcnname>基里巴斯共和国</fullcnname>
+		<enname>KIRIBATI</enname>
+		<fullenname>Republic of Kiribati</fullenname>
+	</country>
+	<country>
+		<code>KNA</code>
+		<number>659</number>
+		<cnname>圣基茨和尼维斯</cnname>
+		<fullcnname>圣基茨和尼维斯联邦</fullcnname>
+		<enname>SAINT KITTS AND NEVIS</enname>
+		<fullenname>Federation of Saint Kitts and Nevis</fullenname>
+	</country>
+	<country>
+		<code>KOR</code>
+		<number>410</number>
+		<cnname>韩国</cnname>
+		<fullcnname>大韩民国</fullcnname>
+		<enname>KOREA,REPUBLIC OF KOREA</enname>
+		<fullenname>Republic of Korea</fullenname>
+	</country>
+	<country>
+		<code>KWT</code>
+		<number>414</number>
+		<cnname>科威特</cnname>
+		<fullcnname>科威特国</fullcnname>
+		<enname>KUWAIT</enname>
+		<fullenname>State of Kuwait</fullenname>
+	</country>
+	<country>
+		<code>LAO</code>
+		<number>418</number>
+		<cnname>老挝</cnname>
+		<fullcnname>老挝人民民主共和国</fullcnname>
+		<enname>LAOS</enname>
+		<fullenname>Lao Peoples Democratic Republic</fullenname>
+	</country>
+	<country>
+		<code>LBN</code>
+		<number>422</number>
+		<cnname>黎巴嫩</cnname>
+		<fullcnname>黎巴嫩共和国</fullcnname>
+		<enname>LEBANON</enname>
+		<fullenname>Lebanese Republic</fullenname>
+	</country>
+	<country>
+		<code>LBR</code>
+		<number>430</number>
+		<cnname>利比里亚</cnname>
+		<fullcnname>利比里亚共和国</fullcnname>
+		<enname>LIBERIA</enname>
+		<fullenname>Republic of Liberia</fullenname>
+	</country>
+	<country>
+		<code>LBY</code>
+		<number>434</number>
+		<cnname>利比亚</cnname>
+		<fullcnname>大阿拉伯利比亚人民社会主义民众国</fullcnname>
+		<enname>LIBYA</enname>
+		<fullenname>Great Socialist Peoples Libyan Arab Jamahiriya
+		</fullenname>
+	</country>
+	<country>
+		<code>LCA</code>
+		<number>662</number>
+		<cnname>圣卢西亚</cnname>
+		<fullcnname>圣卢西亚</fullcnname>
+		<enname>SAINT LUCIA</enname>
+		<fullenname>Saint Lucia</fullenname>
+	</country>
+	<country>
+		<code>LIE</code>
+		<number>438</number>
+		<cnname>列支敦士登</cnname>
+		<fullcnname>列支敦士登公国</fullcnname>
+		<enname>LIECHTENSTEIN</enname>
+		<fullenname>Principality of Liechtenstein</fullenname>
+	</country>
+	<country>
+		<code>LKA</code>
+		<number>144</number>
+		<cnname>斯里兰卡</cnname>
+		<fullcnname>斯里兰卡民主社会主义共和国</fullcnname>
+		<enname>SRI LANKA</enname>
+		<fullenname>Democratic Socialist Republic of Sri Lanka</fullenname>
+	</country>
+	<country>
+		<code>LSO</code>
+		<number>426</number>
+		<cnname>莱索托</cnname>
+		<fullcnname>莱索托王国</fullcnname>
+		<enname>LESOTHO</enname>
+		<fullenname>Kingdom of Lesotho</fullenname>
+	</country>
+	<country>
+		<code>LTU</code>
+		<number>440</number>
+		<cnname>立陶宛</cnname>
+		<fullcnname>立陶宛共和国</fullcnname>
+		<enname>LITHUANIA</enname>
+		<fullenname>Republic of Lithuania</fullenname>
+	</country>
+	<country>
+		<code>LUX</code>
+		<number>442</number>
+		<cnname>卢森堡</cnname>
+		<fullcnname>卢森堡大公国</fullcnname>
+		<enname>LUXEMBOURG</enname>
+		<fullenname>Grand Duchy of Luxembourg</fullenname>
+	</country>
+	<country>
+		<code>LVA</code>
+		<number>428</number>
+		<cnname>拉脱维亚</cnname>
+		<fullcnname>拉脱维亚共和国</fullcnname>
+		<enname>LATVIA</enname>
+		<fullenname>Republic of Latvia</fullenname>
+	</country>
+	<country>
+		<code>MAC</code>
+		<number>446</number>
+		<cnname>澳门</cnname>
+		<fullcnname>中国澳门特别行政区</fullcnname>
+		<enname>MACAU</enname>
+		<fullenname>Macau Special Administrative Region of China</fullenname>
+	</country>
+	<country>
+		<code>MAR</code>
+		<number>504</number>
+		<cnname>摩洛哥</cnname>
+		<fullcnname>摩洛哥王国</fullcnname>
+		<enname>MOROCCO</enname>
+		<fullenname>Kingdom of Morocco</fullenname>
+	</country>
+	<country>
+		<code>MCO</code>
+		<number>492</number>
+		<cnname>摩纳哥</cnname>
+		<fullcnname>摩纳哥公国</fullcnname>
+		<enname>MONACO</enname>
+		<fullenname>Principality of Monaco</fullenname>
+	</country>
+	<country>
+		<code>MDA</code>
+		<number>498</number>
+		<cnname>摩尔多瓦</cnname>
+		<fullcnname>摩尔多瓦共和国</fullcnname>
+		<enname>MOLDOVA</enname>
+		<fullenname>Republic of Moldova</fullenname>
+	</country>
+	<country>
+		<code>MDG</code>
+		<number>450</number>
+		<cnname>马达加斯加</cnname>
+		<fullcnname>马达加斯加共和国</fullcnname>
+		<enname>MADAGASCAR</enname>
+		<fullenname>Republic of Madagascar</fullenname>
+	</country>
+	<country>
+		<code>MDV</code>
+		<number>462</number>
+		<cnname>马尔代夫</cnname>
+		<fullcnname>马尔代夫共和国</fullcnname>
+		<enname>MALDIVES</enname>
+		<fullenname>Republic of Maldives</fullenname>
+	</country>
+	<country>
+		<code>MEX</code>
+		<number>484</number>
+		<cnname>墨西哥</cnname>
+		<fullcnname>墨西哥合众国</fullcnname>
+		<enname>MEXICO</enname>
+		<fullenname>United States of Mexico</fullenname>
+	</country>
+	<country>
+		<code>MHL</code>
+		<number>584</number>
+		<cnname>马绍尔群岛</cnname>
+		<fullcnname>马绍尔群岛共和国</fullcnname>
+		<enname>MARSHALL ISLANDS</enname>
+		<fullenname>Republic of the Marshall Islands</fullenname>
+	</country>
+	<country>
+		<code>MKD</code>
+		<number>807</number>
+		<cnname>前南马其顿</cnname>
+		<fullcnname>前南斯拉夫马其顿共和国</fullcnname>
+		<enname>MACEDONIA,THE FORMER YUGOSLAV REPUBLIC OF</enname>
+		<fullenname>The former Yugoslav Republic of Macedonia</fullenname>
+	</country>
+	<country>
+		<code>MLI</code>
+		<number>466</number>
+		<cnname>马里</cnname>
+		<fullcnname>马里共和国</fullcnname>
+		<enname>MALI</enname>
+		<fullenname>Republic of Mali</fullenname>
+	</country>
+	<country>
+		<code>MLT</code>
+		<number>470</number>
+		<cnname>马耳他</cnname>
+		<fullcnname>马耳他共和国</fullcnname>
+		<enname>MALTA</enname>
+		<fullenname>Republic of Malta</fullenname>
+	</country>
+	<country>
+		<code>MMR</code>
+		<number>104</number>
+		<cnname>缅甸</cnname>
+		<fullcnname>缅甸联邦</fullcnname>
+		<enname>MYANMAR</enname>
+		<fullenname>Union of Myanmar</fullenname>
+	</country>
+	<country>
+		<code>MNE</code>
+		<number>499</number>
+		<cnname>黑山</cnname>
+		<fullcnname>黑山</fullcnname>
+		<enname>MONTENEGRO</enname>
+		<fullenname>Republic of Montenegro</fullenname>
+	</country>
+	<country>
+		<code>MNG</code>
+		<number>496</number>
+		<cnname>蒙古</cnname>
+		<fullcnname>蒙古国</fullcnname>
+		<enname>MONGOLIA</enname>
+		<fullenname>Mongolia</fullenname>
+	</country>
+	<country>
+		<code>MNP</code>
+		<number>580</number>
+		<cnname>北马里亚纳</cnname>
+		<fullcnname>北马里亚纳自由联邦</fullcnname>
+		<enname>NORTHERN ISLANDS</enname>
+		<fullenname>Commonwealth of the IVIariana Islands</fullenname>
+	</country>
+	<country>
+		<code>MOZ</code>
+		<number>508</number>
+		<cnname>莫桑比克</cnname>
+		<fullcnname>莫桑比克共和国</fullcnname>
+		<enname>MOZAMBIQUE</enname>
+		<fullenname>Republic of Mozambique</fullenname>
+	</country>
+	<country>
+		<code>MRT</code>
+		<number>478</number>
+		<cnname>毛里塔尼亚</cnname>
+		<fullcnname>毛里塔尼亚伊斯兰共和国</fullcnname>
+		<enname>MAURITANIA</enname>
+		<fullenname>Islamic Republic of Mauritania</fullenname>
+	</country>
+	<country>
+		<code>MSR</code>
+		<number>500</number>
+		<cnname>蒙特塞拉特</cnname>
+		<fullcnname>蒙特塞拉特</fullcnname>
+		<enname>MONTSERRAT</enname>
+		<fullenname>Montserrat</fullenname>
+	</country>
+	<country>
+		<code>MTQ</code>
+		<number>474</number>
+		<cnname>马提尼克</cnname>
+		<fullcnname>马提尼克</fullcnname>
+		<enname>MARTINIQUE</enname>
+		<fullenname>Martinique</fullenname>
+	</country>
+	<country>
+		<code>MUS</code>
+		<number>480</number>
+		<cnname>毛里求斯</cnname>
+		<fullcnname>毛里求斯共和国</fullcnname>
+		<enname>MAURITIUS</enname>
+		<fullenname>Republic of Mauritius</fullenname>
+	</country>
+	<country>
+		<code>MWI</code>
+		<number>454</number>
+		<cnname>马拉维</cnname>
+		<fullcnname>马拉维共和国</fullcnname>
+		<enname>MALAWI</enname>
+		<fullenname>Republic of Malawi</fullenname>
+	</country>
+	<country>
+		<code>MYS</code>
+		<number>458</number>
+		<cnname>马来西亚</cnname>
+		<fullcnname>马来西亚</fullcnname>
+		<enname>MALAYSIA</enname>
+		<fullenname>Malaysia</fullenname>
+	</country>
+	<country>
+		<code>MYT</code>
+		<number>175</number>
+		<cnname>马约特</cnname>
+		<fullcnname>马约特</fullcnname>
+		<enname>MAYOTTE</enname>
+		<fullenname>Mayotte</fullenname>
+	</country>
+	<country>
+		<code>NAM</code>
+		<number>516</number>
+		<cnname>纳米比亚</cnname>
+		<fullcnname>纳米比亚共和国</fullcnname>
+		<enname>NAMIBIA</enname>
+		<fullenname>Republic of Namibia</fullenname>
+	</country>
+	<country>
+		<code>NCL</code>
+		<number>540</number>
+		<cnname>新喀里多尼亚</cnname>
+		<fullcnname>新喀里多尼亚</fullcnname>
+		<enname>NEW CALEDONIA</enname>
+		<fullenname>New Caledonia</fullenname>
+	</country>
+	<country>
+		<code>NER</code>
+		<number>562</number>
+		<cnname>尼日尔</cnname>
+		<fullcnname>尼日尔共和国</fullcnname>
+		<enname>NIGER</enname>
+		<fullenname>Republic of Niger</fullenname>
+	</country>
+	<country>
+		<code>NFK</code>
+		<number>574</number>
+		<cnname>诺福克岛</cnname>
+		<fullcnname>诺福克岛</fullcnname>
+		<enname>NORFOLK ISLAND</enname>
+		<fullenname>Norfolk Island</fullenname>
+	</country>
+	<country>
+		<code>NGA</code>
+		<number>566</number>
+		<cnname>尼日利亚</cnname>
+		<fullcnname>尼日利亚联邦共和国</fullcnname>
+		<enname>NIGERIA</enname>
+		<fullenname>Federal Republic of Nigeria</fullenname>
+	</country>
+	<country>
+		<code>NIC</code>
+		<number>558</number>
+		<cnname>尼加拉瓜</cnname>
+		<fullcnname>尼加拉瓜共和国</fullcnname>
+		<enname>NICARAGUA</enname>
+		<fullenname>Republic of Nicaragua</fullenname>
+	</country>
+	<country>
+		<code>NIU</code>
+		<number>570</number>
+		<cnname>纽埃</cnname>
+		<fullcnname>纽埃</fullcnname>
+		<enname>NIUE</enname>
+		<fullenname>Niue</fullenname>
+	</country>
+	<country>
+		<code>NLD</code>
+		<number>528</number>
+		<cnname>荷兰</cnname>
+		<fullcnname>荷兰王国</fullcnname>
+		<enname>NETHERLANDS</enname>
+		<fullenname>Kingdom of the Netherlands</fullenname>
+	</country>
+	<country>
+		<code>NOR</code>
+		<number>578</number>
+		<cnname>挪威</cnname>
+		<fullcnname>挪威王国</fullcnname>
+		<enname>NORWAY</enname>
+		<fullenname>Kingdom of Norway</fullenname>
+	</country>
+	<country>
+		<code>NPL</code>
+		<number>524</number>
+		<cnname>尼泊尔</cnname>
+		<fullcnname>尼泊尔王国</fullcnname>
+		<enname>NEPAL</enname>
+		<fullenname>Kingdom of Nepal</fullenname>
+	</country>
+	<country>
+		<code>NRU</code>
+		<number>520</number>
+		<cnname>瑙鲁</cnname>
+		<fullcnname>瑙鲁共和国</fullcnname>
+		<enname>NAURU</enname>
+		<fullenname>Republic of Nauru</fullenname>
+	</country>
+	<country>
+		<code>NZL</code>
+		<number>554</number>
+		<cnname>新西兰</cnname>
+		<fullcnname>新西兰</fullcnname>
+		<enname>NEW ZEALAND</enname>
+		<fullenname>New Zealand</fullenname>
+	</country>
+	<country>
+		<code>OMN</code>
+		<number>512</number>
+		<cnname>阿曼</cnname>
+		<fullcnname>阿曼苏丹国</fullcnname>
+		<enname>OMAN</enname>
+		<fullenname>Sultanate of Oman</fullenname>
+	</country>
+	<country>
+		<code>PAK</code>
+		<number>586</number>
+		<cnname>巴基斯坦</cnname>
+		<fullcnname>巴基斯坦伊斯兰共和国</fullcnname>
+		<enname>PAKISTAN</enname>
+		<fullenname>Islamic Republic of Pakistan</fullenname>
+	</country>
+	<country>
+		<code>PAN</code>
+		<number>591</number>
+		<cnname>巴拿马</cnname>
+		<fullcnname>巴拿马共和国</fullcnname>
+		<enname>PANAMA</enname>
+		<fullenname>Republic of Panama</fullenname>
+	</country>
+	<country>
+		<code>PCN</code>
+		<number>612</number>
+		<cnname>皮特凯恩</cnname>
+		<fullcnname>皮特凯恩</fullcnname>
+		<enname>PITCAIRN</enname>
+		<fullenname>Pitcairn</fullenname>
+	</country>
+	<country>
+		<code>PER</code>
+		<number>604</number>
+		<cnname>秘鲁</cnname>
+		<fullcnname>秘鲁共和国</fullcnname>
+		<enname>PERU</enname>
+		<fullenname>Republic of Peru</fullenname>
+	</country>
+	<country>
+		<code>PHL</code>
+		<number>608</number>
+		<cnname>菲律宾</cnname>
+		<fullcnname>菲律宾共和国</fullcnname>
+		<enname>PHILIPPINES</enname>
+		<fullenname>Republic of the Philippines</fullenname>
+	</country>
+	<country>
+		<code>PLW</code>
+		<number>585</number>
+		<cnname>帕劳</cnname>
+		<fullcnname>帕劳共和国</fullcnname>
+		<enname>PALAU</enname>
+		<fullenname>Republie of Palau</fullenname>
+	</country>
+	<country>
+		<code>PNG</code>
+		<number>598</number>
+		<cnname>巴布亚新几内亚</cnname>
+		<fullcnname>巴布亚新几内亚独立国</fullcnname>
+		<enname>PAPUA NEW GUINEA</enname>
+		<fullenname>Independent State of Papua New Guinea</fullenname>
+	</country>
+	<country>
+		<code>POL</code>
+		<number>616</number>
+		<cnname>波兰</cnname>
+		<fullcnname>波兰共和国</fullcnname>
+		<enname>POLAND</enname>
+		<fullenname>Republic of Poland</fullenname>
+	</country>
+	<country>
+		<code>PRI</code>
+		<number>630</number>
+		<cnname>波多黎各</cnname>
+		<fullcnname>波多黎各自由联邦</fullcnname>
+		<enname>PUERTO RICO</enname>
+		<fullenname>Puerto Rico</fullenname>
+	</country>
+	<country>
+		<code>PRK</code>
+		<number>408</number>
+		<cnname>朝鲜</cnname>
+		<fullcnname>朝鲜民主主义人民共和国</fullcnname>
+		<enname>KOREA,DEMOCRATIC PEOPLES REPUBLIC OF</enname>
+		<fullenname>Democratic Peoples Republic of Korea</fullenname>
+	</country>
+	<country>
+		<code>PRT</code>
+		<number>620</number>
+		<cnname>葡萄牙</cnname>
+		<fullcnname>葡萄牙共和国</fullcnname>
+		<enname>PORTUGAL</enname>
+		<fullenname>Portuguese Republic</fullenname>
+	</country>
+	<country>
+		<code>PRY</code>
+		<number>600</number>
+		<cnname>巴拉圭</cnname>
+		<fullcnname>巴拉圭共和国</fullcnname>
+		<enname>PARAGUAY</enname>
+		<fullenname>Republic of Paraguay</fullenname>
+	</country>
+	<country>
+		<code>PSE</code>
+		<number>275</number>
+		<cnname>巴勒斯坦</cnname>
+		<fullcnname>巴勒斯坦国</fullcnname>
+		<enname>PALESTINE</enname>
+		<fullenname>State of Palestine</fullenname>
+	</country>
+	<country>
+		<code>PYF</code>
+		<number>258</number>
+		<cnname>法属波利尼西亚</cnname>
+		<fullcnname>法属波利尼西亚</fullcnname>
+		<enname>FRENCH POLYNESIA</enname>
+		<fullenname>French Polynesia</fullenname>
+	</country>
+	<country>
+		<code>QAT</code>
+		<number>634</number>
+		<cnname>卡塔尔</cnname>
+		<fullcnname>卡塔尔国</fullcnname>
+		<enname>QATAR</enname>
+		<fullenname>State of Qatar</fullenname>
+	</country>
+	<country>
+		<code>REU</code>
+		<number>638</number>
+		<cnname>留尼汪</cnname>
+		<fullcnname>留尼汪</fullcnname>
+		<enname>REUNION</enname>
+		<fullenname>Reunion</fullenname>
+	</country>
+	<country>
+		<code>ROM</code>
+		<number>642</number>
+		<cnname>罗马尼亚</cnname>
+		<fullcnname>罗马尼亚</fullcnname>
+		<enname>ROMANIA</enname>
+		<fullenname>Romania</fullenname>
+	</country>
+	<country>
+		<code>RUS</code>
+		<number>643</number>
+		<cnname>俄罗斯联邦</cnname>
+		<fullcnname>俄罗斯联邦</fullcnname>
+		<enname>RUSSIAN FEDERATION</enname>
+		<fullenname>Russian Federation</fullenname>
+	</country>
+	<country>
+		<code>RWA</code>
+		<number>646</number>
+		<cnname>卢旺达</cnname>
+		<fullcnname>卢旺达共和国</fullcnname>
+		<enname>RWANDA</enname>
+		<fullenname>Republic of Rwanda</fullenname>
+	</country>
+	<country>
+		<code>SAU</code>
+		<number>682</number>
+		<cnname>沙特阿拉伯</cnname>
+		<fullcnname>沙特阿拉伯王国</fullcnname>
+		<enname>SAUDI ARABIA</enname>
+		<fullenname>Kingdom of Saudi Arabia</fullenname>
+	</country>
+	<country>
+		<code>SDN</code>
+		<number>736</number>
+		<cnname>苏丹</cnname>
+		<fullcnname>苏丹共和国</fullcnname>
+		<enname>SUDAN</enname>
+		<fullenname>Republic of the Sudan</fullenname>
+	</country>
+	<country>
+		<code>SEN</code>
+		<number>686</number>
+		<cnname>塞内加尔</cnname>
+		<fullcnname>塞内加尔共和国</fullcnname>
+		<enname>SENEGAL</enname>
+		<fullenname>Republic of Senegal</fullenname>
+	</country>
+	<country>
+		<code>SGP</code>
+		<number>702</number>
+		<cnname>新加坡</cnname>
+		<fullcnname>新加坡共和国</fullcnname>
+		<enname>SINGAPORE</enname>
+		<fullenname>Republic of Singapore</fullenname>
+	</country>
+	<country>
+		<code>SGS</code>
+		<number>239</number>
+		<cnname>南乔治亚岛和南桑德韦奇岛</cnname>
+		<fullcnname>南乔治亚岛和南桑德韦奇岛</fullcnname>
+		<enname>SOUTH GEORGIA AND THE SOT JTH SANDWICH ISLANDS</enname>
+		<fullenname>South Georgia and the South Sandwich Islands</fullenname>
+	</country>
+	<country>
+		<code>SHN</code>
+		<number>654</number>
+		<cnname>圣赫勒拿</cnname>
+		<fullcnname>圣赫勒拿</fullcnname>
+		<enname>SAINT HELENA</enname>
+		<fullenname>Saint Helena</fullenname>
+	</country>
+	<country>
+		<code>SJM</code>
+		<number>744</number>
+		<cnname>斯瓦尔巴岛和扬马延岛</cnname>
+		<fullcnname>斯瓦尔巴岛和扬马延岛</fullcnname>
+		<enname>SVALBARD AND JAN MAYEN</enname>
+		<fullenname>Svalbard and Jan Mayen</fullenname>
+	</country>
+	<country>
+		<code>SLB</code>
+		<number>090</number>
+		<cnname>所罗门群岛</cnname>
+		<fullcnname>所罗门群岛</fullcnname>
+		<enname>SOLOMON ISLANDS</enname>
+		<fullenname>Solomon Islands</fullenname>
+	</country>
+	<country>
+		<code>SLE</code>
+		<number>694</number>
+		<cnname>塞拉利昂</cnname>
+		<fullcnname>塞拉利昂共和国</fullcnname>
+		<enname>SIERRA LEONE</enname>
+		<fullenname>Republic of Sierra Leone</fullenname>
+	</country>
+	<country>
+		<code>SLV</code>
+		<number>222</number>
+		<cnname>萨尔瓦多</cnname>
+		<fullcnname>萨尔瓦多共和国</fullcnname>
+		<enname>EL SALVADOR</enname>
+		<fullenname>Republic of El Salvador</fullenname>
+	</country>
+	<country>
+		<code>SMR</code>
+		<number>674</number>
+		<cnname>圣马力诺</cnname>
+		<fullcnname>圣马力诺共和国</fullcnname>
+		<enname>SAN MARINO</enname>
+		<fullenname>Republic of San Marino</fullenname>
+	</country>
+	<country>
+		<code>SOM</code>
+		<number>706</number>
+		<cnname>索马里</cnname>
+		<fullcnname>索马里共和国</fullcnname>
+		<enname>SOMALIA</enname>
+		<fullenname>Somali Republic</fullenname>
+	</country>
+	<country>
+		<code>SPM</code>
+		<number>666</number>
+		<cnname>圣皮埃尔和密克隆</cnname>
+		<fullcnname>圣皮埃尔和密克隆</fullcnname>
+		<enname>SAINT PIERRE AND MIQUELON</enname>
+		<fullenname>Saint Pierre and Miquelon</fullenname>
+	</country>
+	<country>
+		<code>SRB</code>
+		<number>688</number>
+		<cnname>塞尔维亚</cnname>
+		<fullcnname>塞尔维亚</fullcnname>
+		<enname>SERBIA</enname>
+		<fullenname>Republic of Serbia</fullenname>
+	</country>
+	<country>
+		<code>STP</code>
+		<number>678</number>
+		<cnname>圣多美和普林西比</cnname>
+		<fullcnname>圣多美和普林西比民主共和国</fullcnname>
+		<enname>SAO TOME AND PRINCIPE</enname>
+		<fullenname>Democratic Republic of Sao Tome and Principe</fullenname>
+	</country>
+	<country>
+		<code>SUR</code>
+		<number>740</number>
+		<cnname>苏里南</cnname>
+		<fullcnname>苏里南共和国</fullcnname>
+		<enname>SURINAME</enname>
+		<fullenname>Republic of Suriname</fullenname>
+	</country>
+	<country>
+		<code>SVK</code>
+		<number>703</number>
+		<cnname>斯洛伐克</cnname>
+		<fullcnname>斯洛伐克共和国</fullcnname>
+		<enname>SLOVAKIA</enname>
+		<fullenname>Slovak Republic</fullenname>
+	</country>
+	<country>
+		<code>SVN</code>
+		<number>705</number>
+		<cnname>斯洛文尼亚</cnname>
+		<fullcnname>斯洛文尼亚共和国</fullcnname>
+		<enname>SLOVENIA</enname>
+		<fullenname>Republic of Slovenia</fullenname>
+	</country>
+	<country>
+		<code>SWE</code>
+		<number>752</number>
+		<cnname>瑞典</cnname>
+		<fullcnname>瑞典王国</fullcnname>
+		<enname>SWEDEN</enname>
+		<fullenname>Kingdom of Sweden</fullenname>
+	</country>
+	<country>
+		<code>SWZ</code>
+		<number>748</number>
+		<cnname>斯威士兰</cnname>
+		<fullcnname>斯威士兰王国</fullcnname>
+		<enname>SWAZILAND</enname>
+		<fullenname>Kingdom of Swaziland</fullenname>
+	</country>
+	<country>
+		<code>SYC</code>
+		<number>690</number>
+		<cnname>塞舌尔</cnname>
+		<fullcnname>塞舌尔共和国</fullcnname>
+		<enname>SEYCHELLES</enname>
+		<fullenname>Republic of Seychelles</fullenname>
+	</country>
+	<country>
+		<code>SYR</code>
+		<number>760</number>
+		<cnname>叙利亚</cnname>
+		<fullcnname>阿拉伯叙利亚共和国</fullcnname>
+		<enname>SYRIAN ARAB REPUBLIC</enname>
+		<fullenname>Syrian Arab Republic</fullenname>
+	</country>
+	<country>
+		<code>TCA</code>
+		<number>796</number>
+		<cnname>特克斯和凯科斯群岛</cnname>
+		<fullcnname>特克斯和凯科斯群岛</fullcnname>
+		<enname>TURKS AND CAICOS ISLANDS</enname>
+		<fullenname>Turks and Caicos lslands</fullenname>
+	</country>
+	<country>
+		<code>TCD</code>
+		<number>148</number>
+		<cnname>乍得</cnname>
+		<fullcnname>乍得共和国</fullcnname>
+		<enname>CHAD</enname>
+		<fullenname>Republic of Chad</fullenname>
+	</country>
+	<country>
+		<code>TGO</code>
+		<number>768</number>
+		<cnname>多哥</cnname>
+		<fullcnname>多哥共和国</fullcnname>
+		<enname>TOGO</enname>
+		<fullenname>Republic of Togo</fullenname>
+	</country>
+	<country>
+		<code>THA</code>
+		<number>764</number>
+		<cnname>泰国</cnname>
+		<fullcnname>泰王国</fullcnname>
+		<enname>THAILAND</enname>
+		<fullenname>Kingdom of Thailand</fullenname>
+	</country>
+	<country>
+		<code>TJK</code>
+		<number>762</number>
+		<cnname>塔吉克斯坦</cnname>
+		<fullcnname>塔吉克斯坦共和国</fullcnname>
+		<enname>TANKISTAN</enname>
+		<fullenname>Republic of Tajikistan</fullenname>
+	</country>
+	<country>
+		<code>TKL</code>
+		<number>772</number>
+		<cnname>托克劳</cnname>
+		<fullcnname>托克劳</fullcnname>
+		<enname>TOKELAU</enname>
+		<fullenname>Tokelau</fullenname>
+	</country>
+	<country>
+		<code>TKM</code>
+		<number>795</number>
+		<cnname>土库曼斯坦</cnname>
+		<fullcnname>土库曼斯坦</fullcnname>
+		<enname>TURKMENISTAN</enname>
+		<fullenname>Turkmenistan</fullenname>
+	</country>
+	<country>
+		<code>TMP</code>
+		<number>626</number>
+		<cnname>东帝汶</cnname>
+		<fullcnname>东帝汶</fullcnname>
+		<enname>EAST TIMOR</enname>
+		<fullenname>East Timor</fullenname>
+	</country>
+	<country>
+		<code>TON</code>
+		<number>776</number>
+		<cnname>汤加</cnname>
+		<fullcnname>汤加王国</fullcnname>
+		<enname>TONGA</enname>
+		<fullenname>Kingdom of Tonga</fullenname>
+	</country>
+	<country>
+		<code>TTO</code>
+		<number>780</number>
+		<cnname>特立尼达和多巴哥</cnname>
+		<fullcnname>特立尼达和多巴哥共和国</fullcnname>
+		<enname>TRINIDAD AND TOBAGO</enname>
+		<fullenname>Republic of Trinidad and Tobago</fullenname>
+	</country>
+	<country>
+		<code>TUN</code>
+		<number>788</number>
+		<cnname>突尼斯</cnname>
+		<fullcnname>突尼斯共和国</fullcnname>
+		<enname>TUNISIA</enname>
+		<fullenname>Republic of Tunisia</fullenname>
+	</country>
+	<country>
+		<code>TUR</code>
+		<number>792</number>
+		<cnname>土耳其</cnname>
+		<fullcnname>土耳其共和国</fullcnname>
+		<enname>TURKEY</enname>
+		<fullenname>Republic of Turkey</fullenname>
+	</country>
+	<country>
+		<code>TUV</code>
+		<number>798</number>
+		<cnname>图瓦卢</cnname>
+		<fullcnname>图瓦卢</fullcnname>
+		<enname>TUVALU</enname>
+		<fullenname>Tuvalu</fullenname>
+	</country>
+	<country>
+		<code>TWN</code>
+		<number>158</number>
+		<cnname>台湾</cnname>
+		<fullcnname>中国台湾</fullcnname>
+		<enname>TAIWAN,PROVINCE OF CHINA</enname>
+		<fullenname>Taiwan,Province of China</fullenname>
+	</country>
+	<country>
+		<code>TZA</code>
+		<number>834</number>
+		<cnname>坦桑尼亚</cnname>
+		<fullcnname>坦桑尼亚联合共和国</fullcnname>
+		<enname>TANZANIA</enname>
+		<fullenname>United Republic of Tanzani</fullenname>
+	</country>
+	<country>
+		<code>UGA</code>
+		<number>800</number>
+		<cnname>乌干达</cnname>
+		<fullcnname>乌干达共和国</fullcnname>
+		<enname>UGANDA</enname>
+		<fullenname>Republic of Uganda</fullenname>
+	</country>
+	<country>
+		<code>UKR</code>
+		<number>804</number>
+		<cnname>乌克兰</cnname>
+		<fullcnname>乌克兰</fullcnname>
+		<enname>UKRAINE</enname>
+		<fullenname>Ukraine</fullenname>
+	</country>
+	<country>
+		<code>UMI</code>
+		<number>581</number>
+		<cnname>美国本土外小岛屿</cnname>
+		<fullcnname>美国本土外小岛屿</fullcnname>
+		<enname>UNITED STATES MINOR OUTLYING ISLANDS</enname>
+		<fullenname>United States Minor Outlying Islands</fullenname>
+	</country>
+	<country>
+		<code>URY</code>
+		<number>858</number>
+		<cnname>乌拉圭</cnname>
+		<fullcnname>乌拉圭东岸共和国</fullcnname>
+		<enname>URUGUAY</enname>
+		<fullenname>Oriental Republic of Uruguay</fullenname>
+	</country>
+	<country>
+		<code>USA</code>
+		<number>840</number>
+		<cnname>美国</cnname>
+		<fullcnname>美利坚合众国</fullcnname>
+		<enname>UNITED STATES</enname>
+		<fullenname>United States of America</fullenname>
+	</country>
+	<country>
+		<code>UZB</code>
+		<number>860</number>
+		<cnname>乌兹别克斯坦</cnname>
+		<fullcnname>乌兹别克斯坦共和国</fullcnname>
+		<enname>UZBEKISTAN</enname>
+		<fullenname>Republic of Uzbekistan</fullenname>
+	</country>
+	<country>
+		<code>VAT</code>
+		<number>336</number>
+		<cnname>梵蒂冈</cnname>
+		<fullcnname>梵蒂冈城国</fullcnname>
+		<enname>VATICAN</enname>
+		<fullenname>Vatican City State</fullenname>
+	</country>
+	<country>
+		<code>VCT</code>
+		<number>670</number>
+		<cnname>圣文森特和格林纳丁斯</cnname>
+		<fullcnname>圣文森特和格林纳丁斯</fullcnname>
+		<enname>SAINT VINCENT AND THE GRENADINES</enname>
+		<fullenname>Saint Vincent and the Grenadines</fullenname>
+	</country>
+	<country>
+		<code>VEN</code>
+		<number>862</number>
+		<cnname>委内瑞拉</cnname>
+		<fullcnname>委内瑞拉共和国</fullcnname>
+		<enname>VENEZUELA</enname>
+		<fullenname>Republic of Venezuela</fullenname>
+	</country>
+	<country>
+		<code>VGB</code>
+		<number>092</number>
+		<cnname>英属维尔京群岛</cnname>
+		<fullcnname>英属维尔京群岛</fullcnname>
+		<enname>VIRGIN ISLANDS,BRITISH</enname>
+		<fullenname>British Virgin Islands</fullenname>
+	</country>
+	<country>
+		<code>VIR</code>
+		<number>850</number>
+		<cnname>美属维尔京群岛</cnname>
+		<fullcnname>美属维尔京群岛</fullcnname>
+		<enname>VIRGIN ISLANDS,U. S.</enname>
+		<fullenname>Virgin Islands of the United States</fullenname>
+	</country>
+	<country>
+		<code>VNM</code>
+		<number>704</number>
+		<cnname>越南</cnname>
+		<fullcnname>越南社会主义共和国</fullcnname>
+		<enname>VIET NAM</enname>
+		<fullenname>Socialist Republic of Viet Nam</fullenname>
+	</country>
+	<country>
+		<code>VUT</code>
+		<number>548</number>
+		<cnname>瓦努阿图</cnname>
+		<fullcnname>瓦努阿图共和国</fullcnname>
+		<enname>VANUATU</enname>
+		<fullenname>Republic of Vanuatu</fullenname>
+	</country>
+	<country>
+		<code>WLF</code>
+		<number>876</number>
+		<cnname>瓦利斯和富图纳</cnname>
+		<fullcnname>瓦利斯和富图纳</fullcnname>
+		<enname>WALLIS AND FUTUNA</enname>
+		<fullenname>Wallis and Futuna</fullenname>
+	</country>
+	<country>
+		<code>WSM</code>
+		<number>882</number>
+		<cnname>萨摩亚</cnname>
+		<fullcnname>萨摩亚独立国</fullcnname>
+		<enname>SAMOA</enname>
+		<fullenname>Independent State of Samoa</fullenname>
+	</country>
+	<country>
+		<code>YEM</code>
+		<number>887</number>
+		<cnname>也门</cnname>
+		<fullcnname>也门共和国</fullcnname>
+		<enname>YEMEN</enname>
+		<fullenname>Republic of Yemen</fullenname>
+	</country>
+	<country>
+		<code>ZAF</code>
+		<number>710</number>
+		<cnname>南非</cnname>
+		<fullcnname>南非共和国</fullcnname>
+		<enname>SOUTH AFRICA</enname>
+		<fullenname>Republic of South Africa</fullenname>
+	</country>
+	<country>
+		<code>ZMB</code>
+		<number>894</number>
+		<cnname>赞比亚</cnname>
+		<fullcnname>赞比亚共和国</fullcnname>
+		<enname>ZAMBIA</enname>
+		<fullenname>Republic of Zambia</fullenname>
+	</country>
+	<country>
+		<code>ZWE</code>
+		<number>716</number>
+		<cnname>津巴布韦</cnname>
+		<fullcnname>津巴布韦共和国</fullcnname>
+		<enname>ZIMBABWE</enname>
+		<fullenname>Republic of Zimbabwe</fullenname>
+	</country>
+</countrys>

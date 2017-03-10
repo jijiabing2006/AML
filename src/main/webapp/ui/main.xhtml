@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+<h:head>
+	<script type="text/javascript" src="#{request.contextPath}/resources/js/default/jquery-1.8.2.min.js" />
+	<script type="text/javascript" src="#{request.contextPath}/resources/js/jquery/jquery-ui.js" />
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/js/default/main.js" />
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/js/default/niceforms.js" />
+			<script type="text/javascript"
+		src="#{request.contextPath}/resources/js/commons.js" />
+		<script type="text/javascript">
+		function killErrors() {
+			showTips("页面脚本代码执行发生异常，已忽略执行！",1);
+		return true;
+		}
+		window.onerror = killErrors;
+	</script>
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/resources/css/default/style.css" />
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/resources/css/default/style_grey.css" />
+
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/resources/css/default/dialog_box.css" />
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/resources/css/jquery/ui.tabs.css" />
+
+</h:head>
+<h:body style="margin-top: 1px;">
+	<div style="margin:3px 0 0 3px;">
+		<ui:insert name="body">Body</ui:insert>
+		<ui:include src="templates/jquery/a4j_status.xhtml"></ui:include>
+	</div>
+	<script type="text/javascript">
+
+	$(document).keydown(function (e) { 
+	var doPrevent; 
+	if (e.keyCode == 8) { 
+	var d = e.srcElement || e.target; 
+	if (d.tagName.toUpperCase() == 'INPUT' || d.tagName.toUpperCase() == 'TEXTAREA') { 
+	doPrevent = d.readOnly || d.disabled; 
+	} 
+	else 
+	doPrevent = true; 
+	} 
+	else 
+	doPrevent = false; 
+
+	if (doPrevent) 
+	e.preventDefault(); 
+	}); 
+
+		window.parent.frameHeader.document.getElementById("loading").style.cssText += ';display:none;';
+	</script>
+</h:body>
+</html>

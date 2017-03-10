@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+<h:head>
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/resources/css/default/style.css" />
+	<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+</h:head>
+<h:body>
+	<p:panel style="border:none;">
+
+		<p:panelGrid id="editMenuRelation" styleClass="rich-table-edit"
+				style="border-top-style: outset; " cellpadding="3">
+			<p:row style="margin-top:1px; border-bottom-style: groove; ">
+				<p:column style="text-align:left;border-right:none;" styleClass="rich-table-edit-outputtext">
+					<span style="white-space: nowrap"> <strong><h:outputText
+								value="#{bundle['role']}: #{roleMBean.role.rolename}" />
+					</strong> </span>
+					
+					</p:column>
+					<p:column>
+					<a4j:commandButton value="#{bundle['save']}"
+						styleClass="btn_bg_l"
+						action="#{menuBean.saveMenuidByUserid}"
+						render="dataTable" execute="editMenuPane"
+						oncomplete="if (#{facesContext.maximumSeverity.ordinal le 1}) {#{rich:component('editMenuPane')}.hide();}" >
+						<a4j:param value="#{roleMBean.role.id}" assignTo="#{menuBean.currentId}" />
+						</a4j:commandButton>
+					
+					<a4j:commandButton value=" #{bundle['cancel']}"
+						styleClass="btn_bg_r"
+						onclick="#{rich:component('editMenuPane')}.hide(); return false;" />
+						<h:inputHidden id="roleid"
+							value="#{roleMBean.role.id}" />
+				</p:column>
+
+			</p:row>
+			<p:row>
+				<p:column style="text-align:left;border-right:none;"
+					styleClass="sidebarmenu" colspan="2">
+
+					<p:tree value="#{menuBean.relationRoot}" var="node" id="checkboxTree"
+						selectionMode="checkbox" selection="#{menuBean.selectedNodes}"
+						datakey="'#{node.id}'">
+
+						<p:treeNode>
+							<h:outputText value="#{node.menuname}"/>
+						</p:treeNode>
+					</p:tree>
+
+				</p:column>
+			</p:row>
+		</p:panelGrid>
+	</p:panel>
+</h:body>
+</html>

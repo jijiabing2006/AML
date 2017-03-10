@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j" xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich">
+<h:head>
+<script type="text/javascript">
+	$(function(){
+		if($("#ifx").text()!=$("#summit").text()) {
+			$("#summit").css('color', 'red');
+		}
+	});
+</script>
+</h:head>
+<h:body>
+	<h:form>
+		<p:fieldset>
+<li><b>当前营业日期</b>:#{outlineMBean.outlineAml.importdate}</li>
+			<p:separator />
+			<p:panelGrid styleClass="rich-table-edit" id="searchGrid">
+
+				<p:row>
+					<p:column styleClass="rich-table-edit-outputtext">
+						<h:outputText id="date_label"
+							value=" #{bundle['search']}营业#{bundle['date']}：" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-left">
+						<a4j:outputPanel layout="block">
+							<rich:calendar styleClass="datetimeBlue" id="importdate"
+								value="#{outlineMBean.querybean.importdate}"
+								boundaryDatesMode="select"
+										showWeeksBar="false"
+								enableManualInput="true" datePattern="yyyy-MM-dd" />
+						</a4j:outputPanel>
+					</p:column>
+
+					<p:column colspan="2">
+						<a4j:commandLink render="amlsummary" execute="@form"
+							action="#{outlineMBean.getOutlineAml()}">
+							<h:graphicImage value="/images/searchdata.png" />
+							<a4j:param value="true"
+								assignTo="#{outlineMBean.querybean.selected}" />
+							<rich:tooltip styleClass="tooltip" layout="block">
+								<span style="white-space: nowrap"> <strong>#{bundle['search']}</strong>
+								</span>
+							</rich:tooltip>
+						</a4j:commandLink>
+						<a4j:commandLink render="searchForm,rightmenu" execute="@form"
+							style="margin-left:60px;" action="#{outlineMBean.reset()}"
+							oncomplete="return false;">
+							<h:graphicImage value="/images/remove.png" />
+							<rich:tooltip styleClass="tooltip" layout="block">
+								<span style="white-space: nowrap"> <strong>#{bundle['reset_query']}</strong>
+								</span>
+							</rich:tooltip>
+						</a4j:commandLink>
+					</p:column>
+					
+				</p:row>
+			</p:panelGrid>
+		</p:fieldset>
+		<p:accordionPanel id="amlsummary" dynamic="true" multiple="true">
+
+			<p:ajax event="tabChange" listener="#{outlineMBean.onTabChange}"
+				update="amlsummary" />
+			<p:tab
+				title=" 上海分行 "
+				id="abstractImport" dynamic="true"
+				titleStyle="text-align:left;font-size:10px;">
+				<h:panelGrid columns="2" cellpadding="10">
+					<p:panel style="border:none;" >
+						<ul style="text-align:left;size:12px;">
+						
+				<li><b> 总数 </b>:#{outlineMBean.outlineAml.counts606}笔。</li>
+					<p:separator />
+				<li>
+					<ul style="text-align:left;size:10px;">
+						<li style="display:inline;"><b> #{bundle['edit']} </b>:</li>
+						<p:spacer width="20" height="20" />
+						<li style="display:inline;">#{bundle['completed']} : <b>#{outlineMBean.outlineAml.editnum606}</b>笔。
+						</li>
+						<p:spacer width="20" height="20" />
+						<li style="display:inline;">#{bundle['uncompleted']} : <b>#{outlineMBean.outlineAml.uneditnum606}</b>笔。
+						</li>
+						<p:spacer width="200" height="20" />
+					</ul>
+				</li>
+				<li>
+					<ul style="text-align:left;size:10px;">
+						<li style="display:inline;"><b> #{bundle['approve']} </b>:</li>
+						<p:spacer width="20" height="20" />
+						<li style="display:inline;">#{bundle['approved']} : <b>#{outlineMBean.outlineAml.vnum606}</b>笔。
+						</li>
+						<p:spacer width="20" height="20" />
+						<li style="display:inline;">#{bundle['unapprove']} : <b>#{outlineMBean.outlineAml.unvnum606}</b>笔。
+						</li>
+						<p:spacer width="200" height="20" />
+					</ul>
+				</li>
+				<li>
+					<ul style="text-align:left;size:10px;">
+						<li style="display:inline;"><b> #{bundle['export']} </b>:</li>
+						<p:spacer width="20" height="20" />
+						<li style="display:inline;">已上报 : <b>#{outlineMBean.outlineAml.exportnum606}</b>笔。
+						</li>
+						<p:spacer width="20" height="20" />
+						<li style="display:inline;">不上报 : <b>#{outlineMBean.outlineAml.unexportnum606}</b>笔。
+						</li>
+						<p:spacer width="200" height="20" />
+					</ul>
+				</li>
+						
+						</ul>
+					</p:panel>
+
+				</h:panelGrid>
+			</p:tab>
+			<p:tab
+				title="闵行支行"
+				id="abstractAcc" dynamic="true"
+				titleStyle="text-align:left;font-size:10px;">
+				<h:panelGrid columns="2" cellpadding="10">
+					<p:panel style="border:none;">
+						<ul style="text-align:left;size:12px;">
+							<li> <b> 总数 </b>:#{outlineMBean.outlineAml.counts607}笔。</li>
+				<li>
+					<ul style="text-align:left;size:10px;">
+						<li style="display:inline;"><b> #{bundle['edit']} </b>:</li>
+						<p:spacer width="20" height="20" />
+						<li style="display:inline;">#{bundle['completed']} : <b>#{outlineMBean.outlineAml.editnum607}</b>笔。
+						</li>
+						<p:spacer width="20" height="20" />
+						<li style="display:inline;">#{bundle['uncompleted']} : <b>#{outlineMBean.outlineAml.uneditnum607}</b>笔。
+						</li>
+						<p:spacer width="200" height="20" />
+					</ul>
+				</li>
+				<li>
+					<ul style="text-align:left;size:10px;">
+						<li style="display:inline;"><b> #{bundle['approve']} </b>:</li>
+						<p:spacer width="20" height="20" />
+						<li style="display:inline;">#{bundle['approved']} : <b>#{outlineMBean.outlineAml.vnum607}</b>笔。
+						</li>
+						<p:spacer width="20" height="20" />
+						<li style="display:inline;">#{bundle['unapprove']} : <b>#{outlineMBean.outlineAml.unvnum607}</b>笔。
+						</li>
+						<p:spacer width="200" height="20" />
+					</ul>
+				</li>
+				<li>
+					<ul style="text-align:left;size:10px;">
+						<li style="display:inline;"><b> #{bundle['export']} </b>:</li>
+						<p:spacer width="20" height="20" />
+						<li style="display:inline;">已上报 : <b>#{outlineMBean.outlineAml.exportnum607}</b>笔。
+						</li>
+						<p:spacer width="20" height="20" />
+						<li style="display:inline;">不上报 : <b>#{outlineMBean.outlineAml.unexportnum607}</b>笔。
+						</li>
+						<p:spacer width="200" height="20" />
+					</ul>
+				</li>
+							<p:separator />
+						</ul>
+					</p:panel>
+				</h:panelGrid>
+			</p:tab>
+			<p:tab
+				title="青岛分行"
+				id="abstractBop" dynamic="true"
+				titleStyle="text-align:left;font-size:10px;">
+				<h:panelGrid columns="2" cellpadding="10">
+					<p:panel style="border:none;">
+					<h:panelGrid columns="2" cellpadding="10">
+						<p:panel style="border:none;text-align:left;">
+						<li> <b> 总数 </b>:#{outlineMBean.outlineAml.counts608}笔。</li>
+				<li>
+					<ul style="text-align:left;size:10px;">
+						<li style="display:inline;"><b> #{bundle['edit']} </b>:</li>
+						<p:spacer width="20" height="20" />
+						<li style="display:inline;">#{bundle['completed']} : <b>#{outlineMBean.outlineAml.editnum608}</b>笔。
+						</li>
+						<p:spacer width="20" height="20" />
+						<li style="display:inline;">#{bundle['uncompleted']} : <b>#{outlineMBean.outlineAml.uneditnum608}</b>笔。
+						</li>
+						<p:spacer width="200" height="20" />
+					</ul>
+				</li>
+				<li>
+					<ul style="text-align:left;size:10px;">
+						<li style="display:inline;"><b> #{bundle['approve']} </b>:</li>
+						<p:spacer width="20" height="20" />
+						<li style="display:inline;">#{bundle['approved']} : <b>#{outlineMBean.outlineAml.vnum608}</b>笔。
+						</li>
+						<p:spacer width="20" height="20" />
+						<li style="display:inline;">#{bundle['unapprove']} : <b>#{outlineMBean.outlineAml.unvnum608}</b>笔。
+						</li>
+						<p:spacer width="200" height="20" />
+					</ul>
+				</li>
+				<li>
+					<ul style="text-align:left;size:10px;">
+						<li style="display:inline;"><b> #{bundle['export']} </b>:</li>
+						<p:spacer width="20" height="20" />
+						<li style="display:inline;">已上报 : <b>#{outlineMBean.outlineAml.exportnum608}</b>笔。
+						</li>
+						<p:spacer width="20" height="20" />
+						<li style="display:inline;">不上报 : <b>#{outlineMBean.outlineAml.unexportnum608}</b>笔。
+						</li>
+						<p:spacer width="200" height="20" />
+					</ul>
+				</li>
+							 
+						</p:panel>
+						</h:panelGrid>
+					</p:panel>
+				</h:panelGrid>
+			</p:tab>
+			<p:tab
+				title="自贸区支行"
+				id="abstractJsh" titleStyle="text-align:left;font-size:10px;">
+				<h:panelGrid columns="2" cellpadding="10">
+					<p:panel style="border:none;">
+						<ul style="text-align:left;size:12px;">
+							<li> <b> 总数 </b>:#{outlineMBean.outlineAml.counts609}笔。</li>
+				<li>
+					<ul style="text-align:left;size:10px;">
+						<li style="display:inline;"><b> #{bundle['edit']} </b>:</li>
+						<p:spacer width="20" height="20" />
+						<li style="display:inline;">#{bundle['completed']} : <b>#{outlineMBean.outlineAml.editnum609}</b>笔。
+						</li>
+						<p:spacer width="20" height="20" />
+						<li style="display:inline;">#{bundle['uncompleted']} : <b>#{outlineMBean.outlineAml.uneditnum609}</b>笔。
+						</li>
+						<p:spacer width="200" height="20" />
+					</ul>
+				</li>
+				<li>
+					<ul style="text-align:left;size:10px;">
+						<li style="display:inline;"><b> #{bundle['approve']} </b>:</li>
+						<p:spacer width="20" height="20" />
+						<li style="display:inline;">#{bundle['approved']} : <b>#{outlineMBean.outlineAml.vnum609}</b>笔。
+						</li>
+						<p:spacer width="20" height="20" />
+						<li style="display:inline;">#{bundle['unapprove']} : <b>#{outlineMBean.outlineAml.unvnum609}</b>笔。
+						</li>
+						<p:spacer width="200" height="20" />
+					</ul>
+				</li>
+				<li>
+					<ul style="text-align:left;size:10px;">
+						<li style="display:inline;"><b> #{bundle['export']} </b>:</li>
+						<p:spacer width="20" height="20" />
+						<li style="display:inline;">已上报 : <b>#{outlineMBean.outlineAml.exportnum609}</b>笔。
+						</li>
+						<p:spacer width="20" height="20" />
+						<li style="display:inline;">不上报 : <b>#{outlineMBean.outlineAml.unexportnum609}</b>笔。
+						</li>
+						<p:spacer width="200" height="20" />
+					</ul>
+				</li>
+							<p:separator />
+						</ul>
+					</p:panel>
+				</h:panelGrid>
+			</p:tab>
+		</p:accordionPanel>
+
+	</h:form>
+
+
+</h:body>
+</html>

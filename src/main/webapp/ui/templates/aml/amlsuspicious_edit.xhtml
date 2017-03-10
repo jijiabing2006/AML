@@ -1,0 +1,966 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+<h:head>
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/js/default/jquery-1.8.2.min.js" />
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/js/default/lhgdialog/lhgdialog.min.js?skin=iblue" />
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/js/commons.js" />
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/js/aml/amlsuspicious.js" />
+</h:head>
+<h:body>
+	<fieldset class="fieldset">
+		<legend>
+			<h:outputText value="#{bundle['basedataitem']}" />
+			▼
+		</legend>
+		<rich:panel>
+			<p:panelGrid styleClass="rich-table-edit"
+				style="border-top-style: outset;">
+
+				<p:row>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText
+							value="#{bundle['advisory']}#{bundle['institution']}#{bundle['name']}" />
+						<p:spacer width="46px;" height="5px;"></p:spacer>
+
+					</p:column>
+					<p:column styleClass="rich-table-edit-left">
+						<h:inputText id="rinm"
+							value="#{amlBigAmountBean.amlBigAmount.rinm}"></h:inputText>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText
+							value="#{bundle['advisory']}#{bundle['institution']}#{bundle['code']}" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-left">
+						<h:inputText id="ricd"
+							value="#{amlBigAmountBean.amlBigAmount.ricd}"></h:inputText>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText
+							value="#{bundle['big_amount']}#{bundle['occur']}#{bundle['date']}" />
+						<p:spacer width="20px;" height="5px;"></p:spacer>
+					</p:column>
+					<p:column styleClass="rich-table-edit-left">
+						<h:inputText id="htdt"
+							value="#{amlBigAmountBean.amlBigAmount.htdt}" maxlength="8">
+
+						</h:inputText>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText
+							value="#{bundle['big_amount']}#{bundle['transaction']}#{bundle['feature']}#{bundle['code']}" />
+					</p:column>
+					<p:column colspan="5" styleClass="rich-table-edit-content">
+						<rich:select id="crcd"
+							value="#{amlBigAmountBean.amlBigAmount.crcd}" disabled="false"
+							listWidth="auto" enableManualInput="false"
+							defaultLabel="#{bundle['start_typing_for_select']}#{bundle['big_amount']}#{bundle['transaction']}#{bundle['feature']}#{bundle['code']}">
+							<f:selectItem itemLabel="0901-单笔或当日累计人民币20万以上或外币等值1万美元以上的现金交易"
+								itemValue="0901" />
+							<f:selectItem
+								itemLabel="0902-法人,其他组织和个体工商户间,单笔或当日累计人民币200万以上或外币等值20万美元以上的款项划转"
+								itemValue="0902" />
+							<f:selectItem
+								itemLabel="0903-交易一方为自然人,单笔或当日累计人民币50万以上或外币等值10万美元以上的款项划转"
+								itemValue="0903" />
+							<f:selectItem itemLabel="0904-交易一方为自然人,单笔或当日累计等值1万美元以上的跨境交易"
+								itemValue="0904" />
+						</rich:select>
+					</p:column>
+
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText value="#{bundle['transaction']}#{bundle['date']}" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-left">
+						<h:inputText id="tstm"
+							value="#{amlBigAmountBean.amlBigAmount.tstm}" maxlength="14">
+
+						</h:inputText>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+				</p:row>
+			</p:panelGrid>
+		</rich:panel>
+		<rich:collapsiblePanel
+			header="#{bundle['finance']}#{bundle['institution']}#{bundle['website_point']}#{bundle['information']}"
+			expanded="true" switchType="client"
+			headerClass="rich-stgcpanel-header rf-tab-hdr rf-tab-hdr-act rf-tab-hdr-top">
+			<p:panelGrid styleClass="rich-table-edit">
+				<p:row>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText
+							value="#{bundle['finance']}#{bundle['institution']}#{bundle['website_point']}#{bundle['name']}" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-left">
+						<h:inputText id="finn"
+							value="#{amlBigAmountBean.amlBigAmount.finn}"></h:inputText>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText
+							value="#{bundle['finance']}#{bundle['institution']}#{bundle['website_point']}#{bundle['code']}" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-left">
+						<h:inputText id="finc"
+							value="#{amlBigAmountBean.amlBigAmount.finc}"></h:inputText>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputLabel
+							value="#{bundle['location']}#{bundle['division']}#{bundle['code']}" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-content">
+						<rich:select id="firc" enableManualInput="true"
+							value="#{amlBigAmountBean.amlBigAmount.firc}"
+							defaultLabel="#{bundle['start_typing_for_select']}">
+							<f:selectItems value="#{inplaceSelectAreacodeBean.areaOptions}" />
+						</rich:select>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText
+							value="#{bundle['finance']}#{bundle['institution']}#{bundle['with']}#{bundle['big_amount']}的关系" />
+					</p:column>
+					<p:column colspan="5" styleClass="rich-table-edit-content">
+						<rich:select id="rltp"
+							value="#{amlBigAmountBean.amlBigAmount.rltp}" disabled="false"
+							listWidth="auto" enableManualInput="false"
+							defaultLabel="#{bundle['start_typing_for_select']}">
+							<f:selectItem
+								itemLabel="00-客户通过在境内金融机构开立的账户或者银行卡所发生的大额交易,金融机构为开立账户的机构或发卡银行"
+								itemValue="00" />
+							<f:selectItem itemLabel="01-客户通过境外银行卡所发生的大额交易,金融机构为收单行"
+								itemValue="01" />
+							<f:selectItem itemLabel="02-客户不通过账户或者银行卡发生的大额交易,金融机构为办理业务的机构"
+								itemValue="02" />
+						</rich:select>
+					</p:column>
+
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputLabel value="#{bundle['code']}#{bundle['type']}" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-content">
+						<rich:select id="fict"
+							value="#{amlBigAmountBean.amlBigAmount.fict}" disabled="false"
+							listWidth="auto" enableManualInput="false">
+							<f:selectItem itemLabel="目前暂定填写“00”。" itemValue="00" />
+						</rich:select>
+
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+				</p:row>
+			</p:panelGrid>
+		</rich:collapsiblePanel>
+		<rich:collapsiblePanel
+			header="#{bundle['customer']}#{bundle['information']}"
+			expanded="true" switchType="client"
+			headerClass="rich-stgcpanel-header rf-tab-hdr rf-tab-hdr-act rf-tab-hdr-top">
+			<p:panelGrid styleClass="rich-table-edit">
+				<p:row>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText value="#{bundle['customer']}#{bundle['name']}" />
+						<p:spacer width="76px;" height="5px;"></p:spacer>
+					</p:column>
+					<p:column styleClass="rich-table-edit-left">
+						<h:inputText id="ctnm"
+							value="#{amlBigAmountBean.amlBigAmount.ctnm}"></h:inputText>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputLabel value="#{bundle['customer']}#{bundle['code']}" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-content">
+						<h:inputText id="csnm"
+							value="#{amlBigAmountBean.amlBigAmount.csnm}"></h:inputText>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText
+							value="#{bundle['customer']}#{bundle['nationality']}" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-left">
+						<rich:select enableManualInput="true" id="ctnt"
+							value="#{amlBigAmountBean.amlBigAmount.ctnt}"
+							defaultLabel="#{bundle['start_typing_for_select']}">
+							<f:selectItems value="#{inplaceSelectCountryBean.countryOptions}" />
+							<f:selectItem itemValue="XXX" itemLabel="XXX-向境内汇入资金的境外机构为转汇行" />
+							<f:selectItem itemValue="Z01" itemLabel="Z01-中国大陆地区保税区" />
+							<f:selectItem itemValue="Z02" itemLabel="Z02-表示中国大陆地区加工区" />
+							<f:selectItem itemValue="Z03" itemLabel="Z03-表示中国大陆地区钻石交易所" />
+							<f:selectItem itemValue="@I" itemLabel="@I-业务系统暂时无法得到" />
+							<f:selectItem itemValue="@N" itemLabel="@N-个例不适用" />
+							<f:selectItem itemValue="@E"
+								itemLabel="@E-因银联,支付结算系统,国际支付清算体系无法得到" />
+						</rich:select>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+				</p:row>
+				<p:row>
+
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText value="#{bundle['customer']}证件#{bundle['type']}" />
+						<h:inputHidden id="citp"
+							value="#{amlBigAmountBean.amlBigAmount.citp}" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-content">
+						<h:selectOneMenu id="citpfirst" immediate="true"
+							style="width:100%;" onchange="setTypeclaration('ct');"
+							defaultLabel="#{bundle['start_typing_for_select']}">
+							<f:selectItem itemValue="11" itemLabel="11-居民身份证或临时身份证" />
+							<f:selectItem itemValue="12" itemLabel="12-军人或武警身份证件" />
+							<f:selectItem itemValue="13" itemLabel="13-港澳台通行证或其他旅行证件" />
+							<f:selectItem itemValue="14" itemLabel="14-外国公民护照" />
+							<f:selectItem itemValue="19" itemLabel="19-其他类个人身份有效证件" />
+							<f:selectItem itemValue="21" itemLabel="21-组织机构代码" />
+							<f:selectItem itemValue="29" itemLabel="29-其他类机构代码" />
+							<f:selectItem itemValue="@I" itemLabel="@I-业务系统暂时无法得到" />
+							<f:selectItem itemValue="@N" itemLabel="@N-个例不适用" />
+							<f:selectItem itemValue="@E"
+								itemLabel="@E-因银联,支付结算系统,国际支付清算体系无法得到" />
+						</h:selectOneMenu>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputLabel value="#{bundle['customer']}#{bundle['idnumber']}" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-content">
+						<h:inputText id="ctid"
+							value="#{amlBigAmountBean.amlBigAmount.ctid}"></h:inputText>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputLabel value="#{bundle['idtips']}" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-content">
+
+						<h:inputText id="citpsecond" immediate="true"
+							label="证件类型为19或者29时需要说明">
+						</h:inputText>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+				</p:row>
+			</p:panelGrid>
+		</rich:collapsiblePanel>
+		<rich:collapsiblePanel
+			header="#{bundle['transaction']}#{bundle['information']}"
+			expanded="true" switchType="client"
+			headerClass="rich-stgcpanel-header rf-tab-hdr rf-tab-hdr-act rf-tab-hdr-top">
+			<p:panelGrid styleClass="rich-table-edit">
+				<p:row>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText value="#{bundle['buscode']}" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-left">
+						<h:inputText id="ticd"
+							value="#{amlBigAmountBean.amlBigAmount.ticd}"></h:inputText>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputLabel value="#{bundle['account']}" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-content">
+						<h:inputText id="ctac"
+							value="#{amlBigAmountBean.amlBigAmount.ctac}"></h:inputText>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputLabel value="#{bundle['account']}#{bundle['type']}" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-left">
+						<rich:autocomplete mode="client" id="catp"
+							value="#{amlBigAmountBean.amlBigAmount.catp}"
+							autocompleteList="#{autocompleteAmlAccounttypeBean.accounttypes}"
+							var="act" fetchValue="#{act.code}" layout="table">
+							<rich:column>
+								<b>#{act.code}</b>
+							</rich:column>
+							<rich:column>  
+					               #{act.name}              </rich:column>
+						</rich:autocomplete>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+
+				</p:row>
+				<p:row>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputLabel value="#{bundle['transaction']}#{bundle['amount']}" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-content">
+						<h:inputText id="crat"
+							value="#{amlBigAmountBean.amlBigAmount.crat}"
+							converterMessage="交易金额：只能输入数字" readonly="false">
+							<f:validateLength maximum="20" />
+							<f:converter converterId="javax.faces.BigDecimal" />
+							<f:validateLongRange minimum="0" />
+							<p:ajax update="defaultMessage" event="keyup" />
+						</h:inputText>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputLabel value="#{bundle['currency_code']}" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-left">
+						<rich:autocomplete id="crtp" mode="client"
+							value="#{amlBigAmountBean.amlBigAmount.crtp}"
+							autocompleteList="#{autocompleteCurrencyBean.currencys}"
+							var="currency" fetchValue="#{currency.code}" layout="table">
+							<rich:column>
+								<b>#{currency.code}</b>
+							</rich:column>
+							<rich:column>  
+					               #{currency.name}              </rich:column>
+						</rich:autocomplete>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText value="#{bundle['drcr']}" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-left">
+						<rich:select id="tsdr"
+							value="#{amlBigAmountBean.amlBigAmount.tsdr}"
+							enableManualInput="false" itemClass="rich-table-edit-left"
+							defaultLabel="#{bundle['start_typing_for_select']}">
+							<f:selectItem itemValue="01" itemLabel="01-#{bundle['income']}" />
+							<f:selectItem itemValue="02" itemLabel="02-#{bundle['expenses']}" />
+						</rich:select>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputLabel value="#{bundle['transaction']}#{bundle['method']}" />
+						<h:inputHidden id="tstp"
+							value="#{amlBigAmountBean.amlBigAmount.tstp}" />
+					</p:column>
+					<p:column colspan="2" styleClass="rich-table-edit-content">
+						<h:selectOneMenu id="methodfirst" immediate="true"
+							valueChangeListener="#{amlBigAmountBean.amlSelectBean.valueChanged}"
+							style="width:100%;">
+							<f:selectItems
+								value="#{amlBigAmountBean.amlSelectBean.firstList}" />
+							<a4j:ajax event="change" render="second,third" />
+						</h:selectOneMenu>
+					</p:column>
+
+					<p:column colspan="4" styleClass="rich-table-edit-left">
+						<a4j:outputPanel id="second" layout="block">
+							<h:selectOneMenu id="methodsecond" immediate="true"
+								style="width:100%;">
+								<f:selectItems
+									value="#{amlBigAmountBean.amlSelectBean.secondList}" />
+							</h:selectOneMenu>
+						</a4j:outputPanel>
+					</p:column>
+					<p:column colspan="3" styleClass="rich-table-edit-left">
+						<a4j:outputPanel id="third" layout="block">
+							<h:selectOneMenu id="methodthird" immediate="true"
+								rendered="#{not empty amlBigAmountBean.amlSelectBean.thirdList ?true:false}">
+								<f:selectItems
+									value="#{amlBigAmountBean.amlSelectBean.thirdList}" />
+							</h:selectOneMenu>
+						</a4j:outputPanel>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+
+				</p:row>
+				<p:row>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText value="#{bundle['transaction']}#{bundle['code']}" />
+					</p:column>
+					<p:column colspan="5" styleClass="rich-table-edit-content">
+						<rich:select id="tsct" enableManualInput="true" listWidth="500px"
+							value="#{amlBigAmountBean.amlBigAmount.tsct}" listHeight="200px"
+							defaultLabel="#{bundle['start_typing_for_select']}">
+							<f:selectItems
+								value="#{inplaceSelectAmlTransactioncodeBean.transactionOptions}" />
+						</rich:select>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputLabel value="资金用途" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-content">
+						<h:inputText id="crpp"
+							value="#{amlBigAmountBean.amlBigAmount.crpp}"></h:inputText>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-blue">
+						<h:outputText value="*" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText value="#{bundle['transaction']}方向" />
+						<h:inputHidden id="tdrc"
+							value="#{amlBigAmountBean.amlBigAmount.tdrc}" />
+					</p:column>
+					<p:column colspan="2" styleClass="rich-table-edit-left">
+						<rich:select id="tdrcfirst" enableManualInput="true"
+							immediate="true" listHeight="200px"
+							value="#{amlBigAmountBean.amlBigAmount.tdrcfirst}"
+							valueChangeListener="#{amlBigAmountBean.tdrcValueChanged}"
+							defaultLabel="#{bundle['start_typing_for_select']}"
+							onchange="settdrc();">
+							<f:selectItems value="#{inplaceSelectCountryBean.countryOptions}" />
+							<f:selectItem itemValue="XXX" itemLabel="XXX-向境内汇入资金的境外机构为转汇行" />
+							<f:selectItem itemValue="Z01" itemLabel="Z01-中国大陆地区保税区" />
+							<f:selectItem itemValue="Z02" itemLabel="Z02-表示中国大陆地区加工区" />
+							<f:selectItem itemValue="Z03" itemLabel="Z03-表示中国大陆地区钻石交易所" />
+							<f:selectItem itemValue="@I" itemLabel="@I-业务系统暂时无法得到" />
+							<f:selectItem itemValue="@N" itemLabel="@N-个例不适用" />
+							<f:selectItem itemValue="@E"
+								itemLabel="@E-因银联,支付结算系统,国际支付清算体系无法得到" />
+							<a4j:ajax event="change" render="tdrcsecond" />
+						</rich:select>
+					</p:column>
+					<p:column colspan="3" styleClass="rich-table-edit-left">
+						<rich:select id="tdrcsecond" enableManualInput="true"
+							immediate="true" listHeight="200px"
+							value="#{amlBigAmountBean.amlBigAmount.tdrcsecond}"
+							defaultLabel="#{bundle['start_typing_for_select']}">
+							<f:selectItems value="#{inplaceSelectAreacodeBean.areaOptions}" itemDisabled=""/>
+							<f:selectItem itemValue="000000" itemLabel="000000-非中国默认" />
+						</rich:select>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+					<p:column colspan="4" style="color:red;">
+						<h:outputText value="非CHN或Z0x开头的国家，第2栏选择6个‘000000’" />
+					</p:column>
+				</p:row>
+
+				<p:row>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText value="#{bundle['transaction']}发生地" />
+						<h:inputHidden id="trcd"
+							value="#{amlBigAmountBean.amlBigAmount.trcd}" />
+					</p:column>
+					<p:column colspan="2" styleClass="rich-table-edit-left">
+						<rich:select id="trcdfirst" enableManualInput="true"
+							immediate="true" listHeight="200px"
+							value="#{amlBigAmountBean.amlBigAmount.trcdfirst}"
+							defaultLabel="#{bundle['start_typing_for_select']}"
+							onchange="settrcd();">
+							<f:selectItems value="#{inplaceSelectCountryBean.countryOptions}" />
+							<f:selectItem itemValue="XXX" itemLabel="XXX-向境内汇入资金的境外机构为转汇行" />
+							<f:selectItem itemValue="Z01" itemLabel="Z01-中国大陆地区保税区" />
+							<f:selectItem itemValue="Z02" itemLabel="Z02-表示中国大陆地区加工区" />
+							<f:selectItem itemValue="Z03" itemLabel="Z03-表示中国大陆地区钻石交易所" />
+							<f:selectItem itemValue="@I" itemLabel="@I-业务系统暂时无法得到" />
+							<f:selectItem itemValue="@N" itemLabel="@N-个例不适用" />
+							<f:selectItem itemValue="@E"
+								itemLabel="@E-因银联,支付结算系统,国际支付清算体系无法得到" />
+							<a4j:ajax event="change" render="trcdsecond" />
+						</rich:select>
+					</p:column>
+					<p:column colspan="3" styleClass="rich-table-edit-left">
+						<rich:select id="trcdsecond" enableManualInput="true"
+							immediate="true" listHeight="200px"
+							value="#{amlBigAmountBean.amlBigAmount.trcdsecond}"
+							defaultLabel="#{bundle['start_typing_for_select']}">
+							<f:selectItems value="#{inplaceSelectAreacodeBean.areaOptions}" />
+							<f:selectItem itemValue="000000" itemLabel="000000-非中国默认" />
+						</rich:select>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-yellow">
+						<h:outputText value="*" />
+					</p:column>
+					<p:column colspan="4" style="color:red;">
+						<h:outputText value="只有交易方式为现金时填写" />
+					</p:column>
+				</p:row>
+			</p:panelGrid>
+		</rich:collapsiblePanel>
+		<rich:collapsiblePanel
+			header="#{bundle['transaction']}对手#{bundle['information']}"
+			expanded="true" switchType="client"
+			headerClass="rich-stgcpanel-header rf-tab-hdr rf-tab-hdr-act rf-tab-hdr-top">
+			<p:panelGrid styleClass="rich-table-edit">
+				<p:row>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText value="对方金融机构网点类型" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-content">
+					<h:selectOneMenu id="cfct" immediate="true"
+					value="#{amlBigAmountBean.amlBigAmount.cfct}"
+							style="width:100%;" 
+							defaultLabel="#{bundle['start_typing_for_select']}">
+							<f:selectItem itemValue="11" itemLabel="11：现代化支付系统行号" />
+							<f:selectItem itemValue="12" itemLabel="12：人民币结算账户管理系统行号" />
+							<f:selectItem itemValue="13" itemLabel="13：银行内部机构号" />
+							<f:selectItem itemValue="14" itemLabel="14：其他" />
+							<f:selectItem itemValue="@I" itemLabel="@I-业务系统暂时无法得到" />
+							<f:selectItem itemValue="@N" itemLabel="@N-个例不适用" />
+							<f:selectItem itemValue="@E"
+								itemLabel="@E-因银联,支付结算系统,国际支付清算体系无法得到" />
+						</h:selectOneMenu>
+					</p:column>
+
+					<p:column styleClass="rich-table-edit-indication-blue">
+						<h:outputText value="*" />
+					</p:column>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText value="网点名称" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-left">
+						<h:inputText id="cfin"
+							value="#{amlBigAmountBean.amlBigAmount.cfin}"></h:inputText>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-blue">
+						<h:outputText value="*" />
+					</p:column>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputLabel value="网点代码" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-content">
+						<h:inputText id="cfic"
+							value="#{amlBigAmountBean.amlBigAmount.cfic}"></h:inputText>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-blue">
+						<h:outputText value="*" />
+					</p:column>
+
+				</p:row>
+				<p:row>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText value="交易对手姓名/名称" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-left">
+						<h:inputText id="tcnm"
+							value="#{amlBigAmountBean.amlBigAmount.tcnm}"></h:inputText>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-blue">
+						<h:outputText value="*" />
+					</p:column>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputLabel value="交易对手账号" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-content">
+						<h:inputText id="tcac"
+							value="#{amlBigAmountBean.amlBigAmount.tcac}"></h:inputText>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-blue">
+						<h:outputText value="*" />
+					</p:column>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText value="账户类型" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-content">
+						<rich:autocomplete id="tcat" mode="client"
+							value="#{amlBigAmountBean.amlBigAmount.tcat}"
+							autocompleteList="#{autocompleteAccounttypeBean.accounttypes}"
+							var="act" fetchValue="#{act.code}" layout="table">
+							<rich:column>
+								<b>#{act.code}</b>
+							</rich:column>
+							<rich:column>  
+					               #{act.name}              </rich:column>
+						</rich:autocomplete>
+
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-blue">
+						<h:outputText value="*" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText value="交易对手证件#{bundle['type']}" />
+						<h:inputHidden id="tcit"
+							value="#{amlBigAmountBean.amlBigAmount.tcit}" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-content">
+						<h:selectOneMenu id="tcitfirst" immediate="true"
+							style="width:100%;" onchange="setrepalceChar(this.value,'tc');"
+							defaultLabel="#{bundle['start_typing_for_select']}">
+							<f:selectItem itemValue="11" itemLabel="11-居民身份证或临时身份证" />
+							<f:selectItem itemValue="12" itemLabel="12-军人或武警身份证件" />
+							<f:selectItem itemValue="13" itemLabel="13-港澳台通行证或其他旅行证件" />
+							<f:selectItem itemValue="14" itemLabel="14-外国公民护照" />
+							<f:selectItem itemValue="19" itemLabel="19-其他类个人身份有效证件" />
+							<f:selectItem itemValue="21" itemLabel="21-组织机构代码" />
+							<f:selectItem itemValue="29" itemLabel="29-其他类机构代码" />
+							<f:selectItem itemValue="@I" itemLabel="@I-业务系统暂时无法得到" />
+							<f:selectItem itemValue="@N" itemLabel="@N-个例不适用" />
+							<f:selectItem itemValue="@E"
+								itemLabel="@E-因银联,支付结算系统,国际支付清算体系无法得到" />
+						</h:selectOneMenu>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-blue">
+						<h:outputText value="*" />
+					</p:column>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputLabel value="交易对手#{bundle['idnumber']}" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-content">
+						<h:inputText id="tcid"
+							value="#{amlBigAmountBean.amlBigAmount.tcid}"></h:inputText>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-blue">
+						<h:outputText value="*" />
+					</p:column>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputLabel value="证件类型说明" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-content">
+						<h:inputText id="tcitsecond" immediate="true"
+							label="证件类型为19或者29时需要说明">
+						</h:inputText>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-blue">
+						<h:outputText value="*" />
+					</p:column>
+				</p:row>
+			</p:panelGrid>
+		</rich:collapsiblePanel>
+		<rich:collapsiblePanel header="代办人#{bundle['information']}"
+			expanded="true" switchType="client"
+			headerClass="rich-stgcpanel-header rf-tab-hdr rf-tab-hdr-act rf-tab-hdr-top">
+			<p:panelGrid styleClass="rich-table-edit">
+				<p:row>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText value="代办人姓名" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-left">
+						<h:inputText id="tbnm"
+							value="#{amlBigAmountBean.amlBigAmount.tbnm}"
+							onchange="setrepalceChar(this.value,'tb')"></h:inputText>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-blue">
+						<h:outputText value="*" />
+					</p:column>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText value="代办人国籍" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-content">
+						<rich:select id="tbnt" enableManualInput="true"
+							value="#{amlBigAmountBean.amlBigAmount.tbnt}"
+							defaultLabel="#{bundle['start_typing_for_select']}">
+							<f:selectItems value="#{inplaceSelectCountryBean.countryOptions}" />
+							<f:selectItem itemValue="XXX" itemLabel="XXX-向境内汇入资金的境外机构为转汇行" />
+							<f:selectItem itemValue="Z01" itemLabel="Z01-中国大陆地区保税区" />
+							<f:selectItem itemValue="Z02" itemLabel="Z02-表示中国大陆地区加工区" />
+							<f:selectItem itemValue="Z03" itemLabel="Z03-表示中国大陆地区钻石交易所" />
+							<f:selectItem itemValue="@I" itemLabel="@I-业务系统暂时无法得到" />
+							<f:selectItem itemValue="@N" itemLabel="@N-个例不适用" />
+							<f:selectItem itemValue="@E"
+								itemLabel="@E-因银联,支付结算系统,国际支付清算体系无法得到" />
+						</rich:select>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-blue">
+						<h:outputText value="*" />
+					</p:column>
+
+				</p:row>
+				<p:row>
+
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText value="代办人证件#{bundle['type']}" />
+						<h:inputHidden id="tbit"
+							value="#{amlBigAmountBean.amlBigAmount.tbit}" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-content">
+
+						<h:selectOneMenu id="tbitfirst" immediate="true"
+							style="width:100%;" onchange="setrepalceChar(this.value,'tb')"
+							defaultLabel="#{bundle['start_typing_for_select']}">
+							<f:selectItem itemValue="11" itemLabel="11-居民身份证或临时身份证" />
+							<f:selectItem itemValue="12" itemLabel="12-军人或武警身份证件" />
+							<f:selectItem itemValue="13" itemLabel="13-港澳台通行证或其他旅行证件" />
+							<f:selectItem itemValue="14" itemLabel="14-外国公民护照" />
+							<f:selectItem itemValue="19" itemLabel="19-其他类个人身份有效证件" />
+							<f:selectItem itemValue="21" itemLabel="21-组织机构代码" />
+							<f:selectItem itemValue="29" itemLabel="29-其他类机构代码" />
+							<f:selectItem itemValue="@I" itemLabel="@I-业务系统暂时无法得到" />
+							<f:selectItem itemValue="@N" itemLabel="@N-个例不适用" />
+							<f:selectItem itemValue="@E"
+								itemLabel="@E-因银联,支付结算系统,国际支付清算体系无法得到" />
+						</h:selectOneMenu>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-blue">
+						<h:outputText value="*" />
+					</p:column>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputLabel value="代办人#{bundle['idnumber']}" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-content">
+						<h:inputText id="tbid"
+							value="#{amlBigAmountBean.amlBigAmount.tbid}"
+							onchange="setrepalceChar(this.value,'tb')"></h:inputText>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-blue">
+						<h:outputText value="*" />
+					</p:column>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputLabel value="证件类型说明" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-content">
+
+						<h:inputText id="tbitsecond" immediate="true"
+							label="证件类型为19或者29时需要说明">
+						</h:inputText>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-blue">
+						<h:outputText value="*" />
+					</p:column>
+				</p:row>
+			</p:panelGrid>
+		</rich:collapsiblePanel>
+
+		<p:panel>
+			<p:panelGrid styleClass="rich-table-edit"
+				style="border-top-style: outset;">
+				<p:row>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText value="报送状态" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-left">
+						<rich:select disabled="false" enableManualInput="false"
+							id="isexport" value="#{amlBigAmountBean.amlBigAmount.isexport}"
+							defaultLabel="#{bundle['start_typing_for_select']}">
+							<f:selectItem itemValue="0" itemLabel="0-未报送" />
+							<f:selectItem itemValue="1" itemLabel="1-已报送" />
+							<f:selectItem itemValue="2" itemLabel="2-不报送" />
+							<a4j:ajax event="selectitem" render="remark" limitRender="true"
+								execute="@this" immediate="true" />
+						</rich:select>
+					</p:column>
+
+					<p:column colspan="2" styleClass="rich-table-edit-left">
+						<p:inputText id="remark"
+							disabled="#{rich:findComponent('isexport').value!=2?true:false}"
+							value="#{amlBigAmountBean.amlBigAmount.remark}" readonly="false" />
+					</p:column>
+					<p:column>
+						<p:outputLabel for="remark" value="*不报送时请录入理由"
+							style="color:#9CB8CC;" />
+					</p:column>
+					<p:column colspan="2">
+						<p:messages id="defaultMessage" showDetail="true"
+							redisplay="false" autoUpdate="true" showSummary="false"></p:messages>
+						<p:spacer width="400px;" height="5px;"></p:spacer>
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column colspan="5" style="text-align:right;border-right:none;">
+						<a4j:commandButton value="#{bundle['save']}" styleClass="btn_bg_l"
+							onclick="return checkdata();"
+							actionListener="#{amlBigAmountBean.updateAmlBigAmount}"
+							render="tab" execute="tab2" />
+					</p:column>
+					<p:column />
+					<p:column colspan="5" style="text-align:left;border-left:none;">
+						<a4j:commandButton value=" #{bundle['return']}" render="tab"
+							styleClass="btn_bg_r">
+							<a4j:param value="tab1"
+								assignTo="#{amlBigAmountBean.activeTabname}" />
+						</a4j:commandButton>
+					</p:column>
+				</p:row>
+
+			</p:panelGrid>
+
+		</p:panel>
+
+	</fieldset>
+	<script type="text/javascript">
+
+		document.getElementById("#{rich:clientId('rltp')}Input").setAttribute(
+				"style", "width: 560px !important;");
+		document.getElementById("#{rich:clientId('crcd')}Input").setAttribute(
+				"style", "width: 560px !important;");
+		document.getElementById("#{rich:clientId('tsct')}Input").setAttribute(
+				"style", "width: 560px !important;");
+		
+		//可加入JS file
+		var tstpValue = document.getElementById("dataForm:tstp").value;//支付方式
+		if (tstpValue != "") {
+			var methodfirst = tstpValue.substring(0, 2);
+			if (methodfirst != "") {
+				document.getElementById("dataForm:methodfirst").value = methodfirst;
+				if (methodfirst == "00") {
+					var methodsecond = tstpValue.substring(2, 4);
+					if (methodsecond != "") {
+						document.getElementById("dataForm:methodsecond").value = methodsecond;
+					}
+					var methodthird = tstpValue.substring(4, 6);
+					if (methodthird != "") {
+						document.getElementById("dataForm:methodthird").value = methodthird;
+					}
+				} else {
+					var methodsecond = tstpValue.substring(2, 6);
+					if (methodsecond != "") {
+						document.getElementById("dataForm:methodsecond").value = methodsecond;
+					}
+				}
+			}
+		}
+		var citpValue = document.getElementById("dataForm:citp").value;//客户证件类型
+		if (citpValue != "") {
+			var citpfirst = citpValue.substring(0, 2);
+			if (citpfirst != "") {
+				document.getElementById("dataForm:citpfirst").value = citpfirst;
+				if (citpfirst == "19"||citpfirst == "29") {
+					var citpsecond = citpValue.substring(2);
+					if (citpsecond != "") {
+						document.getElementById("dataForm:citpsecond").value = citpsecond;
+						document.getElementById("dataForm:citpsecond").disabled =false;
+					}
+				}else{
+					document.getElementById("dataForm:citpsecond").value ="身份证件类型为19,29时,需输入说明";
+					document.getElementById("dataForm:citpsecond").disabled =true;
+				}
+			}
+		}
+		var tbitValue = document.getElementById("dataForm:tbit").value;//代办人证件类型
+		if (tbitValue != "") {
+			var tbitfirst = tbitValue.substring(0, 2);
+			if (tbitfirst != "") {
+				document.getElementById("dataForm:tbitfirst").value = tbitfirst;
+				if (tbitfirst == "19"||tbitfirst == "29") {
+					var tbitsecond = tbitValue.substring(2);
+					if (tbitsecond != "") {
+						document.getElementById("dataForm:tbitsecond").value = tbitsecond;
+						document.getElementById("dataForm:tbitsecond").disabled =false;
+					}
+				}else{
+					document.getElementById("dataForm:tbitsecond").value ="身份证件类型为19,29时,需输入说明";
+					document.getElementById("dataForm:tbitsecond").disabled =true;
+				}
+			}
+		}
+		var tcitValue = document.getElementById("dataForm:tcit").value;//交易对手证件类型
+		if (tcitValue != "") {
+			var tcitfirst = tcitValue.substring(0, 2);
+			if (tcitfirst != "") {
+				document.getElementById("dataForm:tcitfirst").value = tcitfirst;
+				if (tcitfirst == "19"||tcitfirst == "29") {
+					var tcitsecond = tcitValue.substring(2);
+					if (tcitsecond != "") {
+						document.getElementById("dataForm:tcitsecond").value = tcitsecond;
+						document.getElementById("dataForm:tcitsecond").disabled =false;
+					}
+					
+				}else{
+					document.getElementById("dataForm:tcitsecond").value ="身份证件类型为19,29时,需输入说明";
+					document.getElementById("dataForm:tcitsecond").disabled =true;
+				}
+			}
+		}
+	
+		function settdrc(){
+			var tdrcfirst=#{rich:component('tdrcfirst')};
+			//alert("tdrcfirst"+tdrcfirst.getValue());
+			if (typeof(tdrcfirst) != "undefined") { 
+					if(tdrcfirst.getValue().startsWith("@")){
+						document.getElementById("#{rich:clientId('tdrcsecond')}Input").setAttribute("value", " ");
+						document.getElementById("#{rich:clientId('tdrcsecond')}selValue").setAttribute("value", " ");
+					}else if(tdrcfirst.getValue().startsWith("Z0")||tdrcfirst.getValue().startsWith("CHN")){
+					//	document.getElementById("#{rich:clientId('tdrcsecond')}Input").setAttribute("value", "");
+					//	document.getElementById("#{rich:clientId('tdrcsecond')}selValue").setAttribute("value", "");
+					}else{
+						document.getElementById("#{rich:clientId('tdrcsecond')}Input").setAttribute("value", "000000");
+						document.getElementById("#{rich:clientId('tdrcsecond')}selValue").setAttribute("value", "000000");
+					}
+				}
+		}
+		
+		function settrcd(){
+			var trcdfirst=#{rich:component('trcdfirst')};
+		//	alert("trcdfirst==="+trcdfirst.getValue());
+			if (typeof(trcdfirst) != "undefined") { 
+					if(trcdfirst.getValue().startsWith("@")){
+						document.getElementById("#{rich:clientId('trcdsecond')}Input").setAttribute("value", " ");
+						document.getElementById("#{rich:clientId('trcdsecond')}selValue").setAttribute("value", " ");
+					}else if(trcdfirst.getValue().startsWith("Z0")||trcdfirst.getValue().startsWith("CHN")){
+						//document.getElementById("#{rich:clientId('trcdsecond')}Input").setAttribute("value", "");
+					}else{
+						document.getElementById("#{rich:clientId('trcdsecond')}Input").setAttribute("value", "000000");
+						document.getElementById("#{rich:clientId('trcdsecond')}selValue").setAttribute("value", "000000");
+					}
+			}
+		}
+
+	//	var rinm="dataForm:rinm";
+		//var rinmValue = document.getElementById(rinm).value;
+		//alert("rinmValue========"+rinmValue);
+//		var crcd="#{rich:clientId('crcd')}selValue"
+	//	var crcdValue=document.getElementById(crcd).value;
+		//alert("crcdValue======="+crcdValue);
+//		var t=document.getElementById("dataForm:crcdselValue");
+	
+  		//  alert("t============="+t.value);
+
+	</script>
+
+
+</h:body>
+</html>

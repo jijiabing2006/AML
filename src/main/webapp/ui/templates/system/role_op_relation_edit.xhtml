@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+<h:head>
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/resources/css/default/style.css" />
+	<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+</h:head>
+<h:body>
+	<p:panel style="border:none;">
+		<p:panelGrid id="editOpRelation" style="margin-top:-20px;">
+			<p:row>
+				<p:column style="text-align:left;border-right:none;">
+					<span style="white-space: nowrap"> <strong><h:outputText
+								value="#{bundle['role']}: #{roleMBean.role.roledesc}" /> </strong>
+					</span>
+					<a4j:commandButton value="#{bundle['save']}" styleClass="btn_bg_l"
+						action="#{opBean.saveOpidByUserid}" render="dataOps"
+						execute="editOpPane"
+						oncomplete="if (#{facesContext.maximumSeverity.ordinal le 1}) {#{rich:component('editOpPane')}.hide();}">
+						<a4j:param value="#{roleMBean.role.id}"
+							assignTo="#{opBean.currentId}" />
+					</a4j:commandButton>
+					<a4j:commandButton value=" #{bundle['cancel']}"
+						styleClass="btn_bg_l" 
+						onclick="#{rich:component('editOpPane')}.hide(); return false;" />
+					<h:inputHidden id="_roleid" value="#{roleMBean.role.id}" />
+				</p:column>
+			</p:row>
+		</p:panelGrid>
+		<rich:extendedDataTable value="#{opBean.ops}" var="item" id="dataOps"
+			style="height:300px; width:500px;" selectionMode="none">
+
+			<rich:column width="30px;" style="text-align:left">
+				<f:facet name="header">
+					<h:selectBooleanCheckbox id="_all"
+						onclick="javascript:if(this.checked) selectAll(); else selectNone();" />
+				</f:facet>
+				<h:selectBooleanCheckbox id="_selected" value="#{item.selected}" />
+			</rich:column>
+			<rich:column width="200px;" filterValue="#{opFilteringBean.opname}"
+				filterExpression="#{fn:containsIgnoreCase(item.opname,opFilteringBean.opname)}">
+				<f:facet name="header">
+					<h:panelGroup>
+						<h:outputText value="#{bundle['op']}#{bundle['name']}" />
+						<h:inputText value="#{opFilteringBean.opname}">
+							<a4j:ajax event="blur" render="dataOps" execute="@this" />
+						</h:inputText>
+					</h:panelGroup>
+				</f:facet>
+				<h:outputText value="#{item.opname}" />
+			</rich:column>
+			<rich:column width="280px;" filterValue="#{opFilteringBean.opdesc}"
+				filterExpression="#{fn:containsIgnoreCase(item.opdesc,opFilteringBean.opdesc)}"
+				 filterType="custom">
+
+				<f:facet name="header">
+					<h:panelGroup>
+						<h:outputText value="#{bundle['op']}#{bundle['desc']}" />
+						<h:inputText value="#{opFilteringBean.opdesc}">
+							<a4j:ajax event="blur" render="dataOps" execute="@this" />
+						</h:inputText>
+					</h:panelGroup>
+				</f:facet>
+				<h:outputText value="#{item.opdesc}" />
+			</rich:column>
+		</rich:extendedDataTable>
+	</p:panel>
+</h:body>
+</html>

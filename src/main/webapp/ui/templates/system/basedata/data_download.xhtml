@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j" xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich"
+	template="../../../main.xhtml">
+	<ui:define name="title">
+		<h:outputText value="#{bundle['basedata']}#{bundle['manager']}" />
+
+	</ui:define>
+	<ui:define name="body">
+		<h:form id="dataForm">
+
+			<fieldset class="fieldset ">
+				<legend>
+					<h:outputText value="#{bundle['basedata']}#{bundle['superadd']}" />
+					▼
+				</legend>
+				<p:panel styleClass="rich-table-edit" cellpadding="100">
+					<p:column styleClass="rich-table-edit-outputtext">
+						<h:outputLabel value="#{bundle['business_date']}：" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-content">
+						<a4j:outputPanel layout="block">
+							<rich:calendar value="#{downloadManagerBean.importdate}"
+							boundaryDatesMode="select"
+										showWeeksBar="false"
+								id="importdate" datePattern="yyyy-MM-dd" required="true"
+								requiredMessage="请选择日期">
+							</rich:calendar>
+						</a4j:outputPanel>
+					</p:column>
+					<p:column styleClass="rich-table-edit-content">
+						<rich:select immediate="true" id="type"
+							value="#{downloadManagerBean.type}" required="true"
+							requiredMessage="请选择下载类型"
+							defaultLabel="#{bundle['start_typing_for_select']}">
+							<f:selectItem itemValue="S" itemLabel="源文件下载" />
+						</rich:select>
+					</p:column>
+
+					<p:column rowspan="2" colspan="3" style="text-align:center;">
+						<p:spacer height="20px;" width="50px;"></p:spacer>
+					</p:column>
+					<p:column rowspan="2" colspan="3" style="text-align:center;">
+						<p:commandButton value="下载" ajax="false"
+							
+							icon="ui-icon-arrowthichk-s">
+
+							<p:fileDownload value="#{downloadManagerBean.file}"
+								contentDisposition="inline" />
+						</p:commandButton>
+					</p:column>
+					<p:messages autoUpdate="true" closable="true" showDetail="true" redisplay="false" />
+				</p:panel>
+			</fieldset>
+		</h:form>
+		<p:dialog modal="true" widgetVar="statusDialog"
+			header="#{bundle['download']}......" draggable="false"
+			closable="false">
+			<h:graphicImage value="/images/loading.gif" alt="ai" /> 
+           					 #{bundle['loading']}
+     
+</p:dialog>
+	</ui:define>
+</ui:composition>
+
+

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j" xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich">
+<ui:composition template="../../main.xhtml">
+	<ui:define name="title">
+		<h:outputText value="#{bundle['reportmanagerment']}" />
+	</ui:define>
+	<ui:define name="body">
+
+		<h:form id="exportform">
+			<p:panel style="border:none;">
+				<fieldset  class="fieldset" style="margin-left:-2px;margin-top:14px;">
+					<legend  >
+						<h:outputText value="#{bundle['download']}AML#{bundle['bigamount']}#{bundle['report']}▼"></h:outputText>
+					</legend>
+					<p:panelGrid styleClass="rich-table-edit">
+						<p:row>
+
+							<p:column styleClass="rich-table-edit-outputtext">
+								<h:outputText value="#{bundle['report']}#{bundle['type']}" />
+							</p:column>
+							<p:column styleClass="rich-table-edit-left">
+								<rich:select id="type" listHeight="100%" immediate="true"
+									value="#{amlReportBean.querybean.type}">
+									<f:selectItem itemLabel="请选择需要上报的报文--------" itemValue="0" />
+									<f:selectItem itemLabel="N--------正常报文" itemValue="N" />
+									<f:selectItem itemLabel="R--------重发报文" itemValue="R" />
+									<f:selectItem itemLabel="I---------补正报文" itemValue="I" />
+									<f:selectItem itemLabel="C--------纠错报文" itemValue="C" />
+									<f:selectItem itemLabel="A--------补报报文" itemValue="A" />
+									<f:selectItem itemLabel="D--------删除报文" itemValue="D" />
+								</rich:select>
+							</p:column>
+						</p:row>
+						<p:row>
+							<p:column styleClass="rich-table-edit-outputtext">
+								<h:outputText value="#{bundle['business_date']}：" />
+							</p:column>
+							<p:column styleClass="rich-table-edit-left" style="border:none;">
+								<a4j:outputPanel layout="block"
+									style="margin-left:-5px;border:none;">
+									<rich:calendar style="border:none;"
+										value="#{amlReportBean.querybean.exportdate}"
+										boundaryDatesMode="select" showWeeksBar="false"
+										enableManualInput="true" datePattern="yyyy-MM-dd" />
+								</a4j:outputPanel>
+							</p:column>
+							<p:column>
+								<a4j:commandLink render="downPane,lazypanel" execute="@form"
+									action="#{amlReportBean.exportReport}"
+									oncomplete="if (#{amlReportBean.download.flag eq true}) {#{rich:component('downPane')}.show();}">
+									<h:graphicImage value="/images/download.png" />
+									<a4j:param value="true"
+										assignTo="#{amlReportBean.querybean.selected}" />
+									<rich:tooltip styleClass="tooltip" layout="block">
+										<span style="white-space: nowrap"> <strong>#{bundle['export_zip_report']}</strong>
+										</span>
+									</rich:tooltip>
+								</a4j:commandLink>
+							</p:column>
+							<p:column>
+								<a4j:commandLink render="exportform" execute="@form"
+									action="#{amlReportBean.reset()}" oncomplete="return false;">
+									<h:graphicImage value="/images/remove.png" />
+									<rich:tooltip styleClass="tooltip" layout="block">
+										<span style="white-space: nowrap"> <strong>#{bundle['reset_query']}</strong>
+										</span>
+									</rich:tooltip>
+								</a4j:commandLink>
+							</p:column>
+							<p:column>
+								<a4j:commandLink styleClass="no-decor" execute="@this"
+									render="@none" immediate="true"
+									oncomplete="#{rich:component('confirmPane')}.show()">
+									<h:graphicImage value="/images/flag-azure.png" />
+									<rich:tooltip styleClass="tooltip" showDelay="200"
+										layout="block">
+										<span style="white-space: nowrap"> <strong>数据已上传,增加同日报文序号</strong>
+										</span>
+									</rich:tooltip>
+								</a4j:commandLink>
+							</p:column>
+
+						</p:row>
+					</p:panelGrid>
+
+				</fieldset>
+				
+
+				<rich:popupPanel id="downPane" autosized="true">
+					<fieldset class="fieldset"
+						style="margin-left:-2px;margin-top:10px;">
+
+						<font face="verdana,arial,helvetica" color="blue" size="2pt;">
+							下载反洗钱大额报文 </font> <br />
+						<p:separator id="separator" />
+						<h:commandLink type="button"
+							onclick="#{rich:component('downPane')}.hide(); return false;">
+							<h:graphicImage value="/images/backspace.png" />
+							<rich:tooltip styleClass="tooltip" layout="block">
+								<span style="white-space: nowrap"> <strong>关闭下载窗口</strong>
+								</span>
+							</rich:tooltip>
+						</h:commandLink>
+						<p:spacer width="50" height="10" />
+						<h:commandLink type="button"
+							onclick="#{rich:component('downPane')}.hide();"
+							action="#{downloadBean.downloadFile}">
+							<h:graphicImage value="/images/download_save2.png" />
+							<f:setPropertyActionListener target="#{downloadBean.download}"
+								value="#{amlReportBean.download}" />
+							<a4j:param value="false"
+								assignTo="#{amlReportBean.download.flag}" />
+							<rich:tooltip styleClass="tooltip" layout="block">
+								<span style="white-space: nowrap"> <strong>下载AML报文</strong>
+								</span>
+							</rich:tooltip>
+						</h:commandLink>
+						<a4j:jsFunction name="exportReport" render="dataTable"
+							execute="@this"
+							oncomplete="if (#{amlReportBean.download.flag eq true}) {#{rich:component('downPane')}.show();}" />
+					</fieldset>
+				</rich:popupPanel>
+				<p:messages id="defaultMessage" autoUpdate="true"></p:messages>
+				
+			</p:panel>
+			<a4j:jsFunction name="updatereportindex"
+				action="#{amlReportBean.updateReportIndex()}" render="dataTable"
+				execute="@this"
+				oncomplete="#{rich:component('confirmPane')}.hide();" />
+			<rich:popupPanel id="confirmPane" width="350" height="120"
+				zindex="3000"
+				style="clear:both;background:url(#{request.contextPath}/images/warning.png) no-repeat 10px 20px #fcfae9;
+						background-image:url(#{request.contextPath}/images/warning.png)">
+				<fieldset class="fieldset" style="margin-left:-2px;margin-top:10px;">
+					<h:outputText value="确认AML（大额）数据已经上报成功吗？"
+						style="font-size:11pt;color:blue;face:verdana,arial,helvetica;margin-left:35px;" />
+					<p:separator />
+					<p:spacer width="50" height="10" />
+					<a4j:commandButton value=" #{bundle['cancel']}"
+						onclick="#{rich:component('confirmPane')}.hide(); return false;" />
+					<p:spacer width="50" height="10" />
+					<a4j:commandButton value="#{bundle['ok']}"
+						onclick="updatereportindex(); return false;" />
+				</fieldset>
+			</rich:popupPanel>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

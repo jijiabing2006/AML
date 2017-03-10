@@ -1,0 +1,49 @@
+package com.lzsoft.aml.entity.model.querymodel;
+
+import java.util.Date;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
+import com.lzsoft.aml.entity.base.BaseEO;
+
+@SuppressWarnings("serial")
+@ManagedBean(name = "reportmappingQueryBean")
+@ViewScoped
+public class ReportmappingQueryBean extends BaseEO {
+
+	private static final long serialVersionUID = 1L;
+
+	private String englishname; 	// 报表代码（英文名称）
+	private String kind; 			// 报表类型，SAFE PBOC CBRC
+	private Date importdate; 		// 报表日期
+
+	public String getEnglishname() {
+		return englishname;
+	}
+
+	public void setEnglishname(String englishname) {
+		this.englishname = englishname;
+	}
+
+	public String getKind() {
+		return kind;
+	}
+
+	public void setKind(String kind) {
+		this.kind = kind;
+	}
+
+	public Date getImportdate() {
+		return importdate;
+	}
+
+	public void setImportdate(Date importdate) {
+		this.importdate = importdate;
+	}
+
+	@Override
+	public Object getPrimaryKey() {
+		return null;
+	}
+}

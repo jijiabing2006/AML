@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+<h:head>
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/resources/css/default/style.css" />
+	<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+</h:head>
+<h:body>
+	<p:panel style="border:none;">
+
+		<p:panelGrid id="editRoleRelation" styleClass="rich-table-edit"
+			style="border-top-style: outset; " cellpadding="3">
+
+			<p:row>
+				<p:column colspan="2" style="text-align:left;border-right:none;"
+					styleClass="rich-table-edit-outputtext">
+					<span style="white-space: nowrap"> <strong>
+							#{bundle['user']}: #{userMBean.user.username} </strong> </span>
+								<p:spacer width="10" height="20" />
+							<h:selectBooleanCheckbox id="all"
+								onclick="javascript:if(this.checked) selectAll(); else selectNone();" />
+								<span style="white-space: nowrap"> <strong>
+							#{bundle['check_all']}</strong> </span>
+				</p:column>
+			</p:row>
+			<p:row>
+				<p:column rowspan="2" style="text-align:left;border-right:none;"
+					styleClass="rich-table-edit-outputtext">
+					<h:outputText value="#{bundle['role']}" style="font-weight:bold" />
+				</p:column>
+			</p:row>
+			<p:row>
+				<p:column  >
+					<rich:list value="#{roleMBean.roles}" id="list" var="item" type="definitions">
+						<p:spacer width="5" height="10" />
+						<h:selectBooleanCheckbox id="selected" value="#{item.selected}" />
+						<h:outputText value=" #{item.roledesc}  " />
+					</rich:list>
+				</p:column>
+			</p:row>
+			<p:row>
+				<p:column colspan="2">
+					<p:spacer width="15" height="20" />
+					<a4j:commandButton value="#{bundle['save']}" styleClass="btn_bg_l"
+						action="#{roleMBean.saveRoleidByUserid}" render="dataTable"
+						execute="editRolePane"
+						oncomplete="if (#{facesContext.maximumSeverity.ordinal le 1}) {#{rich:component('editRolePane')}.hide();}">
+						<a4j:param value="#{userMBean.user.id}"
+							assignTo="#{roleMBean.currentId}" />
+					</a4j:commandButton>
+					<p:spacer width="35" height="20" />
+					<a4j:commandButton value=" #{bundle['cancel']}"
+						styleClass="btn_bg_r"
+						onclick="#{rich:component('editRolePane')}.hide(); return false;" />
+					<h:inputHidden id="userid" value="#{userMBean.user.id}" />
+					<p:spacer width="15" height="20" />
+				</p:column>
+			</p:row>
+		</p:panelGrid>
+
+	</p:panel>
+</h:body>
+</html>

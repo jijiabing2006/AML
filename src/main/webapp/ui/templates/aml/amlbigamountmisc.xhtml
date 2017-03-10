@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j" xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+<ui:composition template="../../main.xhtml">
+	<ui:define name="title">
+		<h:outputText value="#{bundle['big_amount']}#{bundle['managerment']}" />
+	</ui:define>
+	<ui:define name="body">
+		<rich:panel header="#{bundle['search']}" expanded="true"
+			switchType="client"
+			headerClass="rf-tab-hdr rf-tab-hdr-act rf-tab-hdr-top">
+			<h:form id="searchForm">
+				<p:panel>
+					<p:panelGrid styleClass="rich-table-edit" id="searchGrid">
+						<p:row>
+							<p:column styleClass="rich-table-edit-outputtext">
+								<h:outputText value="#{bundle['begin_date']}：" />
+							</p:column>
+							<p:column styleClass="rich-table-edit-left">
+								<a4j:outputPanel layout="block">
+									<rich:calendar style="border:none;padding:0 0 0 0;"
+										id="_importdateStart"
+										value="#{amlBigAmountBean.querybean.importdateStart}"
+										boundaryDatesMode="select" showWeeksBar="false"
+										enableManualInput="true" datePattern="yyyy-MM-dd" />
+								</a4j:outputPanel>
+							</p:column>
+							<p:column styleClass="rich-table-edit-outputtext">
+								<h:outputText value="#{bundle['end_date']}：" />
+							</p:column>
+							<p:column styleClass="rich-table-edit-left">
+								<a4j:outputPanel layout="block">
+									<rich:calendar style="border:none;padding:0 0 0 0;"
+										id="_importdateEnd"
+										value="#{amlBigAmountBean.querybean.importdateEnd}"
+										boundaryDatesMode="select" showWeeksBar="false"
+										enableManualInput="true" datePattern="yyyy-MM-dd" />
+								</a4j:outputPanel>
+							</p:column>
+
+						</p:row>
+						<p:row>
+							<p:column styleClass="rich-table-edit-outputtext">
+								<h:outputText value="#{bundle['branch']}#{bundle['code']}：" />
+							</p:column>
+
+							<p:column styleClass="rich-table-edit-left">
+								<h:inputText id="_subbkid"
+									value="#{amlBigAmountBean.querybean.subbkid}" readonly="false"></h:inputText>
+							</p:column>
+
+							<p:column styleClass="rich-table-edit-outputtext">
+								<h:outputText value="#{bundle['select']}#{bundle['type']}：" />
+							</p:column>
+							<p:column styleClass="rich-table-edit-left">
+								<rich:select id="type" listHeight="100%" immediate="true" 
+									value="#{amlReportBean.querybean.type}">
+									<f:selectItem itemLabel="------全部记录    ------" itemValue="9" />
+									<f:selectItem itemLabel="------已上报记录------" itemValue="1" />
+									<f:selectItem itemLabel="------未上报记录------" itemValue="0" />
+									<f:selectItem itemLabel="------不上报记录------" itemValue="2" />
+								</rich:select>
+							</p:column>
+
+								<p:column rendered="#{sessionScope.op['88']=='1'}">
+									<a4j:commandLink render="dataTable,scroller" execute="@form">
+										<h:graphicImage value="/images/searchdata.png" />
+										<a4j:param value="true"
+											assignTo="#{amlBigAmountBean.querybean.selected}" />
+										<rich:tooltip styleClass="tooltip" layout="block">
+											<span style="white-space: nowrap"> <strong>#{bundle['search']}</strong>
+											</span>
+										</rich:tooltip>
+									</a4j:commandLink>
+								</p:column>
+								<p:column>
+									<a4j:commandLink render="searchForm,rightmenu" execute="@form"
+										style="margin-left:0px;" action="#{amlBigAmountBean.reset()}"
+										oncomplete="return false;">
+										<h:graphicImage value="/images/remove.png" />
+										<rich:tooltip styleClass="tooltip" layout="block">
+											<span style="white-space: nowrap"> <strong>#{bundle['reset_query']}</strong>
+											</span>
+										</rich:tooltip>
+									</a4j:commandLink>
+								</p:column>
+
+							<p:column rendered="#{sessionScope.op['87']=='1'}">
+								<a4j:commandLink render="downPane" execute="@form"
+									action="#{amlReportBean.exportReportExcel}"
+									oncomplete="if (#{amlReportBean.download.flag eq true}) {#{rich:component('downPane')}.show();}">
+									<h:graphicImage value="/images/excel.png" />
+									<a4j:param value="true"
+										assignTo="#{amlReportBean.querybean.selected}" />
+									<rich:tooltip styleClass="tooltip" layout="block">
+										<span style="white-space: nowrap"> <strong>#{bundle['export']}Excel</strong>
+										</span>
+									</rich:tooltip>
+								</a4j:commandLink>
+							</p:column>
+						</p:row>
+					</p:panelGrid>
+					<rich:popupPanel id="downPane" autosized="true">
+						<fieldset class="fieldset"
+							style="margin-left:-2px;margin-top:10px;">
+							<font face="verdana,arial,helvetica" color="blue" size="2pt;">
+								下载Excle文档 </font> <br />
+							<p:separator id="separator" />
+							<h:commandLink type="button"
+								onclick="#{rich:component('downPane')}.hide(); return false;">
+								<h:graphicImage value="/images/backspace.png" />
+								<rich:tooltip styleClass="tooltip" layout="block">
+									<span style="white-space: nowrap"> <strong>关闭下载窗口</strong>
+									</span>
+								</rich:tooltip>
+							</h:commandLink>
+							<p:spacer width="50" height="10" />
+							<h:commandLink type="button"
+								onclick="#{rich:component('downPane')}.hide();"
+								action="#{downloadBean.downloadFile}">
+								<h:graphicImage value="/images/download_save2.png" />
+								<f:setPropertyActionListener target="#{downloadBean.download}"
+									value="#{amlReportBean.download}" />
+								<a4j:param value="false"
+									assignTo="#{amlReportBean.download.flag}" />
+								<rich:tooltip styleClass="tooltip" layout="block">
+									<span style="white-space: nowrap"> <strong>下载Excel文件</strong>
+									</span>
+								</rich:tooltip>
+							</h:commandLink>
+							<a4j:jsFunction name="exportReport" render="dataTable"
+								execute="@this"
+								oncomplete="if (#{amlReportBean.download.flag eq true}) {#{rich:component('downPane')}.show();}" />
+						</fieldset>
+					</rich:popupPanel>
+
+				</p:panel>
+			</h:form>
+			<h:form id="dataForm" rendered="#{sessionScope.op['88']=='1'}">
+				<rich:tabPanel id="tab" switchType="client" headerPosition="top"
+					headerLocation="center" headerAlignment="left">
+					<rich:tab id="tab1" name="#{bundle['list']}">
+						<rich:dataTable id="dataTable" rows="#{sessionScope.rows}"
+							value="#{amlReportBean.amlbigs}" var="item"
+							iterationStatusVar="it" rowClasses="odd-row,even-row"
+							styleClass="stable rich-table-center"
+							onrowmousemove="jQuery(this).addClass('active-row')"
+							onrowmouseout="jQuery(this).removeClass('active-row')">
+							<!-- DEBUG -->
+							<rich:column>
+								<f:facet name="header">
+									<h:outputText value="# " />
+								</f:facet>
+								<h:outputText value="#{it.index +1}" />
+							</rich:column>
+							<rich:column>
+								<f:facet name="header">
+									<h:outputText value="#{bundle['branch']}#{bundle['code']}" />
+								</f:facet>
+								<h:outputText value="#{item.subbkid}" />
+							</rich:column>
+							<rich:column>
+								<f:facet name="header">
+									<h:outputText value="#{bundle['customer']}#{bundle['code']}" />
+								</f:facet>
+								<h:outputText value="#{item.csnm}" />
+							</rich:column>
+							<rich:column>
+								<f:facet name="header">
+									<h:outputText value="#{bundle['custnm']}" />
+								</f:facet>
+								<h:outputText value="#{item.ctnm}" />
+							</rich:column>
+							<rich:column>
+								<f:facet name="header">
+									<h:outputText value="#{bundle['buscode']}" />
+								</f:facet>
+								<h:outputText value="#{fn:substring(item.ticd,0,20)}" />
+							</rich:column>
+							<rich:column>
+								<f:facet name="header">
+									<h:outputText
+										value="#{bundle['counterparty']}#{bundle['name']}" />
+								</f:facet>
+								<h:outputText value="#{fn:substring(item.tcnm,0,20)}" />
+							</rich:column>
+							<rich:column>
+								<f:facet name="header">
+									<h:outputText value="#{bundle['feature']}#{bundle['code']}" />
+								</f:facet>
+								<h:outputText value="#{item.crcd}" />
+							</rich:column>
+							<rich:column>
+								<f:facet name="header">
+									<h:outputText value="#{bundle['currency_code']}" />
+								</f:facet>
+								<h:outputText value="#{item.crtp}" />
+							</rich:column>
+							<rich:column>
+								<f:facet name="header">
+									<h:outputText
+										value="#{bundle['transaction']}#{bundle['amount']}" />
+								</f:facet>
+								<h:outputText value="#{item.crat}" />
+							</rich:column>
+							<rich:column>
+								<f:facet name="header">
+									<h:outputText value="#{bundle['drcr']}" />
+								</f:facet>
+								<h:outputText
+									value="#{item.tsdr=='01'?bundle['income']:item.tsdr=='02'?bundle['expenses']:''}" />
+							</rich:column>
+							<rich:column>
+								<f:facet name="header">
+									<h:outputText value="#{bundle['business_date']}" />
+								</f:facet>
+								<h:outputText value="#{item.importdate}">
+									<f:convertDateTime timeZone="GMT+8" pattern="yyyy-MM-dd" />
+								</h:outputText>
+							</rich:column>
+							<rich:column>
+								<f:facet name="header">
+									<h:outputText value="#{bundle['export']}#{bundle['state']}" />
+								</f:facet>
+								<h:outputText
+									value="#{item.isexport=='2'?bundle['do_not_report']:item.isvalidation=='1' and item.isexport=='0'?bundle['has_not_been_reported']:item.isvalidation=='1' and item.isexport=='1'?bundle['has_been_reported']:''}" />
+							</rich:column>
+
+							<rich:column>
+								<f:facet name="header">
+									<h:outputText value="#{bundle['edit']}" />
+								</f:facet>
+								<h:outputText
+									value="#{item.isedit=='1'?bundle['completed']:bundle['uncompleted']}" />
+							</rich:column>
+							<rich:column>
+								<f:facet name="header">
+									<h:panelGrid columns="2">
+										<h:outputText value=" #{bundle['approve']} #{bundle['state']}" />
+									</h:panelGrid>
+								</f:facet>
+								<h:outputText
+									value="#{item.isedit=='1' and item.isvalidation=='0'?bundle['unapprove']:item.isedit=='1' and item.isvalidation=='1'?bundle['approved']:item.isedit=='1' and item.isvalidation=='2'?bundle['approve_not_through']:''}" />
+							</rich:column>
+						</rich:dataTable>
+						<ui:include src="../ds.xhtml" />
+					</rich:tab>
+				</rich:tabPanel>
+			</h:form>
+			<p:messages id="defaultMessage" autoUpdate="true"></p:messages>
+		</rich:panel>
+
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"
+   "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/js/default/index.js" />
+</head>
+<frameset id="frameset01" border="0" rows="93,*,30">
+	<frame id="frameHeader" name="frameHeader"
+		src="#{request.contextPath}/ui/header.jsf" noresize="noresize"
+		scrolling="no" style="margin-bottom:10px;" />
+	<frameset id="frameset02" border="0" cols="210,*">
+		<frame id="leftmenu" name="leftmenu"
+			src="#{request.contextPath}/ui/menu.jsf" noresize="noresize"
+			scrolling="auto" frameborder="1" />
+		<frame id="tab1" name="tab1"
+			src="#{request.contextPath}/ui/portal.jsf" noresize="noresize"
+			scrolling="auto" />
+	</frameset>
+	<frame name="frameFooter" src="#{request.contextPath}/ui/footer.jsf"
+		noresize="noresize" scrolling="no" />
+
+	<NOFRAMES>
+		<span style="font-size: 14pt; font-weight: bold; color: red;">您
+			的浏览器不支持frameset</span>
+	</NOFRAMES>
+
+</frameset>
+</html>

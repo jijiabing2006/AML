@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a4j="http://richfaces.org/a4j" >
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />
+	<title>test1</title>
+	<link type="text/css" rel="stylesheet"
+		href="#{request.contextPath}/resources/css/jquery/ui.tabs.css"
+		media="print, projection, screen" />
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/js/jquery/jquery-1.2.1.pack.js"></script>
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/js/jquery/ui.tabs.js"></script>
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/js/jquery/jquerytabframe.js"></script>
+			<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/resources/css/default/style.css" />
+</h:head>
+
+<h:body
+	style="padding: 0; margin: 0; background: url(#{request.contextPath}/images/header_bg.png) no-repeat left;">
+	<table style="width: 100%;">
+		<tr>
+			<td style="width: 207px;"><a href="#"> 
+			</a></td>
+			<td  class="webname"
+				style="width: 68%;text-align:center;
+				FILTER: glow(color=#000000,strength=2)shadow(color=#000,direction=115,Strength=11)alpha(opacity=1,finishopacity=80,style=1)"
+				align="center"><font
+				face="Old English Text MT,Jokerman,arial,helvetica,skolar-1,skolar-2,Palatino,Georgia,Times,serif"
+				color="Magenta " size="6pt;"> <b> Anti-money Laundering
+						Monitoring Reporting </b>
+			</font></td>
+			<td  style="width: *;align:right"><img
+					src="#{request.contextPath}/images/logo.png" alt="" title=""
+					border="0" /> <a4j:region renderRegionOnly="true">
+					<h:form styleClass="niceform" id="loginoutform"
+						rendered="#{sessionScope.user.userid!=''}"
+						style=" font-size:10pt;color:#005590; text-align: right;">
+						<h:panelGrid columns="6">
+							<h:outputText id="online" escape="false"
+								value="#{bundle['welcome']}:"
+								style="background: url(#{request.contextPath}/images/online.png) no-repeat left;padding-left:25px;margin-left:3px;font-size:10pt;color:#000;" />
+							<h:outputText value=" #{user.username} " class="right_header" style="font-weight: bold;color:forestgreen" />
+							 
+							<h:commandLink target="_parent" action="#{loginBean.logout}"
+								styleClass="right_header_logout">
+								<h:outputText value="#{bundle['logout']}"
+									style="background: url(#{request.contextPath}/images/user_logout.png) no-repeat left;padding-left:25px;margin-left:10px;font-size:11pt;font-weight: bold;color:#000;" />
+							</h:commandLink>
+						</h:panelGrid>
+					</h:form>
+				</a4j:region></td>
+		</tr>
+		<tr>
+		    <td></td>
+			
+			<td valign="top" colspan="2"
+				style="white-space: nowrap; border-width: 10px;">
+				<div id="container-1" style="font-size: 10pt; font-weight: bold;">
+					<ul id="tabcontainer">
+						<li><a href="#tab1"><span>#{bundle['home_page']} </span>
+						</a></li>
+					</ul>
+					<div id="tab1" />
+				</div>
+			</td>
+			<td valign="right" style="white-space: nowrap;"><img
+				src="#{request.contextPath}/images/reload.png"
+				style="border: 0px; width: 24px; margin: -3px 50 0 8px;"
+				onclick="javascript:window.parent.document.getElementById('frameset02').children['tab'+window.parent.tabIndex].src=window.parent.document.getElementById('frameset02').children['tab'+window.parent.tabIndex].src;" />
+			</td>
+		</tr>
+	</table>
+</h:body>
+</html>

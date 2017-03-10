@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+
+<fieldset class="fieldset" style="margin-left:-2px;margin-top:10px;">
+	<p:fieldset>
+	<legend>
+		<h:outputText
+			value="#{bundle['data']}#{bundle['state']}#{bundle['query']}▼"></h:outputText>
+	</legend>
+	<p:panelGrid id="searchGrid">
+		<p:row>
+			<p:column styleClass="rich-table-edit-outputtext">
+				<h:outputText id="date_label"
+					value=" #{bundle['business_date']}：" />
+			</p:column>
+			<p:column styleClass="rich-table-edit-left">
+				<a4j:outputPanel layout="block">
+					<rich:calendar styleClass="datetimeBlue" id="importdate"
+						value="#{outlineMBean.querybean.importdate}"
+						boundaryDatesMode="select" showWeeksBar="false"
+						enableManualInput="true" datePattern="yyyy-MM-dd" />
+				</a4j:outputPanel>
+			</p:column>
+
+			<p:column colspan="2">
+				<a4j:commandLink render="amlsummary" execute="@form"
+					action="#{outlineMBean.getOutlineAml()}">
+					<h:graphicImage value="/images/searchdata.png" />
+					<a4j:param value="true"
+						assignTo="#{outlineMBean.querybean.selected}" />
+					<rich:tooltip styleClass="tooltip" layout="block">
+						<span style="white-space: nowrap"> <strong>#{bundle['search']}</strong>
+						</span>
+					</rich:tooltip>
+				</a4j:commandLink>
+				<a4j:commandLink render="searchForm,rightmenu" execute="@form"
+					style="margin-left:60px;" action="#{outlineMBean.reset()}"
+					oncomplete="return false;">
+					<h:graphicImage value="/images/remove.png" />
+					<rich:tooltip styleClass="tooltip" layout="block">
+						<span style="white-space: nowrap"> <strong>#{bundle['reset_query']}</strong>
+						</span>
+					</rich:tooltip>
+				</a4j:commandLink>
+			</p:column>
+		</p:row>
+	</p:panelGrid>
+	</p:fieldset>
+	<p:accordionPanel id="abstract" dynamic="true" multiple="true">
+
+			<p:ajax event="tabChange" listener="#{outlineMBean.onTabChange}"
+				update="abstract" />
+
+			<p:tab
+	title="#{bundle['data']}#{bundle['information']}#{bundle['import']}#{bundle['outline']}"
+				id="abstractImport" dynamic="true"
+				titleStyle="text-align:left;font-size:10px;">
+	<h:panelGrid columns="2" cellpadding="10" id="amlsummary">
+		<p:panel style="border:none;text-align:left;">
+			<li><b>营业日期</b>:#{outlineMBean.outlineAml.importdate}</li>
+			<p:separator />
+			<ul style="text-align:left;size:12px;">
+
+				<p:separator />
+				<li><i>闵行支行</i><b> 总数 </b>:#{outlineMBean.outlineAml.counts607}笔。</li>
+				<li>
+					<ul style="text-align:left;size:10px;">
+						<li style="display:inline;"><b> #{bundle['edit']} </b>:</li>
+						<p:spacer width="20" height="20" />
+						<li style="display:inline;">#{bundle['completed']} : <b>#{outlineMBean.outlineAml.editnum607}</b>笔。
+						</li>
+						<p:spacer width="20" height="20" />
+						<li style="display:inline;">#{bundle['uncompleted']} : <b>#{outlineMBean.outlineAml.uneditnum607}</b>笔。
+						</li>
+						<p:spacer width="200" height="20" />
+					</ul>
+				</li>
+				<li>
+					<ul style="text-align:left;size:10px;">
+						<li style="display:inline;"><b> #{bundle['approve']} </b>:</li>
+						<p:spacer width="20" height="20" />
+						<li style="display:inline;">#{bundle['approved']} : <b>#{outlineMBean.outlineAml.vnum607}</b>笔。
+						</li>
+						<p:spacer width="20" height="20" />
+						<li style="display:inline;">#{bundle['unapprove']} : <b>#{outlineMBean.outlineAml.unvnum607}</b>笔。
+						</li>
+						<p:spacer width="200" height="20" />
+					</ul>
+				</li>
+				<li>
+					<ul style="text-align:left;size:10px;">
+						<li style="display:inline;"><b> #{bundle['export']} </b>:</li>
+						<p:spacer width="20" height="20" />
+						<li style="display:inline;">已上报 : <b>#{outlineMBean.outlineAml.exportnum607}</b>笔。
+						</li>
+						<p:spacer width="20" height="20" />
+						<li style="display:inline;">不上报 : <b>#{outlineMBean.outlineAml.unexportnum607}</b>笔。
+						</li>
+						<p:spacer width="200" height="20" />
+					</ul>
+				</li>
+				<p:separator />
+			</ul>
+		</p:panel>
+		<p:panel style="border:none;text-align:left;">
+			<li><font color="#ffffff">营业日期</font></li>
+			<p:separator />
+			<ul style="text-align:left;size:12px;">
+
+				
+				<p:separator />
+				
+				<p:separator />
+			</ul>
+		</p:panel>
+	</h:panelGrid>
+		</p:tab>
+		
+		</p:accordionPanel>
+</fieldset>
+</html>

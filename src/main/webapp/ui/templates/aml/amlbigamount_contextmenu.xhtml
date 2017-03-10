@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+<p:contextMenu styleClass="ui-contextmenu" for="tab1"
+	style="background:#E1F7FF !important">
+	<p:submenu label="#{bundle['operation']}" icon="ui-icon-wrench">
+		<p:menuitem value="#{bundle['approve']}#{bundle['pass']}" style="background:#cee1f2"
+			rendered="#{sessionScope.op['83']=='1' }"
+			actionListener="#{amlBigAmountBean.verify}"
+			update="dataTable,scroller" icon="ui-icon-check" />
+		<p:separator />
+		<p:menuitem value="#{bundle['do_not_report']}" update="tab1" style="background:#cee1f2"
+			rendered="#{sessionScope.op['80']=='1' }"
+			actionListener="#{amlBigAmountBean.resetExportstatus}"
+			icon="ui-icon-arrowreturn-1-w">
+			<a4j:param name="_exportstatus" value="4" />
+		</p:menuitem>
+		<p:separator />
+		<p:menuitem value="#{bundle['batch']}#{bundle['delete']}" actionListener="#{amlBigAmountBean.delete}"
+			rendered="#{sessionScope.op['82']=='1'}" style="background:#cee1f2"
+			ajax="false" icon="ui-icon-close" />
+	</p:submenu>
+
+	<p:separator />
+	<p:submenu label="#{bundle['reset']}#{bundle['export']}#{bundle['state']}" icon="ui-icon-refresh"
+		rendered="#{sessionScope.op['81']=='1'}">
+		<p:menuitem value="#{bundle['has_not_been_reported']}" update="tab1" style="background:#cee1f2"
+			actionListener="#{amlBigAmountBean.resetExportstatus}"
+			icon="ui-icon-arrowreturn-1-w">
+			<a4j:param name="_exportstatus" value="1" />
+		</p:menuitem>
+		<p:separator />
+		<p:menuitem value="#{bundle['unedited']}" update="tab1" style="background:#cee1f2"
+			actionListener="#{amlBigAmountBean.resetExportstatus}"
+			icon="ui-icon-arrowreturn-1-w">
+			<a4j:param name="_exportstatus" value="2" />
+		</p:menuitem>
+		<p:separator />
+		<p:menuitem value="#{bundle['unapprove']}" update="tab1" style="background:#cee1f2"
+			actionListener="#{amlBigAmountBean.resetExportstatus}"
+			icon="ui-icon-arrowreturn-1-w">
+			<a4j:param name="_exportstatus" value="3" />
+		</p:menuitem>
+
+	</p:submenu>
+</p:contextMenu>
+
+
+<rich:popupPanel id="downPane" autosized="true">
+	<fieldset class="fieldset" style="margin-left:-2px;margin-top:10px;">
+
+		<font face="verdana,arial,helvetica" color="blue" size="2pt;">
+			#{bundle['download']}#{bundle['aml']}#{bundle['bigamount']}#{bundle['message']} </font> <br />
+		<p:separator id="separator" />
+		<h:commandLink type="button"
+			onclick="#{rich:component('downPane')}.hide(); return false;">
+			<h:graphicImage value="/images/backspace.png" />
+			<rich:tooltip styleClass="tooltip" layout="block">
+				<span style="white-space: nowrap"> <strong>#{bundle['close']}#{bundle['download']}#{bundle['window']}</strong>
+				</span>
+			</rich:tooltip>
+		</h:commandLink>
+		<p:spacer width="50" height="10" />
+		<h:commandLink type="button"
+			onclick="#{rich:component('downPane')}.hide();"
+			action="#{downloadBean.downloadFile}">
+			<h:graphicImage value="/images/download_save2.png" />
+			<f:setPropertyActionListener target="#{downloadBean.download}"
+				value="#{amlReportBean.download}" />
+			<rich:tooltip styleClass="tooltip" layout="block">
+				<span style="white-space: nowrap"> <strong>#{bundle['download']}AML#{bundle['message']}</strong>
+				</span>
+			</rich:tooltip>
+		</h:commandLink>
+		<a4j:jsFunction name="exportReport"
+			action="#{amlReportBean.exportReport}" render="dataTable"
+			execute="@this" oncomplete=" #{rich:component('downPane')}.show();" />
+	</fieldset>
+</rich:popupPanel>
+</html>

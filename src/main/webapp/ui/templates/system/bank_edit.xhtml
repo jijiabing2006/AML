@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+<h:head>
+</h:head>
+<h:body>
+
+	<p:panel style="border:none;">
+		<p:panelGrid styleClass="rich-table-edit"
+			style="border-top-style: outset;" id="editGrid" cellpadding="5">
+			<p:row>
+				<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+					<h:outputLabel value="#{bundle['bank']}#{bundle['code']}" />
+				</p:column>
+				<p:column styleClass="rich-table-edit-content">
+					<h:inputText id="bkid" value="#{bankMBean.bank.bkid}"
+						readonly="false"></h:inputText>
+				</p:column>
+				<p:column styleClass="rich-table-edit-indication-red">
+					<h:outputText value="*" />
+				</p:column>
+				<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+					<h:outputText value="#{bundle['subbranch']}#{bundle['code']}" />
+				</p:column>
+				<p:column styleClass="rich-table-edit-left">
+					<h:inputText id="subbkid" value="#{bankMBean.bank.subbkid}"
+						readonly="false"></h:inputText>
+				</p:column>
+				<p:column styleClass="rich-table-edit-indication-red">
+					<h:outputText value="*" />
+				</p:column>
+			</p:row>
+
+			<p:row>
+				<p:column rowspan="2"
+					styleClass="rich-table-edit-outputtext-newline">
+					<h:outputText value="#{bundle['bank']}#{bundle['shortname']}" />
+				</p:column>
+				<p:column styleClass="rich-table-edit-outputtext">
+					<h:outputText value="#{bundle['chinese']}" />
+				</p:column>
+				<p:column colspan="5" styleClass="rich-table-edit-left">
+					<h:inputText value="#{bankMBean.bank.shortcnname}" readonly="false"
+						style="width:96.5%;"></h:inputText>
+				</p:column>
+				<p:column styleClass="rich-table-edit-indication-red">
+					<h:outputText value="*" />
+				</p:column>
+
+			</p:row>
+			<p:row>
+				<p:column styleClass="rich-table-edit-outputtext">
+					<h:outputText value="#{bundle['english']}" />
+				</p:column>
+				<p:column colspan="5" styleClass="rich-table-edit-left">
+					<h:inputText value="#{bankMBean.bank.shortenname}" readonly="false"
+						style="width:96.5%;"></h:inputText>
+				</p:column>
+				<p:column styleClass="rich-table-edit-indication-red">
+					<h:outputText value="*" />
+				</p:column>
+			</p:row>
+			<p:row>
+				<p:column rowspan="2"
+					styleClass="rich-table-edit-outputtext-newline">
+					<h:outputText value="#{bundle['bank']}#{bundle['fullname']}" />
+				</p:column>
+				<p:column styleClass="rich-table-edit-outputtext">
+					<h:outputText value="#{bundle['chinese']}" />
+				</p:column>
+				<p:column colspan="5" styleClass="rich-table-edit-left">
+					<h:inputText value="#{bankMBean.bank.fullcnname}" readonly="false"
+						style="width:96.5%;"></h:inputText>
+				</p:column>
+				<p:column styleClass="rich-table-edit-indication-red">
+					<h:outputText value="*" />
+				</p:column>
+
+			</p:row>
+			<p:row>
+				<p:column styleClass="rich-table-edit-outputtext">
+					<h:outputText value="#{bundle['english']}" />
+				</p:column>
+				<p:column colspan="5" styleClass="rich-table-edit-left">
+					<h:inputText value="#{bankMBean.bank.fullenname}" readonly="false"
+						style="width:96.5%;"></h:inputText>
+				</p:column>
+				<p:column styleClass="rich-table-edit-indication-red">
+					<h:outputText value="*" />
+				</p:column>
+			</p:row>
+
+
+
+			<p:row>
+				<p:column colspan="8" styleClass="ui-widget-footer">
+					<p:spacer height="0" />
+				</p:column>
+
+			</p:row>
+			<p:row>
+				<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+					<h:outputText value="#{bundle['finance']}#{bundle['institution']}#{bundle['code']}(12)位" />
+				</p:column>
+				<p:column styleClass="rich-table-edit-left">
+					<h:inputText id="branchcode" value="#{bankMBean.bank.branchcode}"
+						readonly="false" style="width:96.5%;">
+					</h:inputText>
+				</p:column>
+				<p:column styleClass="rich-table-edit-indication-red">
+					<h:outputText value="*" />
+				</p:column>
+				<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+					<h:outputText value="#{bundle['finance']}#{bundle['institution']}#{bundle['code']}(14)位" />
+				</p:column>
+				<p:column styleClass="rich-table-edit-left">
+					<h:inputText id="bankcode" value="#{bankMBean.bank.bankcode}"
+						readonly="false" style="width:96.5%;">
+					</h:inputText>
+				</p:column>
+				<p:column styleClass="rich-table-edit-indication-red">
+					<h:outputText value="*" />
+				</p:column>
+			</p:row>
+			<p:row>
+				<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+					<h:outputText value="#{bundle['aml']}#{bundle['submission']}#{bundle['code']}(15)位" />
+				</p:column>
+				<p:column styleClass="rich-table-edit-left">
+					<h:inputText id="amlbankcode" value="#{bankMBean.bank.amlbankcode}"
+						readonly="false" style="width:96.5%;">
+					</h:inputText>
+				</p:column>
+				<p:column styleClass="rich-table-edit-indication-red">
+					<h:outputText value="*" />
+				</p:column>
+				<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+					<h:outputText value="#{bundle['administration']}#{bundle['partition']}#{bundle['code']}(6)位" />
+				</p:column>
+				<p:column styleClass="rich-table-edit-left">
+					<h:inputText id="areacode" value="#{bankMBean.bank.areacode}"
+						readonly="false" style="width:96.5%;">
+					</h:inputText>
+				</p:column>
+				<p:column styleClass="rich-table-edit-indication-red">
+					<h:outputText value="*" />
+				</p:column>
+			</p:row>
+			<p:row>
+				<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+					<h:outputText value="#{bundle['city_level']}#{bundle['name']}" />
+				</p:column>
+				<p:column styleClass="rich-table-edit-left">
+					<h:inputText id="cityname" value="#{bankMBean.bank.cityname}"
+						readonly="false" style="width:96.5%;">
+					</h:inputText>
+				</p:column>
+				<p:column styleClass="rich-table-edit-indication-red">
+					<h:outputText value="*" />
+				</p:column>
+				<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+					<h:outputText value="#{bundle['city_level']}#{bundle['code']}(6)位" />
+				</p:column>
+				<p:column styleClass="rich-table-edit-left">
+					<h:inputText id="citycode" value="#{bankMBean.bank.citycode}"
+						readonly="false" style="width:96.5%;">
+					</h:inputText>
+				</p:column>
+				<p:column styleClass="rich-table-edit-indication-red">
+					<h:outputText value="*" />
+				</p:column>
+			</p:row>
+			<p:row>
+				<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+					<h:outputText value="#{bundle['provincial_level']}#{bundle['name']}" />
+				</p:column>
+				<p:column styleClass="rich-table-edit-left">
+					<h:inputText id="provincename" value="#{bankMBean.bank.provincename}"
+						readonly="false" style="width:96.5%;">
+					</h:inputText>
+				</p:column>
+				<p:column styleClass="rich-table-edit-indication-red">
+					<h:outputText value="*" />
+				</p:column>
+				<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+					<h:outputText value="#{bundle['provincial_level']}#{bundle['code']}(6)位" />
+				</p:column>
+				<p:column styleClass="rich-table-edit-left">
+					<h:inputText id="provicnecode" value="#{bankMBean.bank.provincecode}"
+						readonly="false" style="width:96.5%;">
+					</h:inputText>
+				</p:column>
+				<p:column styleClass="rich-table-edit-indication-red">
+					<h:outputText value="*" />
+				</p:column>
+			</p:row>
+			<p:row>
+				<p:column colspan="4" style="text-align:right;border-right:none;">
+					<a4j:commandButton value="#{bundle['save']}" styleClass="btn_bg_l"
+						action="#{bankMBean.updateBank()}"
+						render="dataTable,rightmenu,scroller" execute="editPane"
+						onclick="return verify();"
+						oncomplete="if (#{facesContext.maximumSeverity.ordinal le 1}) {#{rich:component('editPane')}.hide();} " />
+				</p:column>
+				<p:column colspan="4" style="text-align:left;border-left:none;">
+					<a4j:commandButton value=" #{bundle['cancel']}" immediate="true"
+						styleClass="btn_bg_r"
+						onclick="#{rich:component('editPane')}.hide(); return false;" />
+				</p:column>
+			</p:row>
+			<p:tooltip for="lcyacc,fcyamt,oppbank,exrate" showEvent="focus"
+				hideEvent="blur" />
+			<rich:notifyMessages stayTime="3000" nonblocking="false"
+				showCloseButton="true" showHistory="true" />
+
+		</p:panelGrid>
+	</p:panel>
+</h:body>
+</html>

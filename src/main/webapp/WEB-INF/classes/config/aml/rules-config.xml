@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rules>
+
+	<rule-config name="BH" desc="银行业大额交易">
+		<rule-call name="0901" />
+		<rule-call name="0902" />
+		<rule-call name="0903" />
+		<rule-call name="0904" />
+		<rule-call name="9999" />
+	</rule-config>
+
+	<rule-definitions>
+	<!--
+		属性说明
+		(rule-def )
+	         【propertylogic="or"】只需要有一个condition满足就返回true
+		【propertylogic="and"】所要condition都满足才返回true
+		【key="@:id" 】  去除重复记录的标准
+		(condition)
+		【parameter="@:group】    参数group与groupcondition需要同时使用 。@:后可以跟多个参数。
+    -->
+		<rule-def name="0901" propertylogic="or" key="@:id">
+			<condition name="090101" parameter="@:group"
+				groupcondition="cnyGreaterOrEquals5W">
+				<rule-invoke name="currencyEqualCNY" />
+				<rule-invoke name="cnyCashDeals" />
+				<rule-invoke name="credited" />
+				<rule-invoke name="FinancialInstitutions" inverse="true" />
+			</condition>
+			<condition name="090102" parameter="@:group"
+				groupcondition="cnyGreaterOrEquals5W">
+				<rule-invoke name="currencyEqualCNY" />
+				<rule-invoke name="cnyCashDeals" />
+				<rule-invoke name="credited" inverse="true" />
+				<rule-invoke name="FinancialInstitutions" inverse="true" />
+			</condition>
+			<condition name="090103" parameter="@:group"
+				groupcondition="usdGreaterOrEquals1W">
+				<rule-invoke name="currencyEqualCNY" inverse="true" />
+				<rule-invoke name="unCnyCashDeals" />
+				<rule-invoke name="credited" />
+				<rule-invoke name="FinancialInstitutions" inverse="true" />
+			</condition>
+			<condition name="090104" parameter="@:group"
+				groupcondition="usdGreaterOrEquals1W">
+				<rule-invoke name="currencyEqualCNY" inverse="true" />
+				<rule-invoke name="unCnyCashDeals" />
+				<rule-invoke name="credited" inverse="true" />
+				<rule-invoke name="FinancialInstitutions" inverse="true" />
+			</condition>
+		</rule-def>
+		<rule-def name="0902" propertylogic="or" key="@:id">
+			<condition name="090201" parameter="@:group"
+				groupcondition="cnyGreaterOrEquals200W">
+				<rule-invoke name="currencyEqualCNY" />
+				<rule-invoke name="cnyCashDeals" inverse="true" />
+				<rule-invoke name="credited" />
+				<rule-invoke name="NotIndividual" />
+				<rule-invoke name="OpNotIndividual" />
+			</condition>
+			<condition name="090202" parameter="@:group"
+				groupcondition="cnyGreaterOrEquals200W">
+				<rule-invoke name="currencyEqualCNY" />
+				<rule-invoke name="cnyCashDeals" inverse="true" />
+				<rule-invoke name="credited" inverse="true" />
+				<rule-invoke name="NotIndividual" />
+				<rule-invoke name="OpNotIndividual" />
+			</condition>
+			<condition name="090203" parameter="@:group"
+				groupcondition="usdGreaterOrEquals20W">
+				<rule-invoke name="currencyEqualCNY" inverse="true" />
+				<rule-invoke name="unCnyCashDeals" inverse="true" />
+				<rule-invoke name="credited" />
+				<rule-invoke name="NotIndividual" />
+				<rule-invoke name="OpNotIndividual" />
+			</condition>
+			<condition name="090204" parameter="@:group"
+				groupcondition="usdGreaterOrEquals20W">
+				<rule-invoke name="currencyEqualCNY" inverse="true" />
+				<rule-invoke name="unCnyCashDeals" inverse="true" />
+				<rule-invoke name="credited" inverse="true" />
+				<rule-invoke name="NotIndividual" />
+				<rule-invoke name="OpNotIndividual" />
+			</condition>
+		</rule-def>
+		<rule-def name="0903" propertylogic="or" key="@:id">
+			<condition name="090301" parameter="@:group"
+				groupcondition="cnyGreaterOrEquals50W">
+				<rule-invoke name="currencyEqualCNY" />
+				<rule-invoke name="cnyCashDeals" inverse="true" />
+				<rule-invoke name="credited" />
+				<rule-invoke name="individual" />
+			</condition>
+			<condition name="090302" parameter="@:group"
+				groupcondition="cnyGreaterOrEquals50W">
+				<rule-invoke name="currencyEqualCNY" />
+				<rule-invoke name="cnyCashDeals" inverse="true" />
+				<rule-invoke name="credited" inverse="true" />
+				<rule-invoke name="individual" />
+			</condition>
+			<condition name="090303" parameter="@:group"
+				groupcondition="usdGreaterOrEquals10W">
+				<rule-invoke name="currencyEqualCNY" inverse="true" />
+				<rule-invoke name="cnyCashDeals" inverse="true" />
+				<rule-invoke name="credited" />
+				<rule-invoke name="individual" />
+			</condition>
+			<condition name="090304" parameter="@:group"
+				groupcondition="usdGreaterOrEquals10W">
+				<rule-invoke name="currencyEqualCNY" inverse="true" />
+				<rule-invoke name="cnyCashDeals" inverse="true" />
+				<rule-invoke name="credited" inverse="true" />
+				<rule-invoke name="individual" />
+			</condition>
+
+			<condition name="090305" parameter="@:group"
+				groupcondition="cnyGreaterOrEquals50W">
+				<rule-invoke name="currencyEqualCNY" />
+				<rule-invoke name="cnyCashDeals" inverse="true" />
+				<rule-invoke name="credited" />
+				<rule-invoke name="NotIndividual" />
+				<rule-invoke name="OpIndividual" />
+			</condition>
+			<condition name="090306" parameter="@:group"
+				groupcondition="cnyGreaterOrEquals50W">
+				<rule-invoke name="currencyEqualCNY" />
+				<rule-invoke name="cnyCashDeals" inverse="true" />
+				<rule-invoke name="credited" inverse="true" />
+				<rule-invoke name="NotIndividual" />
+				<rule-invoke name="OpIndividual" />
+			</condition>
+
+			<condition name="090307" parameter="@:group"
+				groupcondition="usdGreaterOrEquals10W">
+				<rule-invoke name="currencyEqualCNY" inverse="true" />
+				<rule-invoke name="cnyCashDeals" inverse="true" />
+				<rule-invoke name="credited" />
+				<rule-invoke name="NotIndividual" />
+				<rule-invoke name="OpIndividual" />
+			</condition>
+			<condition name="090308" parameter="@:group"
+				groupcondition="usdGreaterOrEquals10W">
+				<rule-invoke name="currencyEqualCNY" inverse="true" />
+				<rule-invoke name="cnyCashDeals" inverse="true" />
+				<rule-invoke name="credited" inverse="true" />
+				<rule-invoke name="NotIndividual" />
+				<rule-invoke name="OpIndividual" />
+			</condition>
+		</rule-def>
+		<rule-def name="0904" propertylogic="or" key="@:id">
+			<condition name="090401" parameter="@:group"
+				groupcondition="usdGreaterOrEquals1W">
+				<rule-invoke name="credited" />
+				<rule-invoke name="individual" />
+				<rule-invoke name="crossBorderTransaction" />
+			</condition>
+			<condition name="090402" parameter="@:group"
+				groupcondition="usdGreaterOrEquals1W">
+				<rule-invoke name="credited" inverse="true" />
+				<rule-invoke name="individual" />
+				<rule-invoke name="crossBorderTransaction" />
+			</condition>
+			<condition name="090403" parameter="@:group"
+				groupcondition="usdGreaterOrEquals1W">
+				<rule-invoke name="unCnyCashDeals" inverse="true" />
+				<rule-invoke name="credited" />
+				<rule-invoke name="NotIndividual" />
+				<rule-invoke name="OpIndividual" />
+				<rule-invoke name="crossBorderTransaction" />
+			</condition>
+			<condition name="090404" parameter="@:group"
+				groupcondition="usdGreaterOrEquals1W">
+				<rule-invoke name="credited" inverse="true" />
+				<rule-invoke name="NotIndividual" />
+				<rule-invoke name="OpIndividual" />
+				<rule-invoke name="crossBorderTransaction" />
+			</condition>
+		</rule-def>
+		<rule-def name="9999" propertylogic="or" key="@:id">
+			<condition name="999901" >
+				<rule-invoke name="pendingOpinstitutioncode" />
+			</condition>
+		</rule-def>
+	</rule-definitions>
+
+
+	<rule-implementations>
+		<rule-impl name="cnyCashDeals" desc="人民币现金交易" propertylogic="and"
+			clazz="com.lzsoft.aml.entity.model.Ifxtran">
+			<!-- 【start】　字符值开始位数  -->
+			<!-- 【end】　字符值结束位数  -->
+			<property field="paymethodtwo" relation="equal" value="00"
+				start="1" end="2" />
+			<property field="paymethodtwo" relation="equal" value="00"
+				start="3" end="4" />
+			<!-- '|'说明或关系，每个：分割的值只要一个满足就可以 -->
+			<!-- '^'说明全匹配，每个：分割的值都要 -->
+			<property field="paymethodtwo" relation="unequal" value="^:11:15:16:17"
+				start="5" end="6" />
+		</rule-impl>
+		<rule-impl name="unCnyCashDeals" desc="非人民币现金交易"
+			propertylogic="and" clazz="com.lzsoft.aml.entity.model.Ifxtran">
+			<property field="paymethodtwo" relation="equal" value="01"
+				start="1" end="2" />
+			<property field="paymethodtwo" relation="equal"
+				value="|:0001:0002:0003:0004:0011" start="3" end="6" />
+		</rule-impl>
+		<rule-impl name="credited" desc="收"
+			clazz="com.lzsoft.aml.entity.model.Ifxtran">
+			<property field="drcr" relation="equal" value="C" />
+		</rule-impl>
+		<rule-impl name="debited" desc="支"
+			clazz="com.lzsoft.aml.entity.model.Ifxtran">
+			<property field="drcr" relation="equal" value="D" />
+		</rule-impl>
+		<rule-impl name="currencyEqualCNY" desc="人民币"
+			clazz="com.lzsoft.aml.entity.model.Ifxtran">
+			<property field="ccy" relation="equal" value="CNY" />
+		</rule-impl>
+		<rule-impl name="currencyUnequalsCNY" desc="外币"
+			clazz="com.lzsoft.aml.entity.model.Ifxtran">
+			<property field="ccy" relation="unequal" value="CNY" />
+		</rule-impl>
+		<rule-impl name="cnyGreaterOrEquals5W" desc="人民币交易5万元以上"
+			clazz="com.lzsoft.aml.entity.model.Ifxtran">
+			<property field="pstacny" relation="ge" value="50000" />
+		</rule-impl>
+		<rule-impl name="cnyGreaterOrEquals20W" desc="人民币交易20万元以上"
+			clazz="com.lzsoft.aml.entity.model.Ifxtran">
+			<property field="pstacny" relation="ge" value="200000" />
+		</rule-impl>
+		<rule-impl name="usdGreaterOrEquals1W" desc="外币交易等值1万美元以上"
+			clazz="com.lzsoft.aml.entity.model.Ifxtran">
+			<property field="pstausd" relation="ge" value="10000" />
+		</rule-impl>
+		<rule-impl name="cnyGreaterOrEquals200W" desc="人民币交易200万元以上"
+			clazz="com.lzsoft.aml.entity.model.Ifxtran">
+			<property field="pstacny" relation="ge" value="2000000" />
+		</rule-impl>
+		<rule-impl name="usdGreaterOrEquals20W" desc="外币交易等值20万美元以上"
+			clazz="com.lzsoft.aml.entity.model.Ifxtran">
+			<property field="pstausd" relation="ge" value="200000" />
+		</rule-impl>
+		<rule-impl name="cnyGreaterOrEquals50W" desc="人民币交易50万元以上"
+			clazz="com.lzsoft.aml.entity.model.Ifxtran">
+			<property field="pstacny" relation="ge" value="500000" />
+		</rule-impl>
+		<rule-impl name="usdGreaterOrEquals10W" desc="外币交易等值10万美元以上"
+			clazz="com.lzsoft.aml.entity.model.Ifxtran">
+			<property field="pstausd" relation="ge" value="100000" />
+		</rule-impl>
+		<rule-impl name="individual" desc="客户属性（个人）"
+			clazz="com.lzsoft.aml.entity.model.Ifxcust">
+			<property field="institutioncode" relation="equal"
+				value="|:1460:1461:1690:1691:A000:A001" />
+		</rule-impl>
+		<rule-impl name="NotIndividual" desc="客户属性（非个人机构）"
+			clazz="com.lzsoft.aml.entity.model.Ifxcust">
+			<property field="institutioncode" relation="equal"
+				value="|:1400:1401:1402:1403:1430:1431:1432:1433:1520:1600:1630:B000:B001" />
+		</rule-impl>
+		<rule-impl name="FinancialInstitutions" desc="客户（金融机构-非个人非机构）"
+			clazz="com.lzsoft.aml.entity.model.Ifxcust">
+			<property field="institutioncode" relation="equal"
+				value="|:1000:1030:1060:1090:1120:1121:1122:1123:1150:1180:1200:1230:1260:1261:1262:1300:1301:1302:1330:1331:1332:1360:1361:1362" />
+		</rule-impl>
+		<rule-impl name="OpIndividual" desc="交易对手客户属性（个人）"
+			clazz="com.lzsoft.aml.entity.model.Ifxtran">
+			<property field="opinstitutioncode" relation="equal"
+				value="|:1460:1461:1690:1691:A000:A001" />
+		</rule-impl>
+		<rule-impl name="OpNotIndividual" desc="交易对手客户属性（非个人）"
+			clazz="com.lzsoft.aml.entity.model.Ifxtran">
+			<property field="opinstitutioncode" relation="equal"
+				value="|:1400:1401:1402:1403:1430:1431:1432:1433:1520:1600:1630:B000:B001:1000:1030:1060:1090:1120:1121:1122:1123:1150:1180:1200:1230:1260:1261:1262:1300:1301:1302:1330:1331:1332:1360:1361:1362" />
+		</rule-impl>
+		<rule-impl name="crossBorderTransaction" desc="跨境交易"
+			clazz="com.lzsoft.aml.entity.model.Ifxtran">
+			<property field="tdrc" relation="unequal" value="^:CHN:Z01:Z02:Z03"
+				start="1" end="3" />
+		</rule-impl>
+		<rule-impl name="pendingOpinstitutioncode" desc="交易对手属性为Pending时"
+			clazz="com.lzsoft.aml.entity.model.Ifxtran">
+			<property field="opinstitutioncode" relation="equal" value="|:PENDING" />
+		</rule-impl>
+	</rule-implementations>
+
+	<rule-parameters>
+		<parameter name="group" type="groupby" desc="是否需要分组处理"
+			clazz="com.lzsoft.aml.entity.model.Ifxtran" value="@:csnm" />
+
+	</rule-parameters>
+</rules>

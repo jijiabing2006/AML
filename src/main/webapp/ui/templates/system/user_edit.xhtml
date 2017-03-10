@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+<h:head>
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/resources/css/default/style.css" />
+	<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+</h:head>
+<h:body>
+
+	<fieldset class="fieldset">
+		<legend>
+			<h:outputText value="#{bundle['user']}" />
+			▼
+		</legend>
+		<p:panel style="border:none;">
+			<p:panelGrid styleClass="rich-table-edit"
+				style="border-top-style: outset; " id="editGrid" cellpadding="5">
+				<p:row>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText value="#{bundle['user']}#{bundle['id']}" />
+						<h:inputHidden id="id" value="#{userMBean.user.id}"></h:inputHidden>
+					</p:column>
+					<p:column colspan="4" styleClass="rich-table-edit-left">
+						<h:inputText value="#{userMBean.user.userid}" required="true"></h:inputText>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText value="#{bundle['user']}#{bundle['name']}" />
+					</p:column>
+					<p:column colspan="4" styleClass="rich-table-edit-left">
+						<h:inputText value="#{userMBean.user.username}" required="true"></h:inputText>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText value="#{bundle['bank']}#{bundle['name']}" />
+					</p:column>
+					<p:column colspan="4" styleClass="rich-table-edit-left">
+						<h:outputText id="bankname" value="#{rich:findComponent('bkid').value!=''?bankMBean.bank.fullcnname:''}" />
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+
+				</p:row>
+				<p:row>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText
+							value="#{bundle['bank']}(#{bundle['branch']})#{bundle['code']}" />
+					</p:column>
+					<p:column colspan="4" styleClass="rich-table-edit-left">
+						<rich:select id="bkid" value="#{userMBean.user.bkid}" required="true"
+							valueChangeListener="#{collctionutilMB.valueBkidChanged}"
+							enableManualInput="false" itemClass="rich-table-edit-left">
+							<f:selectItems value="#{collctionutilMB.branchList}" />
+							<a4j:ajax event="selectitem" render="subbkid,bankname"
+								limitRender="true" execute="@this" immediate="true" />
+						</rich:select>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText value="#{bundle['subbranch']}#{bundle['code']}" />
+					</p:column>
+					<p:column colspan="4" styleClass="rich-table-edit-left">
+						<rich:select id="subbkid" value="#{userMBean.user.subbkid}" required="true"
+							disabled="#{empty rich:findComponent('bkid').value}"
+							valueChangeListener="#{bankMBean.showBankNameByBkidAndSubbkid}"
+							enableManualInput="false" itemClass="rich-table-edit-left">
+							<f:selectItems value="#{collctionutilMB.subBranchList}" />
+							<a4j:ajax event="selectitem" render="bankname,out,out2,email"
+								execute="@all" immediate="true" />
+							<a4j:param name="bkid"
+								value="#{rich:findComponent('bkid').value}" />
+						</rich:select>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column colspan="2" styleClass="rich-table-edit-outputtext">
+						<h:outputText value="#{bundle['user']}#{bundle['email']}" />
+					</p:column>
+					<p:column colspan="4" styleClass="rich-table-edit-left">
+						<h:inputText id="email"
+							disabled="#{empty rich:findComponent('subbkid').value}"
+							value="#{userMBean.user.email}"></h:inputText>
+					</p:column>
+					<p:column styleClass="rich-table-edit-indication-red">
+						<h:outputText value="*" />
+					</p:column>
+				</p:row>
+				<p:row style="margin-top:1px; border-bottom-style: groove; ">
+					<p:column colspan="7" style="text-align:center;border-right:none;">
+						<a4j:commandButton id="save" value="#{bundle['save']}"
+						styleClass="btn_bg_l"
+						
+							action="#{userMBean.add()}" render="dataTable" execute="editPane"
+							oncomplete="if (#{facesContext.maximumSeverity.ordinal le 1}) {#{rich:component('editPane')}.hide();}" />
+						<a4j:commandButton value=" #{bundle['cancel']}"
+							styleClass="btn_bg_r"
+							onclick="#{rich:component('editPane')}.hide(); return false;" >
+							<a4j:ajax render="dataTable"></a4j:ajax>
+							</a4j:commandButton>
+					</p:column>
+				</p:row>
+			</p:panelGrid>
+			
+
+			<h:outputText value="bkid=====#{rich:findComponent('bkid').value}"
+				id="out" />
+			<br />
+			<h:outputText
+				value="subbkid====#{rich:findComponent('subbkid').value}" id="out2" />
+		</p:panel>
+	</fieldset>
+
+</h:body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j" xmlns:p="http://primefaces.org/ui"
+	xmlns:rich="http://richfaces.org/rich">
+<h:head>
+	<style>
+.even-row {
+	background-color: #FCFFFE;
+}
+
+.odd-row {
+	background-color: #ECF3FE;
+}
+
+.active-row {
+	background-color: #FFEBDA !important;
+	cursor: pointer;
+}
+</style>
+</h:head>
+<h:body>
+<h:form>
+   <rich:panel header="I can change skins" style="width: 300px">
+	<h:panelGrid columns="2">
+	   <h:selectOneListbox id="select" value="#{skinBean.skin}" onchange="submit()">
+		<f:selectItem itemLabel="plain" itemValue="plain" />
+		<f:selectItem itemLabel="emeraldTown" itemValue="emeraldTown" />
+		<f:selectItem itemLabel="blueSky" itemValue="blueSky" />
+		<f:selectItem itemLabel="wine" itemValue="wine" />
+		<f:selectItem itemLabel="japanCherry" itemValue="japanCherry" />
+		<f:selectItem itemLabel="ruby" itemValue="ruby" />
+		<f:selectItem itemLabel="classic" itemValue="classic" />
+		<f:selectItem itemLabel="deepMarine" itemValue="deepMarine" />
+	   </h:selectOneListbox>
+           <rich:tabPanel>
+		<rich:tab label="Tab 1">Tabs also change color</rich:tab>
+		<rich:tab label="Tab 2">...</rich:tab>
+	   </rich:tabPanel>
+        </h:panelGrid>
+   </rich:panel>
+</h:form> 
+
+</h:body>
+</html>
